@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio.khanhtranquoc44.workers.dev"),
   title: "QuocKhanhDev",
   description: "Next.js + NestJS portfolio",
   openGraph: { title: "QuocKhanhDev", images: ["/og.png"] },
