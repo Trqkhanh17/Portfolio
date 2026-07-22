@@ -1,187 +1,248 @@
-const stackGroups = [
-  { number: "01", title: "FRONTEND", items: ["ADD FRAMEWORK", "ADD UI LIBRARY", "ADD LANGUAGE"] },
-  { number: "02", title: "BACKEND", items: ["ADD FRAMEWORK", "ADD RUNTIME", "ADD API STYLE"] },
-  { number: "03", title: "DATABASE", items: ["ADD DATABASE", "ADD ORM", "ADD CACHE"] },
-  { number: "04", title: "DEVOPS", items: ["ADD CLOUD", "ADD CONTAINER", "ADD CI/CD"] },
-];
+"use client";
 
-const projects = ["PROJECT ONE", "PROJECT TWO", "PROJECT THREE"];
+import { useEffect, useState } from "react";
 
-function EmptyField({ children }: { children: React.ReactNode }) {
-  return <span className="empty-field">{children}</span>;
-}
+type Lang = "vi" | "en";
+
+const copy = {
+  vi: {
+    nav: { about: "GIỚI THIỆU", stack: "KỸ NĂNG", experience: "KINH NGHIỆM", projects: "DỰ ÁN", contact: "LIÊN HỆ ↗" },
+    role: "KỸ SƯ PHẦN MỀM",
+    hello: "XIN CHÀO, TÔI LÀ",
+    headline: ["XÂY DỰNG", "PHẦN MỀM", "HIỆU QUẢ."],
+    profile: "HỒ SƠ.TXT",
+    profileRows: [
+      ["vai_trò", "Junior Software Engineer"],
+      ["địa_điểm", "TP. Hồ Chí Minh, Việt Nam"],
+      ["trọng_tâm", "Full-stack & hệ thống doanh nghiệp"],
+      ["hiện_tại", "Software Engineer tại TTMI"],
+    ],
+    viewProjects: "XEM DỰ ÁN ↓",
+    resume: "TẢI CV ↗",
+    summary: "Kỹ sư phần mềm đam mê xây dựng những sản phẩm hữu ích và giải quyết các bài toán thực tế. Tôi yêu thích học hỏi công nghệ mới, cộng tác cùng đội ngũ và liên tục nâng cao tư duy kỹ thuật thông qua quá trình phát triển sản phẩm.",
+    facts: [["2025—NAY", "KINH NGHIỆM"], ["FULL-STACK", "ĐỊNH HƯỚNG"], ["HCM", "ĐỊA ĐIỂM"]],
+    marquee: "WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦",
+    aboutIndex: "01 / GIỚI THIỆU",
+    aboutTitle: ["KỸ THUẬT RÕ RÀNG.", "GIẢI PHÁP THỰC TẾ."],
+    aboutText: "Tôi tập trung xây dựng ứng dụng web và hệ thống nghiệp vụ từ frontend đến backend. Công việc của tôi trải rộng từ phân tích yêu cầu, thiết kế workflow, phát triển REST API và giao diện quản trị đến tối ưu truy vấn, kiểm thử và tích hợp hệ thống.",
+    principles: [["01", "HỆ THỐNG ỔN ĐỊNH"], ["02", "KIẾN TRÚC SẠCH"], ["03", "TƯ DUY SẢN PHẨM"]],
+    stackIndex: "02 / KỸ NĂNG",
+    stackTitle: "CÔNG NGHỆ SỬ DỤNG.",
+    stackNote: "BỘ CÔNG CỤ PHỤC VỤ PHÁT TRIỂN SẢN PHẨM WEB VÀ HỆ THỐNG DOANH NGHIỆP.",
+    stackGroups: [
+      ["FRONTEND", ["ReactJS / Next.js", "TypeScript / JavaScript", "Tailwind CSS / shadcn/ui", "TanStack Query / Zustand"]],
+      ["BACKEND", ["Python / Django / DRF", "NestJS / ExpressJS", "REST API", "Authentication & Authorization"]],
+      ["DATABASE", ["PostgreSQL / MySQL", "MongoDB", "Query Optimization", "Database Design"]],
+      ["ENGINEERING", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
+    ],
+    expIndex: "03 / KINH NGHIỆM",
+    expTitle: ["NƠI TÔI", "TẠO RA GIÁ TRỊ."],
+    expRole: "SOFTWARE ENGINEER",
+    expCompany: "TTMI JOINT STOCK COMPANY",
+    expDate: "10/2025 — HIỆN TẠI",
+    expBullets: [
+      "Phát triển các module POS cho quản lý menu, danh mục, tùy chọn sản phẩm và cấu hình theo chi nhánh trong hệ thống bán lẻ đồ uống đa thương hiệu.",
+      "Xây dựng tính năng voucher, cấu hình kênh bán hàng, CRM, dashboard báo cáo và REST API cho bán hàng online, đơn hàng, sản phẩm và giao vận.",
+      "Tối ưu hiệu năng báo cáo và truy xuất dữ liệu thông qua cải thiện truy vấn cơ sở dữ liệu và chiến lược lấy dữ liệu từ API.",
+      "Làm việc trực tiếp với các phòng ban để làm rõ yêu cầu và luồng nghiệp vụ trước khi triển khai tính năng.",
+      "Phát triển backend, REST API và giao diện quản trị cho ứng dụng ERP nhập kho, tra cứu barcode, theo dõi vị trí kệ và quy trình nhận hàng.",
+      "Viết và duy trì unit test, end-to-end test cho các luồng nghiệp vụ quan trọng trước khi triển khai.",
+    ],
+    education: "HỌC VẤN",
+    degree: "KỸ SƯ CÔNG NGHỆ THÔNG TIN · GPA 3.0/4.0",
+    school: "ĐẠI HỌC NAM CẦN THƠ · 2021—2025",
+    projectsIndex: "04 / SẢN PHẨM TIÊU BIỂU",
+    projectsTitle: "NHỮNG HỆ THỐNG ĐÃ XÂY DỰNG.",
+    projectsNote: "CÁC BÀI TOÁN THỰC TẾ ĐƯỢC THỰC HIỆN TRONG QUÁ TRÌNH LÀM VIỆC.",
+    projects: [
+      { title: "HỆ THỐNG POS ĐA THƯƠNG HIỆU", year: "2025—NAY", description: "Các module quản lý menu, danh mục, tùy chọn sản phẩm, voucher, giá bán và cấu hình sản phẩm theo từng chi nhánh.", tech: "DJANGO · REACT · REST API" },
+      { title: "CRM & ONLINE SALES", year: "2025—NAY", description: "CRM, dashboard báo cáo và API hỗ trợ bán hàng online, quản lý đơn hàng, sản phẩm và quy trình giao vận nội bộ.", tech: "NEXT.JS · API · DATABASE" },
+      { title: "ERP NHẬP KHO", year: "2025—NAY", description: "Ứng dụng hỗ trợ tra cứu sản phẩm bằng barcode, quản lý vị trí kệ theo cửa hàng, yêu cầu mua hàng và quy trình nhận hàng.", tech: "DJANGO REST · ERP · POSTGRESQL" },
+    ],
+    internal: "SẢN PHẨM NỘI BỘ",
+    contactIndex: "05 / LIÊN HỆ",
+    contactLead: "CÓ VỊ TRÍ, DỰ ÁN HOẶC Ý TƯỞNG PHÙ HỢP?",
+    contactTitle: ["HÃY CÙNG XÂY DỰNG", "MỘT SẢN PHẨM TỐT."],
+    email: "EMAIL",
+    github: "GITHUB",
+    phone: "ĐIỆN THOẠI",
+    footer: "PORTFOLIO SOFTWARE ENGINEER",
+    top: "VỀ ĐẦU TRANG ↑",
+  },
+  en: {
+    nav: { about: "ABOUT", stack: "SKILLS", experience: "EXPERIENCE", projects: "PROJECTS", contact: "CONTACT ↗" },
+    role: "SOFTWARE ENGINEER",
+    hello: "HELLO, I'M",
+    headline: ["BUILDING", "SOFTWARE", "THAT WORKS."],
+    profile: "PROFILE.TXT",
+    profileRows: [
+      ["role", "Junior Software Engineer"],
+      ["location", "Ho Chi Minh City, Vietnam"],
+      ["focus", "Full-stack & enterprise systems"],
+      ["current", "Software Engineer at TTMI"],
+    ],
+    viewProjects: "VIEW PROJECTS ↓",
+    resume: "DOWNLOAD CV ↗",
+    summary: "Software Engineer passionate about building useful software and solving real-world problems. I enjoy learning new technologies, collaborating with others, and continuously improving my technical thinking through real-world product development.",
+    facts: [["2025—NOW", "EXPERIENCE"], ["FULL-STACK", "DIRECTION"], ["HCMC", "LOCATION"]],
+    marquee: "WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦",
+    aboutIndex: "01 / ABOUT",
+    aboutTitle: ["CLEAR ENGINEERING.", "PRACTICAL SOLUTIONS."],
+    aboutText: "I focus on building web applications and business systems from frontend to backend. My work spans requirement analysis, workflow design, REST API and admin interface development, query optimization, testing, and system integration.",
+    principles: [["01", "RELIABLE SYSTEMS"], ["02", "CLEAN ARCHITECTURE"], ["03", "PRODUCT THINKING"]],
+    stackIndex: "02 / SKILLS",
+    stackTitle: "TOOLS I USE.",
+    stackNote: "A PRACTICAL TOOLKIT FOR WEB PRODUCTS AND ENTERPRISE SOFTWARE.",
+    stackGroups: [
+      ["FRONTEND", ["ReactJS / Next.js", "TypeScript / JavaScript", "Tailwind CSS / shadcn/ui", "TanStack Query / Zustand"]],
+      ["BACKEND", ["Python / Django / DRF", "NestJS / ExpressJS", "REST API", "Authentication & Authorization"]],
+      ["DATABASE", ["PostgreSQL / MySQL", "MongoDB", "Query Optimization", "Database Design"]],
+      ["ENGINEERING", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
+    ],
+    expIndex: "03 / EXPERIENCE",
+    expTitle: ["WHERE I'VE", "CREATED VALUE."],
+    expRole: "SOFTWARE ENGINEER",
+    expCompany: "TTMI JOINT STOCK COMPANY",
+    expDate: "OCT 2025 — PRESENT",
+    expBullets: [
+      "Developed POS modules for menu management, categories, customization options, and branch-based product configuration in a multi-brand beverage retail system.",
+      "Built voucher, sales-channel, CRM, reporting dashboard, and REST API features for online sales, order, product, and delivery workflows.",
+      "Improved reporting and data-fetching performance through database query optimization and more efficient API retrieval strategies.",
+      "Worked directly with relevant departments to clarify requirements and business workflows before implementation.",
+      "Developed backend services, REST APIs, and admin interfaces for an ERP warehouse receiving application with barcode lookup and shelf-location tracking.",
+      "Wrote and maintained unit and end-to-end tests for key business workflows before deployment.",
+    ],
+    education: "EDUCATION",
+    degree: "B.ENG. IN INFORMATION TECHNOLOGY · GPA 3.0/4.0",
+    school: "NAM CAN THO UNIVERSITY · 2021—2025",
+    projectsIndex: "04 / SELECTED BUILDS",
+    projectsTitle: "SYSTEMS I'VE BUILT.",
+    projectsNote: "REAL-WORLD PRODUCTS DELIVERED THROUGH PROFESSIONAL EXPERIENCE.",
+    projects: [
+      { title: "MULTI-BRAND POS SYSTEM", year: "2025—NOW", description: "Modules for menus, categories, product options, vouchers, pricing, and branch-based product configuration.", tech: "DJANGO · REACT · REST API" },
+      { title: "CRM & ONLINE SALES", year: "2025—NOW", description: "CRM, reporting dashboards, and APIs for online sales, order management, products, and internal delivery workflows.", tech: "NEXT.JS · API · DATABASE" },
+      { title: "WAREHOUSE ERP", year: "2025—NOW", description: "An application for barcode product lookup, store shelf locations, purchase requests, and goods-receiving workflows.", tech: "DJANGO REST · ERP · POSTGRESQL" },
+    ],
+    internal: "INTERNAL PRODUCT",
+    contactIndex: "05 / CONTACT",
+    contactLead: "HAVE A ROLE, PROJECT OR IDEA THAT FITS?",
+    contactTitle: ["LET'S BUILD", "SOMETHING SOLID."],
+    email: "EMAIL",
+    github: "GITHUB",
+    phone: "PHONE",
+    footer: "SOFTWARE ENGINEER PORTFOLIO",
+    top: "BACK TO TOP ↑",
+  },
+} as const;
 
 export default function Home() {
+  const [lang, setLang] = useState<Lang>("vi");
+  const t = copy[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   return (
     <main id="top">
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand" href="#top">PORTFOLIO<span>_</span></a>
+        <a className="brand" href="#top">KQ<span>_</span></a>
         <div className="nav-menu">
-          <a href="#about">ABOUT</a>
-          <a href="#stack">STACK</a>
-          <a href="#experience">EXPERIENCE</a>
-          <a href="#projects">PROJECTS</a>
+          <a href="#about">{t.nav.about}</a><a href="#stack">{t.nav.stack}</a><a href="#experience">{t.nav.experience}</a><a href="#projects">{t.nav.projects}</a>
         </div>
-        <a className="contact-button" href="#contact">CONTACT ↗</a>
+        <div className="language-switch" aria-label="Language">
+          <button className={lang === "vi" ? "active" : ""} onClick={() => setLang("vi")} aria-pressed={lang === "vi"}>VI</button>
+          <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")} aria-pressed={lang === "en"}>EN</button>
+        </div>
+        <a className="contact-button" href="#contact">{t.nav.contact}</a>
       </nav>
 
       <header className="hero">
-        <div className="hero-status">
-          <span className="status-dot" aria-hidden="true" />
-          SOFTWARE ENGINEER
-        </div>
-
+        <div className="hero-status"><span className="status-dot" aria-hidden="true" />{t.role}</div>
         <div className="hero-grid">
           <div className="hero-main">
-            <p className="eyebrow">HELLO, I&apos;M</p>
-            <div className="name-placeholder">[ YOUR NAME ]</div>
-            <h1>BUILDING<br />SOFTWARE<br /><span>THAT WORKS.</span></h1>
+            <p className="eyebrow">{t.hello}</p>
+            <div className="name-placeholder">TRẦN QUỐC KHÁNH</div>
+            <h1>{t.headline[0]}<br />{t.headline[1]}<br /><span>{t.headline[2]}</span></h1>
           </div>
-
           <aside className="hero-card">
-            <div className="window-bar">
-              <span>PROFILE.TXT</span>
-              <span>— □ ×</span>
-            </div>
+            <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
             <div className="hero-card-content">
-              <p><span className="code-key">role:</span> &quot;Software Engineer&quot;</p>
-              <p><span className="code-key">location:</span> <EmptyField>ADD LOCATION</EmptyField></p>
-              <p><span className="code-key">focus:</span> <EmptyField>ADD SPECIALIZATION</EmptyField></p>
-              <p><span className="code-key">status:</span> <EmptyField>ADD AVAILABILITY</EmptyField></p>
+              {t.profileRows.map(([key, value]) => <p key={key}><span className="code-key">{key}:</span> &quot;{value}&quot;</p>)}
             </div>
             <div className="hero-actions">
-              <a href="#projects">VIEW PROJECTS ↓</a>
-              <a href="#">RÉSUMÉ ↗</a>
+              <a href="#projects">{t.viewProjects}</a>
+              <a href="/Tran-Quoc-Khanh-CV.pdf" download>{t.resume}</a>
             </div>
           </aside>
         </div>
-
         <div className="hero-bottom">
-          <p><EmptyField>ADD A SHORT INTRODUCTION ABOUT YOURSELF HERE.</EmptyField></p>
-          <div className="quick-facts">
-            <div><strong>—</strong><span>YEARS EXPERIENCE</span></div>
-            <div><strong>—</strong><span>PROJECTS SHIPPED</span></div>
-            <div><strong>—</strong><span>CUPS OF COFFEE</span></div>
-          </div>
+          <p>{t.summary}</p>
+          <div className="quick-facts">{t.facts.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
         </div>
       </header>
 
-      <div className="marquee" aria-label="Software engineering disciplines">
-        <div className="marquee-track">
-          <span>WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ API DEVELOPMENT ✦ CLEAN CODE ✦</span>
-          <span aria-hidden="true">WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ API DEVELOPMENT ✦ CLEAN CODE ✦</span>
-        </div>
-      </div>
+      <div className="marquee" aria-label="Software engineering disciplines"><div className="marquee-track"><span>{t.marquee}</span><span aria-hidden="true">{t.marquee}</span></div></div>
 
       <section className="about section" id="about">
-        <div className="section-index">01 / ABOUT</div>
+        <div className="section-index">{t.aboutIndex}</div>
         <div className="section-content about-content">
-          <h2>ENGINEERING WITH<br /><span>CLARITY &amp; PURPOSE.</span></h2>
+          <h2>{t.aboutTitle[0]}<br /><span>{t.aboutTitle[1]}</span></h2>
           <div className="about-grid">
-            <p className="large-placeholder"><EmptyField>ADD YOUR PROFESSIONAL SUMMARY. WRITE ABOUT THE PROBLEMS YOU ENJOY SOLVING AND THE KIND OF SOFTWARE YOU WANT TO BUILD.</EmptyField></p>
-            <div className="principles">
-              <div><span>01</span><strong>RELIABLE SYSTEMS</strong></div>
-              <div><span>02</span><strong>CLEAN ARCHITECTURE</strong></div>
-              <div><span>03</span><strong>USER-FIRST THINKING</strong></div>
-            </div>
+            <p className="large-placeholder">{t.aboutText}</p>
+            <div className="principles">{t.principles.map(([number, label]) => <div key={number}><span>{number}</span><strong>{label}</strong></div>)}</div>
           </div>
         </div>
       </section>
 
       <section className="stack section" id="stack">
-        <div className="section-index">02 / TECH STACK</div>
+        <div className="section-index">{t.stackIndex}</div>
         <div className="section-content">
-          <div className="section-title-row">
-            <h2>TOOLS I USE.</h2>
-            <p>REPLACE THE FIELDS BELOW WITH YOUR ACTUAL TECHNOLOGIES.</p>
-          </div>
+          <div className="section-title-row"><h2>{t.stackTitle}</h2><p>{t.stackNote}</p></div>
           <div className="stack-grid">
-            {stackGroups.map((group) => (
-              <article className="stack-card" key={group.title}>
-                <div className="stack-card-head"><span>{group.number}</span><span>●</span></div>
-                <h3>{group.title}</h3>
-                <ul>
-                  {group.items.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-              </article>
-            ))}
+            {t.stackGroups.map(([title, items], index) => <article className="stack-card" key={title}><div className="stack-card-head"><span>0{index + 1}</span><span>●</span></div><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></article>)}
           </div>
         </div>
       </section>
 
       <section className="experience section" id="experience">
-        <div className="section-index">03 / EXPERIENCE</div>
+        <div className="section-index">{t.expIndex}</div>
         <div className="section-content">
-          <h2>WHERE I&apos;VE<br />BUILT THINGS.</h2>
+          <h2>{t.expTitle[0]}<br />{t.expTitle[1]}</h2>
           <div className="timeline">
-            {["EXPERIENCE 01", "EXPERIENCE 02"].map((item, index) => (
-              <article className="timeline-item" key={item}>
-                <span className="timeline-number">0{index + 1}</span>
-                <div>
-                  <p className="timeline-label">[ ROLE TITLE ]</p>
-                  <h3>[ COMPANY NAME ]</h3>
-                  <p><EmptyField>ADD A SHORT DESCRIPTION OF YOUR RESPONSIBILITIES AND IMPACT.</EmptyField></p>
-                </div>
-                <span className="timeline-date">[ START — END ]</span>
-              </article>
-            ))}
+            <article className="timeline-item">
+              <span className="timeline-number">01</span>
+              <div><p className="timeline-label">{t.expRole}</p><h3>{t.expCompany}</h3><ul className="experience-bullets">{t.expBullets.map(item => <li key={item}>{item}</li>)}</ul></div>
+              <span className="timeline-date">{t.expDate}</span>
+            </article>
           </div>
-          <div className="education-row">
-            <span>EDUCATION</span>
-            <strong>[ DEGREE / MAJOR ]</strong>
-            <span>[ SCHOOL NAME · YEAR ]</span>
-          </div>
+          <div className="education-row"><span>{t.education}</span><strong>{t.degree}</strong><span>{t.school}</span></div>
         </div>
       </section>
 
       <section className="projects section" id="projects">
-        <div className="section-index">04 / PROJECTS</div>
+        <div className="section-index">{t.projectsIndex}</div>
         <div className="section-content">
-          <div className="section-title-row">
-            <h2>SELECTED BUILDS.</h2>
-            <p>PROJECTS THAT SHOW HOW YOU THINK, BUILD AND SHIP.</p>
-          </div>
+          <div className="section-title-row"><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
           <div className="projects-list">
-            {projects.map((project, index) => (
-              <article className="project-card" key={project}>
-                <div className="project-topline">
-                  <span>0{index + 1}</span>
-                  <span>[ YEAR ]</span>
-                </div>
-                <div className="project-preview" aria-hidden="true">
-                  <span>&lt;/&gt;</span>
-                  <div className="preview-lines"><i /><i /><i /></div>
-                </div>
-                <h3>[ {project} ]</h3>
-                <p><EmptyField>ADD WHAT YOU BUILT, THE PROBLEM IT SOLVES AND YOUR CONTRIBUTION.</EmptyField></p>
-                <div className="project-meta">
-                  <span>[ TECH STACK ]</span>
-                  <span>CODE ↗ &nbsp; LIVE ↗</span>
-                </div>
-              </article>
-            ))}
+            {t.projects.map((project, index) => <article className="project-card" key={project.title}><div className="project-topline"><span>0{index + 1}</span><span>{project.year}</span></div><div className="project-preview" aria-hidden="true"><span>&lt;/&gt;</span><div className="preview-lines"><i /><i /><i /></div></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-meta"><span>{project.tech}</span><span>{t.internal}</span></div></article>)}
           </div>
         </div>
       </section>
 
       <section className="contact section" id="contact">
-        <div className="section-index">05 / CONTACT</div>
+        <div className="section-index">{t.contactIndex}</div>
         <div className="section-content contact-content">
-          <p>HAVE A ROLE, PROJECT OR IDEA?</p>
-          <h2>LET&apos;S BUILD<br /><span>SOMETHING SOLID.</span></h2>
+          <p>{t.contactLead}</p><h2>{t.contactTitle[0]}<br /><span>{t.contactTitle[1]}</span></h2>
           <div className="contact-links">
-            <span>[ YOUR EMAIL ADDRESS ]</span>
-            <span>[ GITHUB URL ]</span>
-            <span>[ LINKEDIN URL ]</span>
+            <a href="mailto:khanhtranquoc44@gmail.com"><small>{t.email}</small><strong>khanhtranquoc44@gmail.com</strong></a>
+            <a href="https://github.com/Trqkhanh17" target="_blank" rel="noreferrer"><small>{t.github}</small><strong>github.com/Trqkhanh17</strong></a>
+            <a href="tel:+84394551401"><small>{t.phone}</small><strong>+84 394 551 401</strong></a>
           </div>
         </div>
       </section>
 
-      <footer>
-        <span>SOFTWARE ENGINEER PORTFOLIO</span>
-        <span>© 2026</span>
-        <a href="#top">BACK TO TOP ↑</a>
-      </footer>
+      <footer><span>{t.footer}</span><span>© 2026 TRẦN QUỐC KHÁNH</span><a href="#top">{t.top}</a></footer>
     </main>
   );
 }
