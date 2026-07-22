@@ -30,11 +30,13 @@ export const portfolioContent = {
       ["TOOLS & PROCESS", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
     ],
     expIndex: "03 / KINH NGHIỆM",
-    expTitle: ["CÔNG VIỆC", "TÔI ĐANG LÀM."],
+    expTitle: ["NHỮNG GÌ TÔI", "LÀM Ở CÔNG TY."],
     expRole: "KỸ SƯ PHẦN MỀM",
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "10/2025 — HIỆN TẠI",
     expStack: ["PYTHON", "DJANGO", "DJANGO REST FRAMEWORK", "REACT", "POSTGRESQL"],
+    expDomainLabel: "LĨNH VỰC",
+    expDomains: ["F&B", "E-COMMERCE"],
     expBullets: [
       "Trong hệ thống POS đa thương hiệu, tôi phụ trách các phần liên quan đến menu, danh mục, tùy chọn sản phẩm và cách mỗi chi nhánh tự cấu hình mặt hàng của mình.",
       "Ở luồng bán hàng online, tôi xây dựng voucher, kênh bán, CRM, dashboard báo cáo và các API nối đơn hàng, sản phẩm với đơn vị giao vận.",
@@ -147,6 +149,8 @@ export const portfolioContent = {
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "OCT 2025 — PRESENT",
     expStack: ["PYTHON", "DJANGO", "DJANGO REST FRAMEWORK", "REACT", "POSTGRESQL"],
+    expDomainLabel: "DOMAINS",
+    expDomains: ["F&B", "E-COMMERCE"],
     expBullets: [
       "On a multi-brand POS platform, I work on menu, category, product-option, and branch-specific configuration modules.",
       "For online sales, I build voucher, sales-channel, CRM, reporting, and API features that connect orders and products with delivery workflows.",
@@ -226,4 +230,3 @@ export const portfolioContent = {
     top: "BACK TO TOP ↑",
   },
 } as const;
-

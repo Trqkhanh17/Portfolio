@@ -140,6 +140,7 @@ export default function Home() {
               <div>
                 <p className="timeline-label">{t.expRole}</p>
                 <h3>{t.expCompany}</h3>
+                <div className="experience-domains"><span>{t.expDomainLabel}</span>{t.expDomains.map(domain => <b key={domain}>{domain}</b>)}</div>
                 <div className="experience-stack" aria-label="Company tech stack">{t.expStack.map(item => <span key={item}>{item}</span>)}</div>
                 <ul className="experience-bullets">{t.expBullets.map(item => <li key={item}>{item}</li>)}</ul>
               </div>
