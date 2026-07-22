@@ -13,7 +13,7 @@ const copy = {
     profile: "PROFILE.TXT",
     profileRows: [
       ["vai_trò", "Junior Software Engineer"],
-      ["địa_điểm", "TP. Hồ Chí Minh, Việt Nam"],
+      ["Địa_chỉ", "TP. Hồ Chí Minh, Việt Nam"],
       ["trọng_tâm", "Full-stack & hệ thống doanh nghiệp"],
       ["hiện_tại", "Software Engineer tại TTMI"],
     ],
@@ -53,13 +53,24 @@ const copy = {
     school: "ĐẠI HỌC NAM CẦN THƠ · 2021—2025",
     projectsIndex: "04 / SELECTED BUILDS",
     projectsTitle: "SYSTEMS I'VE BUILT.",
-    projectsNote: "CÁC BÀI TOÁN THỰC TẾ ĐƯỢC THỰC HIỆN TRONG QUÁ TRÌNH LÀM VIỆC.",
+    projectsNote: "DỰ ÁN CÁ NHÂN THỂ HIỆN TƯ DUY XÂY DỰNG SẢN PHẨM FULL-STACK.",
     projects: [
-      { title: "HỆ THỐNG POS ĐA THƯƠNG HIỆU", year: "2025—NAY", description: "Các module quản lý menu, danh mục, tùy chọn sản phẩm, voucher, giá bán và cấu hình sản phẩm theo từng chi nhánh.", tech: "DJANGO · REACT · REST API" },
-      { title: "CRM & ONLINE SALES", year: "2025—NAY", description: "CRM, dashboard báo cáo và API hỗ trợ bán hàng online, quản lý đơn hàng, sản phẩm và quy trình giao vận nội bộ.", tech: "NEXT.JS · API · DATABASE" },
-      { title: "ERP NHẬP KHO", year: "2025—NAY", description: "Ứng dụng hỗ trợ tra cứu sản phẩm bằng barcode, quản lý vị trí kệ theo cửa hàng, yêu cầu mua hàng và quy trình nhận hàng.", tech: "DJANGO REST · ERP · POSTGRESQL" },
+      {
+        title: "CRM & E-COMMERCE LINH KIỆN ĐIỆN TỬ",
+        label: "PERSONAL FULL-STACK PROJECT",
+        description: "Hệ thống quản lý quan hệ khách hàng kết hợp cửa hàng trực tuyến dành cho lĩnh vực linh kiện điện tử. Dự án gồm storefront cho khách mua hàng và dashboard quản trị để vận hành sản phẩm, khách hàng, đơn hàng, kho và doanh thu.",
+        features: [
+          "Đăng ký, đăng nhập JWT, phân quyền admin/khách hàng, quản lý hồ sơ và khóa hoặc mở khóa tài khoản.",
+          "Quản lý sản phẩm, danh mục, thư viện ảnh, khách hàng, nhân viên và nghiệp vụ nhập/xuất tồn kho.",
+          "Tìm kiếm sản phẩm, giỏ hàng, checkout COD/PayPal, tạo đơn, email xác nhận và lịch sử mua hàng.",
+          "Dashboard quản lý trạng thái đơn hàng và thống kê doanh thu tổng quan, theo ngày, tháng và năm.",
+          "Backend phân lớp Route → Controller → Service → Repository, validation Zod, upload Firebase và triển khai Docker.",
+        ],
+        tech: "REACT · TYPESCRIPT · REDUX TOOLKIT · ANT DESIGN · EXPRESS · PRISMA · MYSQL · DOCKER",
+      },
     ],
-    internal: "INTERNAL PRODUCT",
+    backend: "BACKEND REPOSITORY ↗",
+    frontend: "FRONTEND REPOSITORY ↗",
     contactIndex: "05 / CONTACT",
     contactLead: "HAVE A ROLE, PROJECT OR IDEA THAT FITS?",
     contactTitle: ["LET'S BUILD", "SOMETHING SOLID."],
@@ -117,13 +128,24 @@ const copy = {
     school: "NAM CAN THO UNIVERSITY · 2021—2025",
     projectsIndex: "04 / SELECTED BUILDS",
     projectsTitle: "SYSTEMS I'VE BUILT.",
-    projectsNote: "REAL-WORLD PRODUCTS DELIVERED THROUGH PROFESSIONAL EXPERIENCE.",
+    projectsNote: "PERSONAL WORK THAT DEMONSTRATES END-TO-END PRODUCT ENGINEERING.",
     projects: [
-      { title: "MULTI-BRAND POS SYSTEM", year: "2025—NOW", description: "Modules for menus, categories, product options, vouchers, pricing, and branch-based product configuration.", tech: "DJANGO · REACT · REST API" },
-      { title: "CRM & ONLINE SALES", year: "2025—NOW", description: "CRM, reporting dashboards, and APIs for online sales, order management, products, and internal delivery workflows.", tech: "NEXT.JS · API · DATABASE" },
-      { title: "WAREHOUSE ERP", year: "2025—NOW", description: "An application for barcode product lookup, store shelf locations, purchase requests, and goods-receiving workflows.", tech: "DJANGO REST · ERP · POSTGRESQL" },
+      {
+        title: "ELECTRONICS CRM & E-COMMERCE",
+        label: "PERSONAL FULL-STACK PROJECT",
+        description: "A customer relationship management system combined with an electronics storefront. The project includes a customer-facing shopping experience and an admin dashboard for operating products, customers, orders, stock, and revenue.",
+        features: [
+          "JWT registration and authentication, admin/customer authorization, profile management, and account ban or unban workflows.",
+          "Product, category, gallery, customer, staff, and inventory import/export management.",
+          "Product search, cart, COD/PayPal checkout, order creation, confirmation email, and customer order history.",
+          "Order status management and revenue analytics for overall, daily, monthly, and yearly performance.",
+          "Layered Route → Controller → Service → Repository backend, Zod validation, Firebase uploads, and Docker deployment.",
+        ],
+        tech: "REACT · TYPESCRIPT · REDUX TOOLKIT · ANT DESIGN · EXPRESS · PRISMA · MYSQL · DOCKER",
+      },
     ],
-    internal: "INTERNAL PRODUCT",
+    backend: "BACKEND REPOSITORY ↗",
+    frontend: "FRONTEND REPOSITORY ↗",
     contactIndex: "05 / CONTACT",
     contactLead: "HAVE A ROLE, PROJECT OR IDEA THAT FITS?",
     contactTitle: ["LET'S BUILD", "SOMETHING SOLID."],
@@ -225,7 +247,24 @@ export default function Home() {
         <div className="section-content">
           <div className="section-title-row"><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
           <div className="projects-list">
-            {t.projects.map((project, index) => <article className="project-card" key={project.title}><div className="project-topline"><span>0{index + 1}</span><span>{project.year}</span></div><div className="project-preview" aria-hidden="true"><span>&lt;/&gt;</span><div className="preview-lines"><i /><i /><i /></div></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-meta"><span>{project.tech}</span><span>{t.internal}</span></div></article>)}
+            {t.projects.map((project, index) => (
+              <article className="project-card featured-project" key={project.title}>
+                <div className="project-topline"><span>0{index + 1}</span><span>{project.label}</span></div>
+                <div className="featured-project-grid">
+                  <div className="project-preview" aria-hidden="true"><span>CRM</span><div className="preview-lines"><i /><i /><i /><i /></div><b>FULL<br />STACK</b></div>
+                  <div className="project-details">
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <ul className="project-features">{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+                    <div className="repo-links">
+                      <a href="https://github.com/Trqkhanh17/Backend_LinhKienDienTu" target="_blank" rel="noreferrer">{t.backend}</a>
+                      <a href="https://github.com/Trqkhanh17/FrontEnd_BanLinhKienDienTu" target="_blank" rel="noreferrer">{t.frontend}</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="project-meta"><span>{project.tech}</span><span>GITHUB</span></div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
