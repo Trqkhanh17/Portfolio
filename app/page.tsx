@@ -268,7 +268,7 @@ function ProjectVisual({ index }: { index: number }) {
 }
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("vi");
+  const [lang, setLang] = useState<Lang>("en");
   const t = copy[lang];
 
   useEffect(() => {
@@ -377,7 +377,7 @@ export default function Home() {
       <div className="scroll-progress" aria-hidden="true" />
       <div className="pointer-stamp" aria-hidden="true"><span>+</span></div>
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand" href="#top" aria-label="Trần Quốc Khánh — về đầu trang">
+        <a className="brand" href="#top" aria-label="Tran Quoc Khanh — back to top">
           <span className="brand-symbol" aria-hidden="true">✦</span>
           <span className="brand-copy"><strong>TRẦN QUỐC KHÁNH</strong><small>SOFTWARE ENGINEER</small></span>
         </a>
