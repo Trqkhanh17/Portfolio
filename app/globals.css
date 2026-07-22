@@ -69,12 +69,17 @@ button { font: inherit; color: inherit; }
 .section h2 { margin: 0; font: 400 clamp(3.2rem, 7vw, 7rem)/.9 "Archivo Black", sans-serif; letter-spacing: -.055em; }
 .about { background: var(--green); }
 .about h2 span { color: var(--green); -webkit-text-stroke: clamp(2px, .2vw, 3px) var(--ink); }
-.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 7vw; margin-top: 70px; align-items: end; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .72fr); gap: 7vw; margin-top: 70px; align-items: end; }
+.about-copy { display: grid; gap: 42px; min-width: 0; }
 .large-placeholder { margin: 0; max-width: 720px; font-size: clamp(1.15rem, 2vw, 1.65rem); line-height: 1.6; font-weight: 600; }
 .principles { border: var(--line); background: var(--paper); box-shadow: 8px 8px 0 var(--ink); }
 .principles div { display: grid; grid-template-columns: 48px 1fr; padding: 16px; align-items: center; }
 .principles div + div { border-top: var(--line); }
 .principles span { font-size: .68rem; }
+.about-portrait { width: min(100%, 410px); margin: 0 9px 9px 0; justify-self: end; border: var(--line); background: var(--paper); box-shadow: 10px 10px 0 var(--ink); transform: rotate(1deg); }
+.about-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; object-position: center top; }
+.about-portrait figcaption { display: flex; justify-content: space-between; gap: 18px; padding: 12px 14px; border-top: var(--line); font-size: .62rem; font-weight: 800; }
+.about-portrait figcaption span:last-child { text-align: right; }
 
 .section-title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 60px; }
 .section-title-row p { max-width: 330px; margin: 0; font-size: .75rem; line-height: 1.6; font-weight: 700; }
@@ -164,6 +169,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
   .quick-facts { border-left: 0; border-top: var(--line); }
   .section { grid-template-columns: 1fr; }
   .section-index { border-right: 0; border-bottom: var(--line); padding: 18px 4vw; }
+  .about-grid { gap: 42px; }
   .projects-list { grid-template-columns: 1fr; }
   .project-card { max-width: 680px; }
   .featured-project { max-width: none; }
@@ -187,6 +193,8 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
   .section-content { padding: 64px 16px; }
   .section h2 { font-size: 3.1rem; }
   .about-grid, .stack-grid { grid-template-columns: 1fr; }
+  .about-copy { gap: 32px; }
+  .about-portrait { order: -1; width: calc(100% - 9px); max-width: 430px; justify-self: start; transform: none; }
   .section-title-row { display: block; margin-bottom: 38px; }
   .section-title-row p { margin-top: 24px; }
   .timeline-item {

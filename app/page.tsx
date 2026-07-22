@@ -278,8 +278,21 @@ export default function Home() {
         <div className="section-content about-content">
           <h2>{t.aboutTitle[0]}<br /><span>{t.aboutTitle[1]}</span></h2>
           <div className="about-grid">
-            <p className="large-placeholder">{t.aboutText}</p>
-            <div className="principles">{t.principles.map(([number, label]) => <div key={number}><span>{number}</span><strong>{label}</strong></div>)}</div>
+            <div className="about-copy">
+              <p className="large-placeholder">{t.aboutText}</p>
+              <div className="principles">{t.principles.map(([number, label]) => <div key={number}><span>{number}</span><strong>{label}</strong></div>)}</div>
+            </div>
+            <figure className="about-portrait">
+              <img
+                src="/tran-quoc-khanh-graduation.png"
+                width="560"
+                height="840"
+                loading="lazy"
+                decoding="async"
+                alt={lang === "vi" ? "Trần Quốc Khánh trong lễ phục tốt nghiệp" : "Graduation portrait of Tran Quoc Khanh"}
+              />
+              <figcaption><span>TRẦN QUỐC KHÁNH</span><span>GRADUATION · 2025</span></figcaption>
+            </figure>
           </div>
         </div>
       </section>
