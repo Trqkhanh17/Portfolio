@@ -9,7 +9,7 @@ const copy = {
     nav: { about: "GIỚI THIỆU", stack: "KỸ NĂNG", experience: "KINH NGHIỆM", projects: "DỰ ÁN", contact: "LIÊN HỆ ↗" },
     role: "KỸ SƯ PHẦN MỀM",
     hello: "XIN CHÀO, TÔI LÀ",
-    headline: ["XÂY DỰNG", "PHẦN MỀM", "HIỆU QUẢ."],
+    headline: ["SOFTWARE", "ENGINEER"],
     profile: "HỒ SƠ.TXT",
     profileRows: [
       ["vai_trò", "Junior Software Engineer"],
@@ -73,7 +73,7 @@ const copy = {
     nav: { about: "ABOUT", stack: "SKILLS", experience: "EXPERIENCE", projects: "PROJECTS", contact: "CONTACT ↗" },
     role: "SOFTWARE ENGINEER",
     hello: "HELLO, I'M",
-    headline: ["BUILDING", "SOFTWARE", "THAT WORKS."],
+    headline: ["SOFTWARE", "ENGINEER"],
     profile: "PROFILE.TXT",
     profileRows: [
       ["role", "Junior Software Engineer"],
@@ -163,7 +163,7 @@ export default function Home() {
           <div className="hero-main">
             <p className="eyebrow">{t.hello}</p>
             <div className="name-placeholder">TRẦN QUỐC KHÁNH</div>
-            <h1>{t.headline[0]}<br />{t.headline[1]}<br /><span>{t.headline[2]}</span></h1>
+            <h1>{t.headline[0]}<br /><span>{t.headline[1]}</span></h1>
           </div>
           <aside className="hero-card">
             <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
