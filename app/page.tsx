@@ -54,8 +54,9 @@ const copy = {
     projects: [
       {
         title: "CRM & E-COMMERCE LINH KIỆN ĐIỆN TỬ",
-        label: "DỰ ÁN FULL-STACK CÁ NHÂN",
+        label: "DỰ ÁN CÁ NHÂN · FULL-STACK",
         visual: "CRM",
+        badge: "FULL STACK",
         description: "Tôi làm dự án này để tự đi qua trọn vẹn một sản phẩm bán hàng: từ trải nghiệm chọn linh kiện của khách đến những công việc phía sau như quản lý kho, xử lý đơn và theo dõi doanh thu. Đây cũng là nơi tôi luyện cách tách lớp backend và giữ frontend, API cùng dữ liệu nói chung một ngôn ngữ.",
         features: [
           "Khách hàng có thể tạo tài khoản, tìm sản phẩm, quản lý giỏ hàng, thanh toán COD hoặc PayPal và xem lại lịch sử mua hàng.",
@@ -72,8 +73,9 @@ const copy = {
       },
       {
         title: "COFFEE STYLE — RESPONSIVE E-COMMERCE UI",
-        label: "DỰ ÁN UI CÁ NHÂN",
+        label: "DỰ ÁN CÁ NHÂN · GIAO DIỆN",
         visual: "UI",
+        badge: "GIAO DIỆN",
         description: "Một dự án UI tôi làm để luyện cảm giác về khoảng cách, nhịp nội dung và cách một giao diện thay đổi trên từng kích thước màn hình. Thay vì chỉ dựng trang chủ đẹp, tôi hoàn thiện cả hành trình xem sản phẩm, đọc câu chuyện thương hiệu và thao tác với giỏ hàng.",
         features: [
           "Trang chủ kể câu chuyện thương hiệu qua hero slider, sản phẩm nổi bật, coffee magazine, lifestyle stories và newsletter.",
@@ -89,8 +91,9 @@ const copy = {
       },
       {
         title: "AOV SQUAD FINDER SERVER",
-        label: "ĐANG PHÁT TRIỂN — DỰ ÁN BACKEND",
+        label: "DỰ ÁN CÁ NHÂN · ĐANG PHÁT TRIỂN",
         visual: "AOV",
+        badge: "ĐANG LÀM",
         description: "Ý tưởng bắt đầu từ một nhu cầu khá đời thường: tìm đúng người để chơi Liên Quân cùng, thay vì ghép đội hoàn toàn ngẫu nhiên. Tôi đang xây phần server cho sản phẩm này; nền tảng tài khoản và bảo mật đã hoạt động, còn hồ sơ game, kết bạn và logic tìm đội vẫn đang được hoàn thiện.",
         features: [
           "Luồng đăng ký và đăng nhập dùng Passport, kèm cặp JWT access/refresh token để duy trì và làm mới phiên.",
@@ -161,8 +164,9 @@ const copy = {
     projects: [
       {
         title: "ELECTRONICS CRM & E-COMMERCE",
-        label: "PERSONAL FULL-STACK PROJECT",
+        label: "PERSONAL PROJECT · FULL-STACK",
         visual: "CRM",
+        badge: "FULL STACK",
         description: "I built this project to follow an online-sale product from end to end: the customer's search for the right component and the less visible work behind it — stock, orders, customers, and revenue. It also became a place to practice separating backend responsibilities while keeping the interface, API, and data model in step.",
         features: [
           "Customers can create an account, find components, manage a cart, check out with COD or PayPal, and revisit previous orders.",
@@ -179,8 +183,9 @@ const copy = {
       },
       {
         title: "COFFEE STYLE — RESPONSIVE E-COMMERCE UI",
-        label: "PERSONAL UI PROJECT",
+        label: "PERSONAL PROJECT · UI",
         visual: "UI",
+        badge: "UI DESIGN",
         description: "I built this UI project to sharpen my sense of spacing, content rhythm, and how a design should respond at different screen sizes. Instead of stopping at an attractive homepage, I completed the wider journey through products, brand stories, and the shopping cart.",
         features: [
           "The homepage tells the brand story through a hero slider, featured products, coffee magazine, lifestyle stories, and a newsletter.",
@@ -196,8 +201,9 @@ const copy = {
       },
       {
         title: "AOV SQUAD FINDER SERVER",
-        label: "IN PROGRESS — BACKEND PROJECT",
+        label: "PERSONAL PROJECT · IN PROGRESS",
         visual: "AOV",
+        badge: "IN PROGRESS",
         description: "The idea came from a familiar problem: finding the right people to play Arena of Valor with instead of relying on a completely random team. I'm building the server behind that product. Its account and security foundation works today; game profiles, friendships, and squad-matching logic are still taking shape.",
         features: [
           "Registration and login use Passport, backed by JWT access and refresh tokens for renewable sessions.",
@@ -399,7 +405,7 @@ export default function Home() {
         <div className="section-content">
           <div className="section-title-row" data-reveal><h2>{t.stackTitle}</h2><p>{t.stackNote}</p></div>
           <div className="stack-grid">
-            {t.stackGroups.map(([title, items], index) => <article className="stack-card" key={title} data-reveal><div className="stack-card-head"><span>0{index + 1}</span><span className="card-signal">●</span></div><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></article>)}
+            {t.stackGroups.map(([title, items], index) => <article className="stack-card" key={index} data-reveal><div className="stack-card-head"><span>0{index + 1}</span><span className="card-signal">●</span></div><h3>{title}</h3><ul>{items.map((item, itemIndex) => <li key={itemIndex}>{item}</li>)}</ul></article>)}
           </div>
         </div>
       </section>
@@ -430,10 +436,10 @@ export default function Home() {
           <div className="section-title-row" data-reveal><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
           <div className="projects-list">
             {t.projects.map((project, index) => (
-              <article className="project-card featured-project" key={project.title} data-reveal data-tilt>
+              <article className="project-card featured-project" key={index} data-reveal data-tilt>
                 <div className="project-topline"><span>0{index + 1}</span><span>{project.label}</span></div>
                 <div className="featured-project-grid">
-                  <div className="project-preview" aria-hidden="true"><span>{project.visual}</span><div className="preview-lines"><i /><i /><i /><i /></div><b>{project.label.split(" ").slice(-2).map(word => <span key={word}>{word}<br /></span>)}</b></div>
+                  <div className="project-preview" aria-hidden="true"><span>{project.visual}</span><div className="preview-lines"><i /><i /><i /><i /></div><b>{project.badge.split(" ").map((word, wordIndex) => <span key={wordIndex}>{word}<br /></span>)}</b></div>
                   <div className="project-details">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
