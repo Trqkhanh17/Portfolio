@@ -17,6 +17,7 @@ const copy = {
     resume: "TẢI CV ↗",
     summary: "Tôi học tốt nhất khi được tự tay làm: lần theo một câu hỏi đến tận gốc, thử đủ lâu để hiểu và chỉ giữ lại những điều thật sự hữu ích.",
     facts: [["ĐÀO SÂU", "CÁCH TÔI HỌC"], ["BỀN BỈ", "CÁCH TÔI TIẾN BỘ"], ["HỒ CHÍ MINH", "NƠI TÔI ĐANG SỐNG"]],
+    heroNotes: ["HIỂU RÕ · LÀM KỸ", "LUÔN SẴN SÀNG HỌC", "TP.HCM // VIỆT NAM"],
     marquee: "PHÁT TRIỂN WEB ✦ THIẾT KẾ HỆ THỐNG ✦ REST API ✦ KIẾN TRÚC SẠCH ✦",
     aboutIndex: "01 / VỀ TÔI",
     aboutTitle: ["TÔI LÀ AI.", "CÁCH TÔI LÀM VIỆC."],
@@ -109,7 +110,7 @@ const copy = {
     contactIndex: "05 / LIÊN HỆ",
     contactLead: "NẾU BẠN CẦN MỘT KỸ SƯ PHẦN MỀM LUÔN MUỐN HIỂU RÕ VIỆC CẦN LÀM, KHÔNG NGẠI HỌC ĐIỀU MỚI VÀ SẴN SÀNG CÙNG ĐỘI NGŨ TÌM RA CÁCH TỐT HƠN,",
     contactTitle: ["CỨ NHẮN CHO TÔI.", "TÔI SẴN SÀNG LẮNG NGHE."],
-    email: "THƯ ĐIỆN TỬ",
+    email: "EMAIL",
     github: "GITHUB",
     phone: "ĐIỆN THOẠI",
     footer: "PORTFOLIO KỸ SƯ PHẦN MỀM",
@@ -127,6 +128,7 @@ const copy = {
     resume: "DOWNLOAD CV ↗",
     summary: "I like to learn slowly but thoroughly: follow an idea far enough to understand it, try it for myself, and keep what proves genuinely useful.",
     facts: [["CURIOUS", "BY NATURE"], ["CONSISTENT", "HOW I GROW"], ["HO CHI MINH", "BASED IN"]],
+    heroNotes: ["BUILD WITH CONTEXT", "ALWAYS LEARNING", "HCMC // VIETNAM"],
     marquee: "WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦",
     aboutIndex: "01 / ABOUT",
     aboutTitle: ["WHO I AM.", "HOW I WORK."],
@@ -226,6 +228,44 @@ const copy = {
     top: "BACK TO TOP ↑",
   },
 } as const;
+
+function ProjectVisual({ index }: { index: number }) {
+  if (index === 0) {
+    return (
+      <div className="project-visual crm-visual">
+        <div className="mini-window">
+          <div className="mini-window-bar"><i /><i /><i /><span>CRM_ADMIN</span></div>
+          <div className="mini-dashboard">
+            <aside><i /><i /><i /><i /></aside>
+            <div className="mini-dashboard-main"><div className="mini-stats"><b>24</b><b>86</b><b>12</b></div><div className="mini-chart"><i /><i /><i /><i /><i /></div></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <div className="project-visual store-visual">
+        <div className="mini-store">
+          <div className="mini-store-nav"><b>COFFEE.</b><span>SHOP · STORY · CART</span></div>
+          <div className="mini-products"><i><b>01</b></i><i><b>02</b></i><i><b>03</b></i></div>
+          <div className="mini-store-cta"><span>FRESHLY ROASTED</span><b>ADD TO CART +</b></div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="project-visual squad-visual">
+      <div className="match-grid" />
+      <i className="match-line line-one" /><i className="match-line line-two" /><i className="match-line line-three" />
+      <span className="player player-one">P1</span><span className="player player-two">P2</span><span className="player player-three">P3</span>
+      <strong>FIND<br />SQUAD</strong>
+      <b className="match-status">MATCHING...</b>
+    </div>
+  );
+}
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("vi");
@@ -358,6 +398,7 @@ export default function Home() {
             <p className="eyebrow">{t.hello}</p>
             <div className="name-placeholder">TRẦN QUỐC KHÁNH</div>
             <h1><span className="headline-line headline-solid">{t.headline[0]}</span><span className="headline-line headline-outline">{t.headline[1]}</span></h1>
+            <div className="hero-notes" aria-label={lang === "vi" ? "Điểm nổi bật" : "Highlights"}>{t.heroNotes.map((note, index) => <span key={note} className={`hero-note note-${index + 1}`}>{note}</span>)}</div>
           </div>
           <aside className="hero-card" data-tilt>
             <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
@@ -379,7 +420,7 @@ export default function Home() {
 
       <div className="marquee" aria-label="Software engineering disciplines"><div className="marquee-track"><span>{t.marquee}</span><span aria-hidden="true">{t.marquee}</span></div></div>
 
-      <section className="about section" id="about">
+      <section className="about section" id="about" data-number="01">
         <div className="section-index">{t.aboutIndex}</div>
         <div className="section-content about-content" data-reveal>
           <h2>{t.aboutTitle[0]}<br /><span>{t.aboutTitle[1]}</span></h2>
@@ -403,7 +444,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="stack section" id="stack">
+      <section className="stack section" id="stack" data-number="02">
         <div className="section-index">{t.stackIndex}</div>
         <div className="section-content">
           <div className="section-title-row" data-reveal><h2>{t.stackTitle}</h2><p>{t.stackNote}</p></div>
@@ -413,7 +454,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="experience section" id="experience">
+      <section className="experience section" id="experience" data-number="03">
         <div className="section-index">{t.expIndex}</div>
         <div className="section-content">
           <h2 data-reveal>{t.expTitle[0]}<br />{t.expTitle[1]}</h2>
@@ -433,7 +474,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="projects section" id="projects">
+      <section className="projects section" id="projects" data-number="04">
         <div className="section-index">{t.projectsIndex}</div>
         <div className="section-content">
           <div className="section-title-row" data-reveal><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
@@ -442,7 +483,7 @@ export default function Home() {
               <article className="project-card featured-project" key={index} data-reveal data-tilt>
                 <div className="project-topline"><span>0{index + 1}</span><span>{project.label}</span></div>
                 <div className="featured-project-grid">
-                  <div className="project-preview" aria-hidden="true"><span>{project.visual}</span><div className="preview-lines"><i /><i /><i /><i /></div><b>{project.badge.split(" ").map((word, wordIndex) => <span key={wordIndex}>{word}<br /></span>)}</b></div>
+                  <div className={`project-preview project-preview-${index + 1}`} aria-hidden="true"><span>{project.visual}</span><ProjectVisual index={index} /><b>{project.badge.split(" ").map((word, wordIndex) => <span key={wordIndex}>{word}<br /></span>)}</b></div>
                   <div className="project-details">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
@@ -459,7 +500,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact section" id="contact">
+      <section className="contact section" id="contact" data-number="05">
         <div className="section-index">{t.contactIndex}</div>
         <div className="section-content contact-content" data-reveal>
           <p>{t.contactLead}</p><h2>{t.contactTitle[0]}<br /><span>{t.contactTitle[1]}</span></h2>
