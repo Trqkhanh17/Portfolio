@@ -157,8 +157,9 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
 @media (max-width: 980px) {
   .nav-menu { display: none; }
   .language-switch { margin-left: auto; }
-  .hero-grid { grid-template-columns: 1fr; gap: 45px; }
-  .hero-card { max-width: 600px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 45px; }
+  .hero-main, .hero-card { min-width: 0; }
+  .hero-card { width: 100%; max-width: 600px; }
   .hero-bottom { grid-template-columns: 1fr; }
   .quick-facts { border-left: 0; border-top: var(--line); }
   .section { grid-template-columns: 1fr; }
@@ -177,8 +178,8 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
   .contact-button { min-width: 120px; padding: 0 12px; }
   .hero { min-height: auto; padding: 22px 16px 0; }
   .hero-grid { margin: 55px 0 42px; }
-  .hero h1 { font-size: clamp(3.7rem, 19vw, 6rem); }
-  .hero-card { margin-right: 8px; }
+  .hero h1 { font-size: clamp(2.9rem, 16vw, 5.2rem); }
+  .hero-card { margin-right: 0; }
   .hero-bottom > p { padding: 20px 0; }
   .quick-facts { grid-template-columns: 1fr; }
   .quick-facts div + div { border-left: 0; border-top: var(--line); }
@@ -188,8 +189,28 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
   .about-grid, .stack-grid { grid-template-columns: 1fr; }
   .section-title-row { display: block; margin-bottom: 38px; }
   .section-title-row p { margin-top: 24px; }
-  .timeline-item { grid-template-columns: 40px 1fr; gap: 16px; }
-  .timeline-date { grid-column: 2; grid-row: 1; justify-self: end; }
+  .timeline-item {
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    row-gap: 24px;
+    padding: 24px 0 30px;
+  }
+  .timeline-number { grid-column: 1; grid-row: 1; }
+  .timeline-date {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    white-space: nowrap;
+  }
+  .timeline-item > div {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0;
+  }
+  .timeline-item h3 { font-size: clamp(2rem, 9vw, 3rem); }
+  .experience-stack { margin: 18px 0 22px; }
+  .experience-bullets { margin-top: 18px; padding-left: 18px; }
+  .experience-bullets li { padding-left: 2px; overflow-wrap: break-word; }
   .education-row { grid-template-columns: 1fr; gap: 12px; }
   .project-preview { min-height: 170px; }
   .project-details { padding: 24px 18px; }
