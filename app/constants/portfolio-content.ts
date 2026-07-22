@@ -144,7 +144,7 @@ export const portfolioContent = {
       ["ENGINEERING", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
     ],
     expIndex: "03 / EXPERIENCE",
-    expTitle: ["WHAT I DO", "AT WORK."],
+    expTitle: ["WHERE I", "CREATE VALUE."],
     expRole: "SOFTWARE ENGINEER",
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "OCT 2025 — PRESENT",
