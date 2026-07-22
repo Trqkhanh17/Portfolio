@@ -93,7 +93,7 @@ const copy = {
         title: "AOV SQUAD FINDER SERVER",
         label: "DỰ ÁN CÁ NHÂN · ĐANG PHÁT TRIỂN",
         visual: "AOV",
-        badge: "ĐANG LÀM",
+        badge: "BACK END",
         description: "Ý tưởng bắt đầu từ một nhu cầu khá đời thường: tìm đúng người để chơi Liên Quân cùng, thay vì ghép đội hoàn toàn ngẫu nhiên. Tôi đang xây phần server cho sản phẩm này; nền tảng tài khoản và bảo mật đã hoạt động, còn hồ sơ game, kết bạn và logic tìm đội vẫn đang được hoàn thiện.",
         features: [
           "Luồng đăng ký và đăng nhập dùng Passport, kèm cặp JWT access/refresh token để duy trì và làm mới phiên.",
