@@ -10,6 +10,9 @@ const copy = {
     role: "KỸ SƯ PHẦN MỀM",
     hello: "XIN CHÀO, TÔI LÀ",
     headline: ["KỸ SƯ", "PHẦN MỀM"],
+    welcomeEyebrow: "CHÀO MỪNG ĐẾN VỚI",
+    welcomeTitle: ["PORTFOLIO", "CỦA TÔI."],
+    welcomeFooter: "CUỘN XUỐNG ĐỂ KHÁM PHÁ ↓",
     viewProjects: "XEM DỰ ÁN ↓",
     resume: "TẢI CV ↗",
     summary: "Tôi học tốt nhất khi được tự tay làm: lần theo một câu hỏi đến tận gốc, thử đủ lâu để hiểu và chỉ giữ lại những điều thật sự hữu ích.",
@@ -119,6 +122,9 @@ const copy = {
     role: "SOFTWARE ENGINEER",
     hello: "HELLO, I'M",
     headline: ["SOFTWARE", "ENGINEER"],
+    welcomeEyebrow: "WELCOME TO",
+    welcomeTitle: ["MY", "PORTFOLIO."],
+    welcomeFooter: "SCROLL TO EXPLORE ↓",
     viewProjects: "VIEW PROJECTS ↓",
     resume: "DOWNLOAD CV ↗",
     summary: "I like to learn slowly but thoroughly: follow an idea far enough to understand it, try it for myself, and keep what proves genuinely useful.",
@@ -400,6 +406,12 @@ export default function Home() {
               <a href="/Tran-Quoc-Khanh-CV.pdf" download>{t.resume}</a>
             </div>
           </div>
+          <aside className="hero-welcome" data-reveal>
+            <div className="welcome-kicker"><span>01</span><span>PORTFOLIO / 2026</span></div>
+            <p>{t.welcomeEyebrow}</p>
+            <strong>{t.welcomeTitle[0]}<br /><span>{t.welcomeTitle[1]}</span></strong>
+            <div className="welcome-footer"><span>{t.welcomeFooter}</span><i aria-hidden="true">↘</i></div>
+          </aside>
         </div>
         <div className="hero-bottom">
           <p data-reveal>{t.summary}</p>

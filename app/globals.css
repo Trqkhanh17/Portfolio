@@ -54,7 +54,7 @@ button { font: inherit; color: inherit; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .18; background-image: radial-gradient(var(--ink) 1px, transparent 1px); background-size: 20px 20px; mask-image: linear-gradient(to bottom, black, transparent 74%); }
 .hero-status { align-self: flex-start; display: flex; align-items: center; gap: 10px; border: 2px solid var(--ink); padding: 8px 12px; font-size: .72rem; font-weight: 700; background: white; box-shadow: 4px 4px 0 var(--ink); }
 .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid var(--ink); animation: status-pulse 1.8s ease-in-out infinite; }
-.hero-grid { margin: auto 0; padding: 36px 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, .65fr); gap: 4vw; align-items: center; margin: auto 0; padding: 36px 0; }
 .eyebrow { margin: 0 0 8px; font-weight: 700; }
 .name-placeholder { display: inline-block; padding: 7px 12px; background: var(--green); border: 2px solid var(--ink); font-size: clamp(.9rem, 1.5vw, 1.25rem); font-weight: 700; transform: rotate(-1deg); }
 .hero h1 { margin: 22px 0 0; font: 400 clamp(4.4rem, 9.5vw, 10rem)/.82 "Archivo Black", sans-serif; letter-spacing: -.065em; }
@@ -73,6 +73,15 @@ button { font: inherit; color: inherit; }
 .hero-actions a { padding: 13px 10px; text-align: center; font-size: .75rem; font-weight: 700; transition: background .16s ease, transform .12s ease; }
 .hero-actions a + a { border-left: var(--line); }
 .hero-actions a:hover { background: var(--orange); }
+.hero-welcome { position: relative; min-height: 440px; display: flex; flex-direction: column; overflow: hidden; border: var(--line); background: var(--orange); box-shadow: 12px 12px 0 var(--ink); transform: rotate(1deg); isolation: isolate; }
+.hero-welcome::before { content: ""; position: absolute; z-index: -1; width: 210px; height: 210px; right: -75px; top: 78px; border: 34px solid var(--green); border-radius: 50%; }
+.hero-welcome::after { content: "+"; position: absolute; z-index: -1; left: -22px; bottom: 22px; color: transparent; font: 400 13rem/.65 "Archivo Black", sans-serif; -webkit-text-stroke: 3px var(--ink); transform: rotate(12deg); opacity: .22; }
+.welcome-kicker { display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: var(--line); background: var(--paper); font-size: .6rem; font-weight: 900; }
+.hero-welcome > p { margin: auto 18px 10px; font-size: .72rem; font-weight: 900; letter-spacing: .08em; }
+.hero-welcome > strong { margin: 0 16px auto; font: 400 clamp(3.1rem, 4.4vw, 5.8rem)/.78 "Archivo Black", sans-serif; letter-spacing: -.07em; }
+.hero-welcome > strong span { color: var(--paper); -webkit-text-stroke: 2px var(--ink); text-shadow: 4px 4px 0 var(--ink); }
+.welcome-footer { display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding-left: 14px; border-top: var(--line); background: var(--green); font-size: .62rem; font-weight: 900; }
+.welcome-footer i { align-self: stretch; display: grid; place-items: center; width: 52px; border-left: var(--line); background: var(--paper); font: normal 900 1.2rem/1 "IBM Plex Mono", monospace; }
 .hero-bottom { display: grid; grid-template-columns: 1fr 1.4fr; border-top: var(--line); }
 .hero-bottom > p { margin: 0; padding: 22px 20px 22px 0; font-size: .85rem; line-height: 1.7; }
 .quick-facts { display: grid; grid-template-columns: repeat(3, 1fr); border-left: var(--line); }
@@ -271,7 +280,9 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
   .pointer-stamp { display: none; }
   .nav-menu { display: none; }
   .language-switch { margin-left: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero-main { min-width: 0; }
+  .hero-welcome { width: min(100% - 12px, 620px); min-height: 310px; transform: none; }
   .hero-bottom { grid-template-columns: 1fr; }
   .quick-facts { border-left: 0; border-top: var(--line); }
   .section { grid-template-columns: 1fr; }
@@ -301,6 +312,8 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px
   .hero h1 { font-size: clamp(2.9rem, 16vw, 5.2rem); }
   .hero-notes { gap: 8px; margin-top: 22px; }
   .hero-note { padding: 6px 8px; font-size: .52rem; box-shadow: 3px 3px 0 var(--ink); }
+  .hero-welcome { min-height: 280px; }
+  .hero-welcome > strong { font-size: clamp(3.2rem, 16vw, 5.4rem); }
   .hero-bottom > p { padding: 20px 0; }
   .quick-facts { grid-template-columns: 1fr; }
   .quick-facts div + div { border-left: 0; border-top: var(--line); }
