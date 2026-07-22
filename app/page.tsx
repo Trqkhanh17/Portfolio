@@ -10,9 +10,9 @@ const copy = {
     role: "KỸ SƯ PHẦN MỀM",
     hello: "XIN CHÀO, TÔI LÀ",
     headline: ["KỸ SƯ", "PHẦN MỀM"],
-    profile: "VỀ_TÔI.TXT",
-    profileIntro: "Tôi là Trần Quốc Khánh, một Software Engineer đang sống và làm việc tại TP. Hồ Chí Minh. Ngoài giờ làm, tôi thường mày mò tìm hiểu một công nghệ mới, lần theo cách một hệ thống vận hành hoặc biến một ý tưởng nhỏ thành thứ có thể tự tay dùng thử. Tôi trân trọng những người sẵn lòng chia sẻ và tin rằng tiến bộ đều đặn mỗi ngày đáng giá hơn việc cố tỏ ra mình đã biết mọi câu trả lời.",
-    profileHighlights: ["TÒ MÒ ĐẾN CÙNG", "HỌC BẰNG CÁCH LÀM", "CỞI MỞ KHI HỢP TÁC"],
+    profile: "KHANH.PROFILE",
+    profileQuote: "Phần mềm tốt bắt đầu từ trước dòng code đầu tiên.",
+    profileData: [["TÍNH CÁCH", "HÒA ĐỒNG / VUI VẺ"], ["KHI LÀM VIỆC", "NGHIÊM TÚC / KỸ LƯỠNG"], ["ĐANG Ở", "TP. HỒ CHÍ MINH"], ["LUÔN SẴN SÀNG", "HỌC HỎI / HỢP TÁC"]],
     viewProjects: "XEM DỰ ÁN ↓",
     resume: "TẢI CV ↗",
     summary: "Tôi học tốt nhất khi được tự tay làm: lần theo một câu hỏi đến tận gốc, thử đủ lâu để hiểu và chỉ giữ lại những điều thật sự hữu ích.",
@@ -121,9 +121,9 @@ const copy = {
     role: "SOFTWARE ENGINEER",
     hello: "HELLO, I'M",
     headline: ["SOFTWARE", "ENGINEER"],
-    profile: "PROFILE.TXT",
-    profileIntro: "Hello!!!, I'm Tran Quoc Khanh, a Software Engineer based in Ho Chi Minh City. I'm curious by nature and often spend my free time exploring a new technology, reading about how a system works, or turning a small idea into something I can try for myself. I enjoy working with people who are open to sharing what they know, and I value steady progress more than pretending to have every answer.",
-    profileHighlights: ["CURIOUS BY NATURE", "ALWAYS LEARNING", "OPEN TO COLLABORATION"],
+    profile: "KHANH.PROFILE",
+    profileQuote: "Good software starts before the first line of code.",
+    profileData: [["PERSONALITY", "EASYGOING / UPBEAT"], ["WORK MODE", "SERIOUS / THOROUGH"], ["BASED IN", "HO CHI MINH CITY"], ["OPEN TO", "LEARNING / COLLABORATION"]],
     viewProjects: "VIEW PROJECTS ↓",
     resume: "DOWNLOAD CV ↗",
     summary: "I like to learn slowly but thoroughly: follow an idea far enough to understand it, try it for myself, and keep what proves genuinely useful.",
@@ -403,8 +403,13 @@ export default function Home() {
           <aside className="hero-card" data-tilt>
             <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
             <div className="hero-card-content">
-              <p className="profile-intro">{t.profileIntro}</p>
-              <div className="profile-highlights">{t.profileHighlights.map(item => <span key={item}>{item}</span>)}</div>
+              <div className="profile-poster">
+                <div className="profile-art" aria-hidden="true"><span className="art-index">01 / 05</span><strong>SE</strong><span className="art-caption">SOFTWARE<br />ENGINEER</span><i>+</i></div>
+                <div className="profile-info">
+                  <blockquote>{t.profileQuote}</blockquote>
+                  <dl>{t.profileData.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+                </div>
+              </div>
             </div>
             <div className="hero-actions">
               <a href="#projects">{t.viewProjects}</a>
