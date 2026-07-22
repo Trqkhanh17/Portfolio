@@ -1,139 +1,187 @@
-const projects = [
-  {
-    number: "01",
-    title: "MOTION / MATTER",
-    type: "DIGITAL EXPERIENCE",
-    color: "yellow",
-    description: "A tactile web experiment where type, motion and sound collide.",
-  },
-  {
-    number: "02",
-    title: "OFF-GRID",
-    type: "PRODUCT SYSTEM",
-    color: "pink",
-    description: "A bold planning tool built for teams that refuse boring software.",
-  },
-  {
-    number: "03",
-    title: "NO SIGNAL",
-    type: "BRAND + WEB",
-    color: "blue",
-    description: "Identity and storefront for an independent streetwear label.",
-  },
+const stackGroups = [
+  { number: "01", title: "FRONTEND", items: ["ADD FRAMEWORK", "ADD UI LIBRARY", "ADD LANGUAGE"] },
+  { number: "02", title: "BACKEND", items: ["ADD FRAMEWORK", "ADD RUNTIME", "ADD API STYLE"] },
+  { number: "03", title: "DATABASE", items: ["ADD DATABASE", "ADD ORM", "ADD CACHE"] },
+  { number: "04", title: "DEVOPS", items: ["ADD CLOUD", "ADD CONTAINER", "ADD CI/CD"] },
 ];
 
-const capabilities = [
-  "CREATIVE DIRECTION",
-  "WEB DESIGN",
-  "FRONTEND DEVELOPMENT",
-  "DESIGN SYSTEMS",
-  "PROTOTYPING",
-  "MOTION",
-];
+const projects = ["PROJECT ONE", "PROJECT TWO", "PROJECT THREE"];
+
+function EmptyField({ children }: { children: React.ReactNode }) {
+  return <span className="empty-field">{children}</span>;
+}
 
 export default function Home() {
   return (
-    <main>
-      <nav className="nav" aria-label="Main navigation">
-        <a className="logo" href="#top" aria-label="Back to top">
-          K<span>!</span>
-        </a>
-        <div className="nav-links">
-          <a href="#work">WORK</a>
+    <main id="top">
+      <nav className="site-nav" aria-label="Main navigation">
+        <a className="brand" href="#top">PORTFOLIO<span>_</span></a>
+        <div className="nav-menu">
           <a href="#about">ABOUT</a>
-          <a className="nav-cta" href="#contact">LET&apos;S TALK ↗</a>
+          <a href="#stack">STACK</a>
+          <a href="#experience">EXPERIENCE</a>
+          <a href="#projects">PROJECTS</a>
         </div>
+        <a className="contact-button" href="#contact">CONTACT ↗</a>
       </nav>
 
-      <section className="hero" id="top">
-        <div className="hero-kicker">
-          <span>INDEPENDENT CREATIVE DEVELOPER</span>
-          <span>SAIGON · VN</span>
+      <header className="hero">
+        <div className="hero-status">
+          <span className="status-dot" aria-hidden="true" />
+          SOFTWARE ENGINEER
         </div>
-        <h1>
-          DIGITAL
-          <span className="hero-line">
-            <span className="asterisk" aria-hidden="true">✱</span>
-            THINGS
-          </span>
-          <span className="hero-line outline-line">THAT HIT.</span>
-        </h1>
-        <div className="hero-footer">
-          <p>I design and build expressive digital experiences for people who care about standing out.</p>
-          <a className="circle-link" href="#work" aria-label="View selected work">↓</a>
-        </div>
-      </section>
 
-      <div className="ticker" aria-label="Areas of expertise">
-        <div className="ticker-track">
-          <span>DESIGN ✦ CODE ✦ MOTION ✦ IDEAS ✦</span>
-          <span aria-hidden="true">DESIGN ✦ CODE ✦ MOTION ✦ IDEAS ✦</span>
+        <div className="hero-grid">
+          <div className="hero-main">
+            <p className="eyebrow">HELLO, I&apos;M</p>
+            <div className="name-placeholder">[ YOUR NAME ]</div>
+            <h1>BUILDING<br />SOFTWARE<br /><span>THAT WORKS.</span></h1>
+          </div>
+
+          <aside className="hero-card">
+            <div className="window-bar">
+              <span>PROFILE.TXT</span>
+              <span>— □ ×</span>
+            </div>
+            <div className="hero-card-content">
+              <p><span className="code-key">role:</span> &quot;Software Engineer&quot;</p>
+              <p><span className="code-key">location:</span> <EmptyField>ADD LOCATION</EmptyField></p>
+              <p><span className="code-key">focus:</span> <EmptyField>ADD SPECIALIZATION</EmptyField></p>
+              <p><span className="code-key">status:</span> <EmptyField>ADD AVAILABILITY</EmptyField></p>
+            </div>
+            <div className="hero-actions">
+              <a href="#projects">VIEW PROJECTS ↓</a>
+              <a href="#">RÉSUMÉ ↗</a>
+            </div>
+          </aside>
+        </div>
+
+        <div className="hero-bottom">
+          <p><EmptyField>ADD A SHORT INTRODUCTION ABOUT YOURSELF HERE.</EmptyField></p>
+          <div className="quick-facts">
+            <div><strong>—</strong><span>YEARS EXPERIENCE</span></div>
+            <div><strong>—</strong><span>PROJECTS SHIPPED</span></div>
+            <div><strong>—</strong><span>CUPS OF COFFEE</span></div>
+          </div>
+        </div>
+      </header>
+
+      <div className="marquee" aria-label="Software engineering disciplines">
+        <div className="marquee-track">
+          <span>WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ API DEVELOPMENT ✦ CLEAN CODE ✦</span>
+          <span aria-hidden="true">WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ API DEVELOPMENT ✦ CLEAN CODE ✦</span>
         </div>
       </div>
 
-      <section className="work" id="work">
-        <div className="section-heading">
-          <p>[01] SELECTED WORK</p>
-          <h2>BUILT TO BE<br />REMEMBERED.</h2>
-        </div>
-        <div className="project-list">
-          {projects.map((project) => (
-            <article className={`project ${project.color}`} key={project.number}>
-              <div className="project-top">
-                <span>{project.number}</span>
-                <span>{project.type}</span>
-              </div>
-              <div className="project-body">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <span className="project-arrow" aria-hidden="true">↗</span>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="about" id="about">
-        <div className="about-label">[02] THE SHORT VERSION</div>
-        <div className="about-copy">
-          <p>
-            I TURN <span className="highlight-yellow">MESSY IDEAS</span> INTO
-            CLEAR, USEFUL AND <span className="highlight-pink">LOUD</span> DIGITAL WORK.
-          </p>
-          <div className="about-note">
-            <span>NO FLUFF.</span>
-            <span>NO TEMPLATES.</span>
-            <span>JUST GOOD WORK.</span>
+      <section className="about section" id="about">
+        <div className="section-index">01 / ABOUT</div>
+        <div className="section-content about-content">
+          <h2>ENGINEERING WITH<br /><span>CLARITY &amp; PURPOSE.</span></h2>
+          <div className="about-grid">
+            <p className="large-placeholder"><EmptyField>ADD YOUR PROFESSIONAL SUMMARY. WRITE ABOUT THE PROBLEMS YOU ENJOY SOLVING AND THE KIND OF SOFTWARE YOU WANT TO BUILD.</EmptyField></p>
+            <div className="principles">
+              <div><span>01</span><strong>RELIABLE SYSTEMS</strong></div>
+              <div><span>02</span><strong>CLEAN ARCHITECTURE</strong></div>
+              <div><span>03</span><strong>USER-FIRST THINKING</strong></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="capabilities">
-        <div className="section-heading compact">
-          <p>[03] WHAT I DO</p>
-          <h2>FULL STACK.<br />FULL FORCE.</h2>
-        </div>
-        <div className="capability-list">
-          {capabilities.map((item, index) => (
-            <div className="capability" key={item}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item}</h3>
-              <span aria-hidden="true">●</span>
-            </div>
-          ))}
+      <section className="stack section" id="stack">
+        <div className="section-index">02 / TECH STACK</div>
+        <div className="section-content">
+          <div className="section-title-row">
+            <h2>TOOLS I USE.</h2>
+            <p>REPLACE THE FIELDS BELOW WITH YOUR ACTUAL TECHNOLOGIES.</p>
+          </div>
+          <div className="stack-grid">
+            {stackGroups.map((group) => (
+              <article className="stack-card" key={group.title}>
+                <div className="stack-card-head"><span>{group.number}</span><span>●</span></div>
+                <h3>{group.title}</h3>
+                <ul>
+                  {group.items.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="contact" id="contact">
-        <p>[04] HAVE A GOOD IDEA?</p>
-        <h2>LET&apos;S MAKE<br /><span>SOME NOISE.</span></h2>
-        <a href="mailto:hello@example.com">HELLO@EXAMPLE.COM ↗</a>
-        <div className="contact-footer">
-          <span>© 2026</span>
-          <span>AVAILABLE FOR SELECT PROJECTS</span>
-          <a href="#top">BACK TO TOP ↑</a>
+      <section className="experience section" id="experience">
+        <div className="section-index">03 / EXPERIENCE</div>
+        <div className="section-content">
+          <h2>WHERE I&apos;VE<br />BUILT THINGS.</h2>
+          <div className="timeline">
+            {["EXPERIENCE 01", "EXPERIENCE 02"].map((item, index) => (
+              <article className="timeline-item" key={item}>
+                <span className="timeline-number">0{index + 1}</span>
+                <div>
+                  <p className="timeline-label">[ ROLE TITLE ]</p>
+                  <h3>[ COMPANY NAME ]</h3>
+                  <p><EmptyField>ADD A SHORT DESCRIPTION OF YOUR RESPONSIBILITIES AND IMPACT.</EmptyField></p>
+                </div>
+                <span className="timeline-date">[ START — END ]</span>
+              </article>
+            ))}
+          </div>
+          <div className="education-row">
+            <span>EDUCATION</span>
+            <strong>[ DEGREE / MAJOR ]</strong>
+            <span>[ SCHOOL NAME · YEAR ]</span>
+          </div>
         </div>
       </section>
+
+      <section className="projects section" id="projects">
+        <div className="section-index">04 / PROJECTS</div>
+        <div className="section-content">
+          <div className="section-title-row">
+            <h2>SELECTED BUILDS.</h2>
+            <p>PROJECTS THAT SHOW HOW YOU THINK, BUILD AND SHIP.</p>
+          </div>
+          <div className="projects-list">
+            {projects.map((project, index) => (
+              <article className="project-card" key={project}>
+                <div className="project-topline">
+                  <span>0{index + 1}</span>
+                  <span>[ YEAR ]</span>
+                </div>
+                <div className="project-preview" aria-hidden="true">
+                  <span>&lt;/&gt;</span>
+                  <div className="preview-lines"><i /><i /><i /></div>
+                </div>
+                <h3>[ {project} ]</h3>
+                <p><EmptyField>ADD WHAT YOU BUILT, THE PROBLEM IT SOLVES AND YOUR CONTRIBUTION.</EmptyField></p>
+                <div className="project-meta">
+                  <span>[ TECH STACK ]</span>
+                  <span>CODE ↗ &nbsp; LIVE ↗</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="contact section" id="contact">
+        <div className="section-index">05 / CONTACT</div>
+        <div className="section-content contact-content">
+          <p>HAVE A ROLE, PROJECT OR IDEA?</p>
+          <h2>LET&apos;S BUILD<br /><span>SOMETHING SOLID.</span></h2>
+          <div className="contact-links">
+            <span>[ YOUR EMAIL ADDRESS ]</span>
+            <span>[ GITHUB URL ]</span>
+            <span>[ LINKEDIN URL ]</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>SOFTWARE ENGINEER PORTFOLIO</span>
+        <span>© 2026</span>
+        <a href="#top">BACK TO TOP ↑</a>
+      </footer>
     </main>
   );
 }
