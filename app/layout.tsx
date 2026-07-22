@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://khanh-neo-portfolio.tranquockhanh1782003.chatgpt.site"),
   title: "Trần Quốc Khánh — Software Engineer",
   description: "Portfolio of Tran Quoc Khanh — a Software Engineer building web applications and business systems.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Trần Quốc Khánh — Software Engineer",
     description: "A Software Engineer focused on understanding real workflows and turning them into clear, reliable software.",
