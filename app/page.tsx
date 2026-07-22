@@ -229,8 +229,107 @@ export default function Home() {
     document.documentElement.lang = lang;
   }, [lang]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointer = window.matchMedia("(pointer: fine)");
+    const revealItems = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".nav-menu a"));
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main section[id]"));
+    const pointer = document.querySelector<HTMLElement>(".pointer-stamp");
+    const tiltItems = Array.from(document.querySelectorAll<HTMLElement>("[data-tilt]"));
+    let pointerFrame = 0;
+
+    root.classList.add("motion-ready");
+
+    const updateScrollProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      root.style.setProperty("--scroll-progress", progress.toString());
+    };
+
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6%" });
+
+    revealItems.forEach((item, index) => {
+      item.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 70}ms`);
+      if (reducedMotion.matches) item.classList.add("is-visible");
+      else revealObserver.observe(item);
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach((link) => link.classList.toggle("is-current", link.hash === `#${visible.target.id}`));
+    }, { threshold: [0.2, 0.45], rootMargin: "-18% 0px -55%" });
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const movePointer = (event: PointerEvent) => {
+      if (!pointer || !finePointer.matches) return;
+      cancelAnimationFrame(pointerFrame);
+      pointerFrame = requestAnimationFrame(() => {
+        pointer.style.setProperty("--pointer-x", `${event.clientX}px`);
+        pointer.style.setProperty("--pointer-y", `${event.clientY}px`);
+        pointer.classList.add("is-active");
+      });
+    };
+    const setPointerMode = (event: PointerEvent) => {
+      if (!pointer) return;
+      const target = event.target as HTMLElement;
+      pointer.classList.toggle("is-link", Boolean(target.closest("a, button, [data-tilt]")));
+    };
+    window.addEventListener("pointermove", movePointer, { passive: true });
+    document.addEventListener("pointerover", setPointerMode, { passive: true });
+
+    const tiltCleanups = tiltItems.map((item) => {
+      const move = (event: PointerEvent) => {
+        if (!finePointer.matches || reducedMotion.matches) return;
+        const bounds = item.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        item.style.setProperty("--tilt-x", `${(-y * 2.5).toFixed(2)}deg`);
+        item.style.setProperty("--tilt-y", `${(x * 3).toFixed(2)}deg`);
+      };
+      const reset = () => {
+        item.style.setProperty("--tilt-x", "0deg");
+        item.style.setProperty("--tilt-y", "0deg");
+      };
+      item.addEventListener("pointermove", move);
+      item.addEventListener("pointerleave", reset);
+      return () => {
+        item.removeEventListener("pointermove", move);
+        item.removeEventListener("pointerleave", reset);
+      };
+    });
+
+    return () => {
+      root.classList.remove("motion-ready");
+      root.style.removeProperty("--scroll-progress");
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("pointermove", movePointer);
+      document.removeEventListener("pointerover", setPointerMode);
+      cancelAnimationFrame(pointerFrame);
+      revealObserver.disconnect();
+      sectionObserver.disconnect();
+      tiltCleanups.forEach((cleanup) => cleanup());
+    };
+  }, []);
+
   return (
     <main id="top">
+      <div className="scroll-progress" aria-hidden="true" />
+      <div className="pointer-stamp" aria-hidden="true"><span>+</span></div>
       <nav className="site-nav" aria-label="Main navigation">
         <a className="brand" href="#top">KQ<span>_</span></a>
         <div className="nav-menu">
@@ -249,9 +348,9 @@ export default function Home() {
           <div className="hero-main">
             <p className="eyebrow">{t.hello}</p>
             <div className="name-placeholder">TRẦN QUỐC KHÁNH</div>
-            <h1>{t.headline[0]}<br /><span>{t.headline[1]}</span></h1>
+            <h1><span className="headline-line headline-solid">{t.headline[0]}</span><span className="headline-line headline-outline">{t.headline[1]}</span></h1>
           </div>
-          <aside className="hero-card">
+          <aside className="hero-card" data-tilt>
             <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
             <div className="hero-card-content">
               <p className="profile-intro">{t.profileIntro}</p>
@@ -264,8 +363,8 @@ export default function Home() {
           </aside>
         </div>
         <div className="hero-bottom">
-          <p>{t.summary}</p>
-          <div className="quick-facts">{t.facts.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
+          <p data-reveal>{t.summary}</p>
+          <div className="quick-facts">{t.facts.map(([value, label]) => <div key={label} data-reveal><strong>{value}</strong><span>{label}</span></div>)}</div>
         </div>
       </header>
 
@@ -273,14 +372,14 @@ export default function Home() {
 
       <section className="about section" id="about">
         <div className="section-index">{t.aboutIndex}</div>
-        <div className="section-content about-content">
+        <div className="section-content about-content" data-reveal>
           <h2>{t.aboutTitle[0]}<br /><span>{t.aboutTitle[1]}</span></h2>
           <div className="about-grid">
             <div className="about-copy">
               <p className="large-placeholder">{t.aboutText}</p>
               <div className="principles">{t.principles.map(([number, label]) => <div key={number}><span>{number}</span><strong>{label}</strong></div>)}</div>
             </div>
-            <figure className="about-portrait">
+            <figure className="about-portrait" data-reveal>
               <img
                 src="/tran-quoc-khanh-graduation.png"
                 width="560"
@@ -298,9 +397,9 @@ export default function Home() {
       <section className="stack section" id="stack">
         <div className="section-index">{t.stackIndex}</div>
         <div className="section-content">
-          <div className="section-title-row"><h2>{t.stackTitle}</h2><p>{t.stackNote}</p></div>
+          <div className="section-title-row" data-reveal><h2>{t.stackTitle}</h2><p>{t.stackNote}</p></div>
           <div className="stack-grid">
-            {t.stackGroups.map(([title, items], index) => <article className="stack-card" key={title}><div className="stack-card-head"><span>0{index + 1}</span><span>●</span></div><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></article>)}
+            {t.stackGroups.map(([title, items], index) => <article className="stack-card" key={title} data-reveal><div className="stack-card-head"><span>0{index + 1}</span><span className="card-signal">●</span></div><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></article>)}
           </div>
         </div>
       </section>
@@ -308,9 +407,9 @@ export default function Home() {
       <section className="experience section" id="experience">
         <div className="section-index">{t.expIndex}</div>
         <div className="section-content">
-          <h2>{t.expTitle[0]}<br />{t.expTitle[1]}</h2>
+          <h2 data-reveal>{t.expTitle[0]}<br />{t.expTitle[1]}</h2>
           <div className="timeline">
-            <article className="timeline-item">
+            <article className="timeline-item" data-reveal>
               <span className="timeline-number">01</span>
               <div>
                 <p className="timeline-label">{t.expRole}</p>
@@ -321,17 +420,17 @@ export default function Home() {
               <span className="timeline-date">{t.expDate}</span>
             </article>
           </div>
-          <div className="education-row"><span>{t.education}</span><strong>{t.degree}</strong><span>{t.school}</span></div>
+          <div className="education-row" data-reveal><span>{t.education}</span><strong>{t.degree}</strong><span>{t.school}</span></div>
         </div>
       </section>
 
       <section className="projects section" id="projects">
         <div className="section-index">{t.projectsIndex}</div>
         <div className="section-content">
-          <div className="section-title-row"><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
+          <div className="section-title-row" data-reveal><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
           <div className="projects-list">
             {t.projects.map((project, index) => (
-              <article className="project-card featured-project" key={project.title}>
+              <article className="project-card featured-project" key={project.title} data-reveal data-tilt>
                 <div className="project-topline"><span>0{index + 1}</span><span>{project.label}</span></div>
                 <div className="featured-project-grid">
                   <div className="project-preview" aria-hidden="true"><span>{project.visual}</span><div className="preview-lines"><i /><i /><i /><i /></div><b>{project.label.split(" ").slice(-2).map(word => <span key={word}>{word}<br /></span>)}</b></div>
@@ -353,7 +452,7 @@ export default function Home() {
 
       <section className="contact section" id="contact">
         <div className="section-index">{t.contactIndex}</div>
-        <div className="section-content contact-content">
+        <div className="section-content contact-content" data-reveal>
           <p>{t.contactLead}</p><h2>{t.contactTitle[0]}<br /><span>{t.contactTitle[1]}</span></h2>
           <div className="contact-links">
             <a href="mailto:khanhtranquoc44@gmail.com"><small>{t.email}</small><strong>khanhtranquoc44@gmail.com</strong></a>
