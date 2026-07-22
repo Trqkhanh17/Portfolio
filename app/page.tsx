@@ -48,12 +48,13 @@ const copy = {
     degree: "KỸ SƯ CÔNG NGHỆ THÔNG TIN · GPA 3.0/4.0",
     school: "ĐẠI HỌC NAM CẦN THƠ · 2021—2025",
     projectsIndex: "04 / SELECTED BUILDS",
-    projectsTitle: "SYSTEMS I'VE BUILT.",
+    projectsTitle: "PROJECTS I'VE BUILT.",
     projectsNote: "DỰ ÁN CÁ NHÂN THỂ HIỆN TƯ DUY XÂY DỰNG SẢN PHẨM FULL-STACK.",
     projects: [
       {
         title: "CRM & E-COMMERCE LINH KIỆN ĐIỆN TỬ",
         label: "PERSONAL FULL-STACK PROJECT",
+        visual: "CRM",
         description: "Hệ thống quản lý quan hệ khách hàng kết hợp cửa hàng trực tuyến dành cho lĩnh vực linh kiện điện tử. Dự án gồm storefront cho khách mua hàng và dashboard quản trị để vận hành sản phẩm, khách hàng, đơn hàng, kho và doanh thu.",
         features: [
           "Đăng ký, đăng nhập JWT, phân quyền admin/khách hàng, quản lý hồ sơ và khóa hoặc mở khóa tài khoản.",
@@ -63,10 +64,30 @@ const copy = {
           "Backend phân lớp Route → Controller → Service → Repository, validation Zod, upload Firebase và triển khai Docker.",
         ],
         tech: "REACT · TYPESCRIPT · REDUX TOOLKIT · ANT DESIGN · EXPRESS · PRISMA · MYSQL · DOCKER",
+        links: [
+          ["BACKEND REPOSITORY ↗", "https://github.com/Trqkhanh17/Backend_LinhKienDienTu"],
+          ["FRONTEND REPOSITORY ↗", "https://github.com/Trqkhanh17/FrontEnd_BanLinhKienDienTu"],
+        ],
+      },
+      {
+        title: "COFFEE STYLE — RESPONSIVE E-COMMERCE UI",
+        label: "PERSONAL UI PROJECT",
+        visual: "UI",
+        description: "Giao diện e-commerce đa trang dành cho thương hiệu cà phê, tập trung vào trải nghiệm hình ảnh, bố cục responsive và các tương tác mua sắm mượt mà trên mobile, tablet và desktop.",
+        features: [
+          "Trang chủ gồm hero slider, câu chuyện thương hiệu, sản phẩm nổi bật, coffee magazine, lifestyle stories và newsletter.",
+          "Danh mục có bộ lọc sản phẩm; trang chi tiết hiển thị tổng quan, mô tả, điểm nổi bật và gợi ý sản phẩm liên quan.",
+          "Giỏ hàng dạng drawer hỗ trợ thêm, xóa, cộng dồn số lượng, tính subtotal và hiển thị empty state.",
+          "Các trang About, Blog, Contact, Google Map, biểu mẫu liên hệ và trang 404 được xây dựng đồng nhất theo design system.",
+          "Routing lazy-load, animation bằng Framer Motion và giao diện responsive triển khai trên Vercel.",
+        ],
+        tech: "REACT 19 · TYPESCRIPT · TAILWIND CSS · FRAMER MOTION · REACT ROUTER · VITE",
+        links: [
+          ["REPOSITORY ↗", "https://github.com/Trqkhanh17/TailwindCSS-Coffee-Style"],
+          ["LIVE DEMO ↗", "https://tailwind-css-coffee-style-njplduecf.vercel.app"],
+        ],
       },
     ],
-    backend: "BACKEND REPOSITORY ↗",
-    frontend: "FRONTEND REPOSITORY ↗",
     contactIndex: "05 / CONTACT",
     contactLead: "HAVE A ROLE, PROJECT OR IDEA THAT FITS?",
     contactTitle: ["LET'S BUILD", "SOMETHING SOLID."],
@@ -119,12 +140,13 @@ const copy = {
     degree: "B.ENG. IN INFORMATION TECHNOLOGY · GPA 3.0/4.0",
     school: "NAM CAN THO UNIVERSITY · 2021—2025",
     projectsIndex: "04 / SELECTED BUILDS",
-    projectsTitle: "SYSTEMS I'VE BUILT.",
+    projectsTitle: "PROJECTS I'VE BUILT.",
     projectsNote: "PERSONAL WORK THAT DEMONSTRATES END-TO-END PRODUCT ENGINEERING.",
     projects: [
       {
         title: "ELECTRONICS CRM & E-COMMERCE",
         label: "PERSONAL FULL-STACK PROJECT",
+        visual: "CRM",
         description: "A customer relationship management system combined with an electronics storefront. The project includes a customer-facing shopping experience and an admin dashboard for operating products, customers, orders, stock, and revenue.",
         features: [
           "JWT registration and authentication, admin/customer authorization, profile management, and account ban or unban workflows.",
@@ -134,10 +156,30 @@ const copy = {
           "Layered Route → Controller → Service → Repository backend, Zod validation, Firebase uploads, and Docker deployment.",
         ],
         tech: "REACT · TYPESCRIPT · REDUX TOOLKIT · ANT DESIGN · EXPRESS · PRISMA · MYSQL · DOCKER",
+        links: [
+          ["BACKEND REPOSITORY ↗", "https://github.com/Trqkhanh17/Backend_LinhKienDienTu"],
+          ["FRONTEND REPOSITORY ↗", "https://github.com/Trqkhanh17/FrontEnd_BanLinhKienDienTu"],
+        ],
+      },
+      {
+        title: "COFFEE STYLE — RESPONSIVE E-COMMERCE UI",
+        label: "PERSONAL UI PROJECT",
+        visual: "UI",
+        description: "A multi-page e-commerce interface for a coffee brand, focused on visual storytelling, responsive layouts, and smooth shopping interactions across mobile, tablet, and desktop.",
+        features: [
+          "A rich homepage with a hero slider, brand story, featured products, coffee magazine promotion, lifestyle stories, and newsletter.",
+          "A filterable product catalog and detail pages with overview, description, highlights, and related-product suggestions.",
+          "An animated cart drawer with add, remove, quantity aggregation, subtotal calculation, and an empty state.",
+          "Consistent About, Blog, Contact, Google Map, contact form, and custom 404 experiences.",
+          "Lazy-loaded routing, Framer Motion interactions, responsive design, and deployment on Vercel.",
+        ],
+        tech: "REACT 19 · TYPESCRIPT · TAILWIND CSS · FRAMER MOTION · REACT ROUTER · VITE",
+        links: [
+          ["REPOSITORY ↗", "https://github.com/Trqkhanh17/TailwindCSS-Coffee-Style"],
+          ["LIVE DEMO ↗", "https://tailwind-css-coffee-style-njplduecf.vercel.app"],
+        ],
       },
     ],
-    backend: "BACKEND REPOSITORY ↗",
-    frontend: "FRONTEND REPOSITORY ↗",
     contactIndex: "05 / CONTACT",
     contactLead: "HAVE A ROLE, PROJECT OR IDEA THAT FITS?",
     contactTitle: ["LET'S BUILD", "SOMETHING SOLID."],
@@ -244,14 +286,13 @@ export default function Home() {
               <article className="project-card featured-project" key={project.title}>
                 <div className="project-topline"><span>0{index + 1}</span><span>{project.label}</span></div>
                 <div className="featured-project-grid">
-                  <div className="project-preview" aria-hidden="true"><span>CRM</span><div className="preview-lines"><i /><i /><i /><i /></div><b>FULL<br />STACK</b></div>
+                  <div className="project-preview" aria-hidden="true"><span>{project.visual}</span><div className="preview-lines"><i /><i /><i /><i /></div><b>{project.label.split(" ").slice(-2).map(word => <span key={word}>{word}<br /></span>)}</b></div>
                   <div className="project-details">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
                     <ul className="project-features">{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
                     <div className="repo-links">
-                      <a href="https://github.com/Trqkhanh17/Backend_LinhKienDienTu" target="_blank" rel="noreferrer">{t.backend}</a>
-                      <a href="https://github.com/Trqkhanh17/FrontEnd_BanLinhKienDienTu" target="_blank" rel="noreferrer">{t.frontend}</a>
+                      {project.links.map(([label, href]) => <a key={href} href={href} target="_blank" rel="noreferrer">{label}</a>)}
                     </div>
                   </div>
                 </div>
