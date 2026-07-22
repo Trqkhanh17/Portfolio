@@ -30,7 +30,7 @@ export const portfolioContent = {
       ["TOOLS & PROCESS", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
     ],
     expIndex: "03 / KINH NGHIỆM",
-    expTitle: ["NHỮNG GÌ TÔI", "LÀM Ở CÔNG TY."],
+    expTitle: ["NƠI TÔI", "TẠO RA GIÁ TRỊ."],
     expRole: "KỸ SƯ PHẦN MỀM",
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "10/2025 — HIỆN TẠI",
