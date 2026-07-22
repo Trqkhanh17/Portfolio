@@ -10,9 +10,6 @@ const copy = {
     role: "KỸ SƯ PHẦN MỀM",
     hello: "XIN CHÀO, TÔI LÀ",
     headline: ["KỸ SƯ", "PHẦN MỀM"],
-    profile: "profile.md",
-    profileQuote: "Tò mò khi học. Kỹ lưỡng khi làm.",
-    profileData: [["NGÀY SINH", "17/08/2003"], ["TÍNH CÁCH", "HÒA ĐỒNG / VUI VẺ"], ["KHI LÀM VIỆC", "NGHIÊM TÚC / KỸ LƯỠNG"], ["ĐANG Ở", "TP. HỒ CHÍ MINH"], ["LUÔN SẴN SÀNG", "HỌC HỎI / HỢP TÁC"]],
     viewProjects: "XEM DỰ ÁN ↓",
     resume: "TẢI CV ↗",
     summary: "Tôi học tốt nhất khi được tự tay làm: lần theo một câu hỏi đến tận gốc, thử đủ lâu để hiểu và chỉ giữ lại những điều thật sự hữu ích.",
@@ -22,6 +19,7 @@ const copy = {
     aboutIndex: "01 / VỀ TÔI",
     aboutTitle: ["TÔI LÀ AI.", "CÁCH TÔI LÀM VIỆC."],
     aboutText: "Tôi là người hòa đồng, vui vẻ và khá dễ bắt nhịp khi làm việc cùng mọi người. Nhưng với công việc, tôi luôn giữ sự nghiêm túc và trách nhiệm. Trước khi bắt tay vào một tính năng, tôi muốn có đủ bối cảnh: ai sẽ dùng, họ đang vướng ở đâu, quy trình hiện tại diễn ra thế nào và những trường hợp nào dễ bị bỏ sót. Khi mọi thứ đã rõ, tôi làm từng phần cẩn thận, kiểm tra kỹ và trao đổi lại ngay nếu vẫn còn điểm chưa chắc chắn. Với tôi, làm nhanh chỉ có ý nghĩa khi vẫn hiểu đúng và làm đến nơi đến chốn.",
+    aboutMeta: [["NGÀY SINH", "17/08/2003"], ["ĐANG SỐNG TẠI", "TP. HỒ CHÍ MINH, VIỆT NAM"]],
     principles: [["01", "HÒA ĐỒNG VÀ CỞI MỞ"], ["02", "ĐỦ BỐI CẢNH RỒI MỚI LÀM"], ["03", "NGHIÊM TÚC VÀ KỸ LƯỠNG"]],
     stackIndex: "02 / CÔNG NGHỆ",
     stackTitle: "BỘ CÔNG CỤ CỦA TÔI.",
@@ -121,9 +119,6 @@ const copy = {
     role: "SOFTWARE ENGINEER",
     hello: "HELLO, I'M",
     headline: ["SOFTWARE", "ENGINEER"],
-    profile: "profile.md",
-    profileQuote: "Curious by nature. Careful in the work.",
-    profileData: [["DATE OF BIRTH", "17 AUGUST 2003"], ["PERSONALITY", "EASYGOING / UPBEAT"], ["WORK MODE", "SERIOUS / THOROUGH"], ["BASED IN", "HO CHI MINH CITY"], ["OPEN TO", "LEARNING / COLLABORATION"]],
     viewProjects: "VIEW PROJECTS ↓",
     resume: "DOWNLOAD CV ↗",
     summary: "I like to learn slowly but thoroughly: follow an idea far enough to understand it, try it for myself, and keep what proves genuinely useful.",
@@ -133,6 +128,7 @@ const copy = {
     aboutIndex: "01 / ABOUT",
     aboutTitle: ["WHO I AM.", "HOW I WORK."],
     aboutText: "I'm easygoing, upbeat, and quick to connect with the people I work with, but I take the work itself seriously. Before I start building a feature, I want the full context: who will use it, where the current friction is, how the workflow runs, and which cases are easy to miss. Once that picture is clear, I work carefully, check the details, and raise questions whenever something still feels uncertain. To me, moving fast only matters when the work is still understood and done properly.",
+    aboutMeta: [["DATE OF BIRTH", "17 AUGUST 2003"], ["BASED IN", "HO CHI MINH CITY, VIETNAM"]],
     principles: [["01", "OPEN AND EASY TO WORK WITH"], ["02", "GET THE FULL CONTEXT FIRST"], ["03", "SERIOUS ABOUT THE DETAILS"]],
     stackIndex: "02 / SKILLS",
     stackTitle: "TOOLS I USE.",
@@ -399,23 +395,11 @@ export default function Home() {
             <div className="name-placeholder">TRẦN QUỐC KHÁNH</div>
             <h1><span className="headline-line headline-solid">{t.headline[0]}</span><span className="headline-line headline-outline">{t.headline[1]}</span></h1>
             <div className="hero-notes" aria-label={lang === "vi" ? "Điểm nổi bật" : "Highlights"}>{t.heroNotes.map((note, index) => <span key={note} className={`hero-note note-${index + 1}`}>{note}</span>)}</div>
-          </div>
-          <aside className="hero-card" data-tilt>
-            <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
-            <div className="hero-card-content">
-              <div className="profile-poster">
-                <div className="profile-art" aria-hidden="true"><span className="art-index">01 / 05</span><strong>SOFTWARE<br />ENGINEER</strong><span className="art-caption">PORTFOLIO<br />2026</span><i>+</i></div>
-                <div className="profile-info">
-                  <blockquote>{t.profileQuote}</blockquote>
-                  <dl>{t.profileData.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-                </div>
-              </div>
-            </div>
             <div className="hero-actions">
               <a href="#projects">{t.viewProjects}</a>
               <a href="/Tran-Quoc-Khanh-CV.pdf" download>{t.resume}</a>
             </div>
-          </aside>
+          </div>
         </div>
         <div className="hero-bottom">
           <p data-reveal>{t.summary}</p>
@@ -432,6 +416,7 @@ export default function Home() {
           <div className="about-grid">
             <div className="about-copy">
               <p className="large-placeholder">{t.aboutText}</p>
+              <dl className="about-meta">{t.aboutMeta.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
               <div className="principles">{t.principles.map(([number, label]) => <div key={number}><span>{number}</span><strong>{label}</strong></div>)}</div>
             </div>
             <figure className="about-portrait" data-reveal>
