@@ -6,34 +6,34 @@ type Lang = "vi" | "en";
 
 const copy = {
   vi: {
-    nav: { about: "ABOUT", stack: "SKILLS", experience: "EXPERIENCE", projects: "PROJECTS", contact: "CONTACT ↗" },
-    role: "SOFTWARE ENGINEER",
-    hello: "HELLO, I'M",
-    headline: ["SOFTWARE", "ENGINEER"],
-    profile: "PROFILE.TXT",
+    nav: { about: "GIỚI THIỆU", stack: "KỸ NĂNG", experience: "KINH NGHIỆM", projects: "DỰ ÁN", contact: "LIÊN HỆ ↗" },
+    role: "KỸ SƯ PHẦN MỀM",
+    hello: "XIN CHÀO, TÔI LÀ",
+    headline: ["KỸ SƯ", "PHẦN MỀM"],
+    profile: "HỒ_SƠ.TXT",
     profileIntro: "Tôi là Trần Quốc Khánh, Software Engineer đang sống và làm việc tại TP. Hồ Chí Minh. Tôi là người khá tò mò; lúc rảnh tôi thường tìm hiểu một công nghệ mới, đọc về cách một hệ thống vận hành hoặc biến một ý tưởng nhỏ thành thứ có thể tự tay dùng thử. Tôi thích làm việc với những người sẵn sàng chia sẻ, và tin vào việc tiến bộ đều đặn hơn là cố tỏ ra mình đã biết mọi câu trả lời.",
-    profileHighlights: ["CURIOUS BY NATURE", "ALWAYS LEARNING", "OPEN TO COLLABORATION"],
-    viewProjects: "VIEW PROJECTS ↓",
-    resume: "DOWNLOAD CV ↗",
+    profileHighlights: ["LUÔN TÒ MÒ", "KHÔNG NGỪNG HỌC HỎI", "SẴN SÀNG HỢP TÁC"],
+    viewProjects: "XEM DỰ ÁN ↓",
+    resume: "TẢI CV ↗",
     summary: "Tôi thích học theo cách chậm mà chắc: tìm hiểu một điều cho đến nơi, tự tay thử nghiệm và giữ lại những gì thực sự có ích.",
-    facts: [["CURIOUS", "BY NATURE"], ["CONSISTENT", "HOW I GROW"], ["HỒ CHÍ MINH", "BASED IN"]],
-    marquee: "WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦",
-    aboutIndex: "01 / ABOUT",
-    aboutTitle: ["UNDERSTAND THE PROBLEM.", "THEN BUILD."],
+    facts: [["TÒ MÒ", "BẢN TÍNH"], ["BỀN BỈ", "CÁCH TÔI PHÁT TRIỂN"], ["HỒ CHÍ MINH", "ĐANG SỐNG TẠI"]],
+    marquee: "PHÁT TRIỂN WEB ✦ THIẾT KẾ HỆ THỐNG ✦ REST API ✦ KIẾN TRÚC SẠCH ✦",
+    aboutIndex: "01 / GIỚI THIỆU",
+    aboutTitle: ["HIỂU BÀI TOÁN.", "RỒI MỚI XÂY DỰNG."],
     aboutText: "Tôi đến với lập trình vì thích cảm giác một ý tưởng có thể trở thành thứ mình nhìn thấy và sử dụng được. Điều giữ tôi ở lại là quá trình học: bắt đầu từ một câu hỏi nhỏ, đọc tài liệu, thử, sai rồi hiểu rõ hơn. Tôi không cố biết mọi thứ cùng lúc; tôi muốn xây nền tảng chắc, viết code có lý do và đủ rõ để vài tháng sau vẫn hiểu vì sao mình đã chọn cách đó.",
-    principles: [["01", "UNDERSTAND THE CONTEXT"], ["02", "KEEP THE FLOW CLEAR"], ["03", "LEARN FROM EACH RELEASE"]],
-    stackIndex: "02 / SKILLS",
-    stackTitle: "TOOLS I USE.",
+    principles: [["01", "HIỂU ĐÚNG BỐI CẢNH"], ["02", "GIỮ LUỒNG XỬ LÝ RÕ RÀNG"], ["03", "HỌC TỪ MỖI LẦN TRIỂN KHAI"]],
+    stackIndex: "02 / KỸ NĂNG",
+    stackTitle: "CÔNG CỤ TÔI SỬ DỤNG.",
     stackNote: "NHỮNG CÔNG NGHỆ TÔI ĐANG DÙNG TRONG CÔNG VIỆC VÀ CÁC DỰ ÁN CÁ NHÂN.",
     stackGroups: [
-      ["FRONTEND", ["ReactJS / Next.js", "TypeScript / JavaScript", "Tailwind CSS / shadcn/ui", "TanStack Query / Zustand"]],
-      ["BACKEND", ["Python / Django / DRF", "NestJS / ExpressJS", "REST API", "Authentication & Authorization"]],
-      ["DATABASE", ["PostgreSQL / MySQL", "MongoDB", "Query Optimization", "Database Design"]],
-      ["ENGINEERING", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
+      ["GIAO DIỆN", ["ReactJS / Next.js", "TypeScript / JavaScript", "Tailwind CSS / shadcn/ui", "TanStack Query / Zustand"]],
+      ["MÁY CHỦ", ["Python / Django / DRF", "NestJS / ExpressJS", "REST API", "Authentication & Authorization"]],
+      ["CƠ SỞ DỮ LIỆU", ["PostgreSQL / MySQL", "MongoDB", "Query Optimization", "Database Design"]],
+      ["NỀN TẢNG KỸ THUẬT", ["Git / Docker / Linux", "Unit & E2E Testing", "System Integration", "AI-assisted Development"]],
     ],
-    expIndex: "03 / EXPERIENCE",
-    expTitle: ["WHAT I DO", "AT WORK."],
-    expRole: "SOFTWARE ENGINEER",
+    expIndex: "03 / KINH NGHIỆM",
+    expTitle: ["TÔI LÀM GÌ", "TRONG CÔNG VIỆC."],
+    expRole: "KỸ SƯ PHẦN MỀM",
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "10/2025 — HIỆN TẠI",
     expStack: ["PYTHON", "DJANGO", "DJANGO REST FRAMEWORK", "REACT", "POSTGRESQL"],
@@ -45,16 +45,16 @@ const copy = {
       "Khi báo cáo hoặc API phản hồi chậm, tôi lần theo truy vấn và cách lấy dữ liệu để tìm chỗ có thể tối ưu thay vì chỉ xử lý ở giao diện.",
       "Trước mỗi lần bàn giao, tôi viết và duy trì unit test, end-to-end test cho những luồng nghiệp vụ quan trọng để hạn chế lỗi quay lại.",
     ],
-    education: "EDUCATION",
+    education: "HỌC VẤN",
     degree: "KỸ SƯ CÔNG NGHỆ THÔNG TIN · GPA 3.0/4.0",
     school: "ĐẠI HỌC NAM CẦN THƠ · 2021—2025",
-    projectsIndex: "04 / SELECTED BUILDS",
-    projectsTitle: "THINGS I BUILD.",
+    projectsIndex: "04 / DỰ ÁN TIÊU BIỂU",
+    projectsTitle: "NHỮNG DỰ ÁN TÔI XÂY DỰNG.",
     projectsNote: "NHỮNG DỰ ÁN GIÚP TÔI HỌC CÁCH ĐI TỪ MỘT Ý TƯỞNG ĐẾN SẢN PHẨM CÓ THỂ CHẠY ĐƯỢC.",
     projects: [
       {
         title: "CRM & E-COMMERCE LINH KIỆN ĐIỆN TỬ",
-        label: "PERSONAL FULL-STACK PROJECT",
+        label: "DỰ ÁN FULL-STACK CÁ NHÂN",
         visual: "CRM",
         description: "Tôi làm dự án này để tự đi qua trọn vẹn một sản phẩm bán hàng: từ trải nghiệm chọn linh kiện của khách đến những công việc phía sau như quản lý kho, xử lý đơn và theo dõi doanh thu. Đây cũng là nơi tôi luyện cách tách lớp backend và giữ frontend, API cùng dữ liệu nói chung một ngôn ngữ.",
         features: [
@@ -72,7 +72,7 @@ const copy = {
       },
       {
         title: "COFFEE STYLE — RESPONSIVE E-COMMERCE UI",
-        label: "PERSONAL UI PROJECT",
+        label: "DỰ ÁN UI CÁ NHÂN",
         visual: "UI",
         description: "Một dự án UI tôi làm để luyện cảm giác về khoảng cách, nhịp nội dung và cách một giao diện thay đổi trên từng kích thước màn hình. Thay vì chỉ dựng trang chủ đẹp, tôi hoàn thiện cả hành trình xem sản phẩm, đọc câu chuyện thương hiệu và thao tác với giỏ hàng.",
         features: [
@@ -90,7 +90,7 @@ const copy = {
       },
       {
         title: "AOV SQUAD FINDER SERVER",
-        label: "IN PROGRESS — BACKEND PROJECT",
+        label: "ĐANG PHÁT TRIỂN — DỰ ÁN BACKEND",
         visual: "AOV",
         description: "Ý tưởng bắt đầu từ một nhu cầu khá đời thường: tìm đúng người để chơi Liên Quân cùng, thay vì ghép đội hoàn toàn ngẫu nhiên. Tôi đang xây phần server cho sản phẩm này; nền tảng tài khoản và bảo mật đã hoạt động, còn hồ sơ game, kết bạn và logic tìm đội vẫn đang được hoàn thiện.",
         features: [
@@ -104,14 +104,14 @@ const copy = {
         links: [["REPOSITORY ↗", "https://github.com/Trqkhanh17/serverTimBanChoiGame"]],
       },
     ],
-    contactIndex: "05 / CONTACT",
-    contactLead: "NẾU BẠN ĐANG TÌM MỘT SOFTWARE ENGINEER THÍCH HIỂU KỸ BÀI TOÁN TRƯỚC KHI VIẾT CODE — VÀ LUÔN GIỮ TINH THẦN HỌC HỎI,",
-    contactTitle: ["LET'S TALK.", "I'M LISTENING."],
-    email: "EMAIL",
+    contactIndex: "05 / LIÊN HỆ",
+    contactLead: "NẾU BẠN ĐANG TÌM MỘT KỸ SƯ PHẦN MỀM THÍCH HIỂU KỸ BÀI TOÁN TRƯỚC KHI VIẾT CODE — VÀ LUÔN GIỮ TINH THẦN HỌC HỎI,",
+    contactTitle: ["MÌNH CÙNG TRAO ĐỔI.", "TÔI LUÔN LẮNG NGHE."],
+    email: "THƯ ĐIỆN TỬ",
     github: "GITHUB",
-    phone: "PHONE",
-    footer: "PORTFOLIO SOFTWARE ENGINEER",
-    top: "BACK TO TOP ↑",
+    phone: "ĐIỆN THOẠI",
+    footer: "HỒ SƠ KỸ SƯ PHẦN MỀM",
+    top: "VỀ ĐẦU TRANG ↑",
   },
   en: {
     nav: { about: "ABOUT", stack: "SKILLS", experience: "EXPERIENCE", projects: "PROJECTS", contact: "CONTACT ↗" },
@@ -291,7 +291,7 @@ export default function Home() {
                 decoding="async"
                 alt={lang === "vi" ? "Trần Quốc Khánh trong lễ phục tốt nghiệp" : "Graduation portrait of Tran Quoc Khanh"}
               />
-              <figcaption><span>TRẦN QUỐC KHÁNH</span><span>GRADUATION · 2025</span></figcaption>
+              <figcaption><span>TRẦN QUỐC KHÁNH</span><span>{lang === "vi" ? "TỐT NGHIỆP · 2025" : "GRADUATION · 2025"}</span></figcaption>
             </figure>
           </div>
         </div>
