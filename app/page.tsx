@@ -346,8 +346,8 @@ export default function Home() {
         const bounds = item.getBoundingClientRect();
         const x = (event.clientX - bounds.left) / bounds.width - 0.5;
         const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-        item.style.setProperty("--tilt-x", `${(-y * 2.5).toFixed(2)}deg`);
-        item.style.setProperty("--tilt-y", `${(x * 3).toFixed(2)}deg`);
+        item.style.setProperty("--tilt-x", `${(-y * 4.5).toFixed(2)}deg`);
+        item.style.setProperty("--tilt-y", `${(x * 5.5).toFixed(2)}deg`);
       };
       const reset = () => {
         item.style.setProperty("--tilt-x", "0deg");
@@ -406,7 +406,7 @@ export default function Home() {
               <a href="/Tran-Quoc-Khanh-CV.pdf" download>{t.resume}</a>
             </div>
           </div>
-          <aside className="hero-welcome" data-reveal>
+          <aside className="hero-welcome" data-reveal data-tilt>
             <div className="welcome-kicker"><span>01</span><span>PORTFOLIO / 2026</span></div>
             <p>{t.welcomeEyebrow}</p>
             <strong>{t.welcomeTitle[0]}<br /><span>{t.welcomeTitle[1]}</span></strong>
