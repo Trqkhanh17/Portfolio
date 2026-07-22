@@ -36,6 +36,7 @@ const copy = {
     expRole: "SOFTWARE ENGINEER",
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "10/2025 — HIỆN TẠI",
+    expStack: ["PYTHON", "DJANGO", "DJANGO REST FRAMEWORK", "REACT", "POSTGRESQL"],
     expBullets: [
       "Phát triển các module POS cho quản lý menu, danh mục, tùy chọn sản phẩm và cấu hình theo chi nhánh trong hệ thống bán lẻ đồ uống đa thương hiệu.",
       "Xây dựng tính năng voucher, cấu hình kênh bán hàng, CRM, dashboard báo cáo và REST API cho bán hàng online, đơn hàng, sản phẩm và giao vận.",
@@ -128,6 +129,7 @@ const copy = {
     expRole: "SOFTWARE ENGINEER",
     expCompany: "TTMI JOINT STOCK COMPANY",
     expDate: "OCT 2025 — PRESENT",
+    expStack: ["PYTHON", "DJANGO", "DJANGO REST FRAMEWORK", "REACT", "POSTGRESQL"],
     expBullets: [
       "Developed POS modules for menu management, categories, customization options, and branch-based product configuration in a multi-brand beverage retail system.",
       "Built voucher, sales-channel, CRM, reporting dashboard, and REST API features for online sales, order, product, and delivery workflows.",
@@ -269,7 +271,12 @@ export default function Home() {
           <div className="timeline">
             <article className="timeline-item">
               <span className="timeline-number">01</span>
-              <div><p className="timeline-label">{t.expRole}</p><h3>{t.expCompany}</h3><ul className="experience-bullets">{t.expBullets.map(item => <li key={item}>{item}</li>)}</ul></div>
+              <div>
+                <p className="timeline-label">{t.expRole}</p>
+                <h3>{t.expCompany}</h3>
+                <div className="experience-stack" aria-label="Company tech stack">{t.expStack.map(item => <span key={item}>{item}</span>)}</div>
+                <ul className="experience-bullets">{t.expBullets.map(item => <li key={item}>{item}</li>)}</ul>
+              </div>
               <span className="timeline-date">{t.expDate}</span>
             </article>
           </div>
