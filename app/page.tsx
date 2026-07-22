@@ -404,7 +404,7 @@ export default function Home() {
             <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
             <div className="hero-card-content">
               <div className="profile-poster">
-                <div className="profile-art" aria-hidden="true"><span className="art-index">01 / 05</span><strong>SE</strong><span className="art-caption">SOFTWARE<br />ENGINEER</span><i>+</i></div>
+                <div className="profile-art" aria-hidden="true"><span className="art-index">01 / 05</span><strong>SOFTWARE<br />ENGINEER</strong><span className="art-caption">PORTFOLIO<br />2026</span><i>+</i></div>
                 <div className="profile-info">
                   <blockquote>{t.profileQuote}</blockquote>
                   <dl>{t.profileData.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
