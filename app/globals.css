@@ -43,6 +43,9 @@ button { font: inherit; color: inherit; }
 .hero-card-content { padding: 22px 18px; min-height: 210px; font-size: .84rem; }
 .hero-card-content p { margin: 0 0 18px; }
 .code-key { color: #1965d8; font-weight: 700; }
+.profile-intro { line-height: 1.7; }
+.profile-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.profile-highlights span { padding: 6px 8px; border: 1px solid var(--ink); background: var(--green); font-size: .6rem; font-weight: 800; }
 .empty-field { color: #706d66; background-image: repeating-linear-gradient(90deg, transparent 0 5px, rgba(17,17,17,.18) 5px 7px); }
 .hero-actions { display: grid; grid-template-columns: 1fr 1fr; border-top: var(--line); }
 .hero-actions a { padding: 13px 10px; text-align: center; font-size: .75rem; font-weight: 700; }

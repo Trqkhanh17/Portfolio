@@ -11,12 +11,8 @@ const copy = {
     hello: "HELLO, I'M",
     headline: ["SOFTWARE", "ENGINEER"],
     profile: "PROFILE.TXT",
-    profileRows: [
-      ["Vị trí", "Junior Software Engineer"],
-      ["Địa điểm", "TP. Hồ Chí Minh, Việt Nam"],
-      ["Chuyên môn", "Phát triển ứng dụng web Full-stack"],
-      ["Lĩnh vực", "Hệ thống doanh nghiệp — POS, CRM & ERP"],
-    ],
+    profileIntro: "Tôi là Trần Quốc Khánh, Junior Software Engineer tại TP. Hồ Chí Minh. Tôi phát triển ứng dụng web Full-stack và các hệ thống doanh nghiệp, tập trung chuyển yêu cầu nghiệp vụ thành API, giao diện và luồng vận hành rõ ràng, ổn định.",
+    profileHighlights: ["BACKEND & REST API", "BUSINESS WORKFLOWS", "DATABASE OPTIMIZATION"],
     viewProjects: "VIEW PROJECTS ↓",
     resume: "DOWNLOAD CV ↗",
     summary: "Kỹ sư phần mềm đam mê xây dựng những sản phẩm hữu ích và giải quyết các bài toán thực tế. Tôi yêu thích học hỏi công nghệ mới, cộng tác cùng đội ngũ và liên tục nâng cao tư duy kỹ thuật thông qua quá trình phát triển sản phẩm.",
@@ -24,7 +20,7 @@ const copy = {
     marquee: "WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦",
     aboutIndex: "01 / ABOUT",
     aboutTitle: ["CLEAR ENGINEERING.", "PRACTICAL SOLUTIONS."],
-    aboutText: "Tôi tập trung xây dựng ứng dụng web và hệ thống nghiệp vụ từ frontend đến backend. Công việc của tôi trải rộng từ phân tích yêu cầu, thiết kế workflow, phát triển REST API và giao diện quản trị đến tối ưu truy vấn, kiểm thử và tích hợp hệ thống.",
+    aboutText: "Tốt nghiệp Kỹ sư Công nghệ Thông tin tại Đại học Nam Cần Thơ, tôi hiện làm Software Engineer tại TTMI. Tôi đã trực tiếp tham gia phát triển hệ thống POS đa thương hiệu, CRM bán hàng online và ERP nhập kho — từ phân tích yêu cầu, thiết kế workflow, xây dựng REST API và giao diện quản trị đến tối ưu truy vấn, kiểm thử và tích hợp hệ thống. Mục tiêu của tôi là trở thành một Full-stack Engineer có thể hiểu sâu cả kỹ thuật lẫn bài toán kinh doanh.",
     principles: [["01", "HỆ THỐNG ỔN ĐỊNH"], ["02", "KIẾN TRÚC SẠCH"], ["03", "TƯ DUY SẢN PHẨM"]],
     stackIndex: "02 / SKILLS",
     stackTitle: "TOOLS I USE.",
@@ -86,12 +82,8 @@ const copy = {
     hello: "HELLO, I'M",
     headline: ["SOFTWARE", "ENGINEER"],
     profile: "PROFILE.TXT",
-    profileRows: [
-      ["Position", "Junior Software Engineer"],
-      ["Location", "Ho Chi Minh City, Vietnam"],
-      ["Expertise", "Full-stack web application development"],
-      ["Domain", "Enterprise systems — POS, CRM & ERP"],
-    ],
+    profileIntro: "I'm Tran Quoc Khanh, a Junior Software Engineer based in Ho Chi Minh City. I build full-stack web applications and enterprise systems, translating business requirements into clear, reliable APIs, interfaces, and operational workflows.",
+    profileHighlights: ["BACKEND & REST API", "BUSINESS WORKFLOWS", "DATABASE OPTIMIZATION"],
     viewProjects: "VIEW PROJECTS ↓",
     resume: "DOWNLOAD CV ↗",
     summary: "Software Engineer passionate about building useful software and solving real-world problems. I enjoy learning new technologies, collaborating with others, and continuously improving my technical thinking through real-world product development.",
@@ -99,7 +91,7 @@ const copy = {
     marquee: "WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦",
     aboutIndex: "01 / ABOUT",
     aboutTitle: ["CLEAR ENGINEERING.", "PRACTICAL SOLUTIONS."],
-    aboutText: "I focus on building web applications and business systems from frontend to backend. My work spans requirement analysis, workflow design, REST API and admin interface development, query optimization, testing, and system integration.",
+    aboutText: "After earning a Bachelor of Engineering in Information Technology from Nam Can Tho University, I joined TTMI as a Software Engineer. I have contributed directly to a multi-brand POS, an online-sales CRM, and a warehouse-receiving ERP — from requirement analysis and workflow design to REST APIs, admin interfaces, query optimization, testing, and system integration. My goal is to become a well-rounded Full-stack Engineer who understands both technology and business problems.",
     principles: [["01", "RELIABLE SYSTEMS"], ["02", "CLEAN ARCHITECTURE"], ["03", "PRODUCT THINKING"]],
     stackIndex: "02 / SKILLS",
     stackTitle: "TOOLS I USE.",
@@ -190,7 +182,8 @@ export default function Home() {
           <aside className="hero-card">
             <div className="window-bar"><span>{t.profile}</span><span>— □ ×</span></div>
             <div className="hero-card-content">
-              {t.profileRows.map(([key, value]) => <p key={key}><span className="code-key">{key}:</span> &quot;{value}&quot;</p>)}
+              <p className="profile-intro">{t.profileIntro}</p>
+              <div className="profile-highlights">{t.profileHighlights.map(item => <span key={item}>{item}</span>)}</div>
             </div>
             <div className="hero-actions">
               <a href="#projects">{t.viewProjects}</a>
