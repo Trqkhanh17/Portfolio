@@ -337,7 +337,10 @@ export default function Home() {
       <div className="scroll-progress" aria-hidden="true" />
       <div className="pointer-stamp" aria-hidden="true"><span>+</span></div>
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand" href="#top">QK<span>_</span></a>
+        <a className="brand" href="#top" aria-label="Trần Quốc Khánh — về đầu trang">
+          <span className="brand-symbol" aria-hidden="true">✦</span>
+          <span className="brand-copy"><strong>TRẦN QUỐC KHÁNH</strong><small>SOFTWARE ENGINEER</small></span>
+        </a>
         <div className="nav-menu">
           <a href="#about">{t.nav.about}</a><a href="#stack">{t.nav.stack}</a><a href="#experience">{t.nav.experience}</a><a href="#projects">{t.nav.projects}</a>
         </div>
