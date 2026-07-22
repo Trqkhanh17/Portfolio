@@ -11,7 +11,7 @@ const copy = {
     hello: "XIN CHÀO, TÔI LÀ",
     headline: ["KỸ SƯ", "PHẦN MỀM"],
     profile: "HỒ_SƠ.TXT",
-    profileIntro: "Tôi là Trần Quốc Khánh, Software Engineer đang sống và làm việc tại TP. Hồ Chí Minh. Tôi là người khá tò mò; lúc rảnh tôi thường tìm hiểu một công nghệ mới, đọc về cách một hệ thống vận hành hoặc biến một ý tưởng nhỏ thành thứ có thể tự tay dùng thử. Tôi thích làm việc với những người sẵn sàng chia sẻ, và tin vào việc tiến bộ đều đặn hơn là cố tỏ ra mình đã biết mọi câu trả lời.",
+    profileIntro: "Xin chào, Tôi tên Quốc Khánh, Software Engineer đang sống và làm việc tại TP. Hồ Chí Minh. Tôi là người khá tò mò; lúc rảnh tôi thường tìm hiểu một công nghệ mới, đọc về cách một hệ thống vận hành hoặc biến một ý tưởng nhỏ thành thứ có thể tự tay dùng thử. Tôi thích làm việc với những người sẵn sàng chia sẻ, và tin vào việc tiến bộ đều đặn hơn là cố tỏ ra mình đã biết mọi câu trả lời.",
     profileHighlights: ["LUÔN TÒ MÒ", "KHÔNG NGỪNG HỌC HỎI", "SẴN SÀNG HỢP TÁC"],
     viewProjects: "XEM DỰ ÁN ↓",
     resume: "TẢI CV ↗",
@@ -85,7 +85,6 @@ const copy = {
         tech: "REACT 19 · TYPESCRIPT · TAILWIND CSS · FRAMER MOTION · REACT ROUTER · VITE",
         links: [
           ["REPOSITORY ↗", "https://github.com/Trqkhanh17/TailwindCSS-Coffee-Style"],
-          ["LIVE DEMO ↗", "https://tailwind-css-coffee-style-njplduecf.vercel.app"],
         ],
       },
       {
@@ -119,7 +118,7 @@ const copy = {
     hello: "HELLO, I'M",
     headline: ["SOFTWARE", "ENGINEER"],
     profile: "PROFILE.TXT",
-    profileIntro: "I'm Tran Quoc Khanh, a Software Engineer based in Ho Chi Minh City. I'm curious by nature and often spend my free time exploring a new technology, reading about how a system works, or turning a small idea into something I can try for myself. I enjoy working with people who are open to sharing what they know, and I value steady progress more than pretending to have every answer.",
+    profileIntro: "Hello!!!, I'm Tran Quoc Khanh, a Software Engineer based in Ho Chi Minh City. I'm curious by nature and often spend my free time exploring a new technology, reading about how a system works, or turning a small idea into something I can try for myself. I enjoy working with people who are open to sharing what they know, and I value steady progress more than pretending to have every answer.",
     profileHighlights: ["CURIOUS BY NATURE", "ALWAYS LEARNING", "OPEN TO COLLABORATION"],
     viewProjects: "VIEW PROJECTS ↓",
     resume: "DOWNLOAD CV ↗",
@@ -193,7 +192,6 @@ const copy = {
         tech: "REACT 19 · TYPESCRIPT · TAILWIND CSS · FRAMER MOTION · REACT ROUTER · VITE",
         links: [
           ["REPOSITORY ↗", "https://github.com/Trqkhanh17/TailwindCSS-Coffee-Style"],
-          ["LIVE DEMO ↗", "https://tailwind-css-coffee-style-njplduecf.vercel.app"],
         ],
       },
       {
