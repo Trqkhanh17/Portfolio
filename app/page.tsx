@@ -51,7 +51,12 @@ export default function Home() {
   return (
     <main id="top">
       <div className="scroll-progress" aria-hidden="true" />
-      <div className="pointer-stamp" aria-hidden="true"><span>+</span></div>
+      <div className="custom-cursor" aria-hidden="true">
+        <div className="cursor-dot" />
+        <div className="cursor-ring">
+          <span className="cursor-icon">✦</span>
+        </div>
+      </div>
       <nav className="site-nav" aria-label="Main navigation">
         <a className="brand" href="#top" aria-label="Tran Quoc Khanh — back to top">
           <span className="brand-symbol" aria-hidden="true">✦</span>
