@@ -32,12 +32,33 @@ function ProjectVisual({ index }: { index: number }) {
   }
 
   return (
-    <div className="project-visual squad-visual">
-      <div className="match-grid" />
-      <i className="match-line line-one" /><i className="match-line line-two" /><i className="match-line line-three" />
-      <span className="player player-one">P1</span><span className="player player-two">P2</span><span className="player player-three">P3</span>
-      <strong>FIND<br />SQUAD</strong>
-      <b className="match-status">MATCHING...</b>
+    <div className="project-visual travel-visual">
+      <div className="mini-planner">
+        <div className="mini-planner-nav">
+          <b>TRIP.AI</b>
+          <span>GEMINI · SCHEMA · QUOTA</span>
+        </div>
+        <div className="mini-itinerary">
+          <div className="itinerary-step step-morning">
+            <span className="step-tag">08:00</span>
+            <div className="step-body">
+              <strong>OLD QUARTER & COFFEE</strong>
+              <small>BUDGET: 150K · MORNING</small>
+            </div>
+          </div>
+          <div className="itinerary-step step-afternoon">
+            <span className="step-tag">13:30</span>
+            <div className="step-body">
+              <strong>MUSEUM & LOCAL FOOD</strong>
+              <small>BUDGET: 350K · GEMINI GEN</small>
+            </div>
+          </div>
+        </div>
+        <div className="mini-planner-footer">
+          <span className="quota-pill">QUOTA: 10/10 OK</span>
+          <b className="gen-btn">ITINERARY READY ✦</b>
+        </div>
+      </div>
     </div>
   );
 }
@@ -51,12 +72,6 @@ export default function Home() {
   return (
     <main id="top">
       <div className="scroll-progress" aria-hidden="true" />
-      <div className="custom-cursor" aria-hidden="true">
-        <div className="cursor-dot" />
-        <div className="cursor-ring">
-          <span className="cursor-icon">✦</span>
-        </div>
-      </div>
       <nav className="site-nav" aria-label="Main navigation">
         <a className="brand" href="#top" aria-label="Tran Quoc Khanh — back to top">
           <span className="brand-symbol" aria-hidden="true">✦</span>
