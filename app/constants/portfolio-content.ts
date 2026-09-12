@@ -2,17 +2,17 @@ export type Language = 'vi' | 'en';
 
 export const portfolioContent = {
   vi: {
-    nav: { about: 'VỀ TÔI', stack: 'CÔNG NGHỆ', experience: 'KINH NGHIỆM', projects: 'DỰ ÁN', contact: 'LIÊN HỆ ↗' },
+    nav: { about: 'VỀ TÔI', stack: 'CÔNG NGHỆ', experience: 'KINH NGHIỆM', contact: 'LIÊN HỆ ↗' },
     role: 'KỸ SƯ PHẦN MỀM',
     hello: 'XIN CHÀO, TÔI LÀ',
     headline: ['KỸ SƯ', 'PHẦN MỀM'],
     welcomeEyebrow: 'WElCOME TO',
     welcomeTitle: ['MY', 'PORTFOLIO.'],
     welcomeFooter: 'SCROLL TO EXPLORE ↓',
-    viewProjects: 'XEM DỰ ÁN ↓',
+    viewExperience: 'XEM KINH NGHIỆM ↓',
     resume: 'TẢI CV ↗',
     summary:
-      'Tôi học tốt nhất khi được tự tay làm: lần theo một câu hỏi đến tận gốc, thử đủ lâu để hiểu và chỉ giữ lại những điều thật sự hữu ích.',
+      'Tôi là kỹ sư phần mềm Full-stack với 2 năm kinh nghiệm, bắt đầu từ phát triển frontend e-commerce bằng React và TypeScript, sau đó mở rộng sang Python, Django và PostgreSQL. Tôi phát triển và duy trì các hệ thống ERP, e-commerce, POS, CRM, quản lý kho và ứng dụng tích hợp AI.',
     facts: [
       ['ĐÀO SÂU', 'CÁCH TÔI HỌC'],
       ['BỀN BỈ', 'CÁCH TÔI TIẾN BỘ'],
@@ -50,83 +50,66 @@ export const portfolioContent = {
     ],
     expIndex: '03 / KINH NGHIỆM',
     expTitle: ['NƠI TÔI', 'TẠO RA GIÁ TRỊ.'],
-    expRole: 'KỸ SƯ PHẦN MỀM FULL-STACK',
-    expCompany: 'TTMI JOINT STOCK COMPANY',
-    expDate: '10/2025 — HIỆN TẠI',
-    expStack: ['PYTHON', 'DJANGO', 'REACT', 'TYPESCRIPT', 'POSTGRESQL'],
     expDomainLabel: 'LĨNH VỰC',
-    expDomains: ['F&B', 'E-COMMERCE', 'ERP'],
-    expBullets: [
-      'Xây dựng luồng e-commerce xuyên suốt cho đơn hàng, tồn kho, sản phẩm, giao vận, báo cáo và nhập/xuất Excel trên cả ứng dụng dành cho khách hàng lẫn hệ thống quản trị nội bộ.',
-      'Phát triển các module POS và CRM cho dữ liệu menu đa thương hiệu, danh mục, tuỳ chọn sản phẩm, cấu hình cửa hàng và đồng bộ sản phẩm giữa các hệ thống.',
-      'Triển khai nghiệp vụ ERP kho: tra cứu sản phẩm bằng barcode, theo dõi vị trí kệ, yêu cầu mua hàng, nhận hàng, thuế theo từng dòng và tự động tạo đơn mua hàng.',
-      'Xây dựng giải pháp dữ liệu marketing gồm đồng bộ Facebook Insights theo lịch, caching, thu thập dữ liệu sản phẩm đối thủ và xử lý OCR Shopee với Gemini.',
-      'Cải thiện API sản phẩm, đơn hàng, báo cáo và tồn kho bằng cách loại bỏ truy cập N+1, áp dụng eager loading, batch database operations và thêm regression test cho truy vấn.',
-      'Làm việc trực tiếp với Accounting, Sales, Marketing và Ban Giám đốc để làm rõ yêu cầu, chuyển hoá quy trình kinh doanh thành các tính năng đã được kiểm thử.',
+    experiences: [
+      {
+        "role": "KỸ SƯ PHẦN MỀM FULL-STACK",
+        "company": "TTMI JOINT STOCK COMPANY",
+        "date": "08/2025 — HIỆN TẠI",
+        "arrangement": "TOÀN THỜI GIAN · TẠI VĂN PHÒNG",
+        "stack": [
+          "PYTHON",
+          "DJANGO",
+          "DJANGO REST FRAMEWORK",
+          "REACT",
+          "TYPESCRIPT",
+          "POSTGRESQL"
+        ],
+        "domains": [
+          "E-COMMERCE",
+          "POS",
+          "CRM",
+          "ERP"
+        ],
+        "bullets": [
+          "Phát triển và duy trì các tính năng e-commerce full-stack bằng Python, Django, Django REST Framework, React, TypeScript và PostgreSQL cho sản phẩm, đơn hàng, tồn kho, giao vận, báo cáo và nhập/xuất Excel.",
+          "Xây dựng các module POS và CRM cho dữ liệu menu đa thương hiệu, danh mục sản phẩm, tùy chọn sản phẩm, cấu hình cửa hàng và đồng bộ sản phẩm giữa các hệ thống.",
+          "Triển khai quy trình kho ERP gồm tra cứu sản phẩm bằng barcode, theo dõi vị trí kệ, yêu cầu mua hàng, nhận hàng, tính thuế theo từng dòng, nghiệp vụ tồn kho và tự động tạo đơn mua hàng.",
+          "Thiết kế và tích hợp REST API bằng Django REST Framework, bao gồm kiểm tra dữ liệu, xác thực, phân quyền, logic nghiệp vụ, tích hợp frontend và dịch vụ bên ngoài.",
+          "Tối ưu API sản phẩm, đơn hàng, báo cáo và tồn kho bằng cách loại bỏ truy vấn N+1, sử dụng select_related và prefetch_related trong Django ORM, đồng thời xử lý cơ sở dữ liệu theo lô.",
+          "Phát triển giải pháp dữ liệu marketing gồm đồng bộ Facebook Insights theo lịch, caching, thu thập dữ liệu sản phẩm đối thủ và xử lý OCR Shopee bằng Gemini.",
+          "Viết unit test và regression test cho logic nghiệp vụ và hành vi truy vấn cơ sở dữ liệu nhằm tăng độ tin cậy và ngăn hiệu năng suy giảm khi thay đổi mã nguồn.",
+          "Làm việc trực tiếp với Kế toán, Kinh doanh, Marketing và Ban Giám đốc để làm rõ yêu cầu, phân tích quy trình ERP, xác định các trường hợp biên và bàn giao tính năng đã được kiểm thử."
+        ]
+      },
+      {
+        "role": "LẬP TRÌNH VIÊN FRONTEND FREELANCE",
+        "company": "TTMI JOINT STOCK COMPANY",
+        "date": "09/2024 — 07/2025",
+        "arrangement": "FREELANCE · TỪ XA",
+        "stack": [
+          "REACT",
+          "TYPESCRIPT",
+          "TAILWIND CSS",
+          "AXIOS",
+          "TANSTACK QUERY"
+        ],
+        "domains": [
+          "E-COMMERCE"
+        ],
+        "bullets": [
+          "Phát triển và duy trì giao diện React, TypeScript cho cửa hàng e-commerce 3T và cổng quản trị; sử dụng Tailwind CSS và các component tái sử dụng để hỗ trợ màn hình máy tính và điện thoại.",
+          "Cải thiện trải nghiệm khám phá sản phẩm qua sửa lỗi tìm kiếm, cuộn vô hạn, sản phẩm liên quan và đã xem gần đây, trang công thức và nội dung khuyến mãi; sửa cách tính voucher khi thanh toán.",
+          "Xây dựng tính năng quản trị cho chỉnh sửa sản phẩm, tải ảnh, tìm kiếm, lọc, nhập dữ liệu cập nhật tồn kho và xem lịch sử, popup khuyến mãi và quản lý công thức; tích hợp REST API bằng Axios và TanStack Query.",
+          "Cải thiện quy trình đơn hàng chuỗi, chọn sản phẩm trên điện thoại, kiểm tra bằng chứng giao hàng và hiển thị lịch sử chỉnh sửa đơn; bổ sung bộ lọc và xuất Excel cho báo cáo doanh thu, giao hàng.",
+          "Cải thiện tốc độ tải landing page và URL sản phẩm; bổ sung metadata, tích hợp GA4, Google Tag Manager và TikTok Pixel để hỗ trợ phân tích marketing."
+        ]
+      }
     ],
     education: 'HỌC VẤN',
-    degree: 'KỸ SƯ CÔNG NGHỆ THÔNG TIN · GPA 3.0/4.0',
+    degree: 'KỸ SƯ CÔNG NGHỆ THÔNG TIN',
     school: 'ĐẠI HỌC NAM CẦN THƠ · 2021—2025',
-    projectsIndex: '04 / DỰ ÁN TIÊU BIỂU',
-    projectsTitle: 'NHỮNG THỨ TÔI TỰ TAY XÂY DỰNG.',
-    projectsNote: 'ĐÂY LÀ NƠI TÔI HỌC BẰNG CÁCH LÀM, SAI, SỬA VÀ CUỐI CÙNG BIẾN Ý TƯỞNG THÀNH THỨ CÓ THỂ CHẠY.',
-    projects: [
-      {
-        title: 'CRM & E-COMMERCE LINH KIỆN ĐIỆN TỬ',
-        label: 'DỰ ÁN TỰ XÂY DỰNG · FULL-STACK',
-        visual: 'CRM',
-        badge: 'FULL STACK',
-        description:
-          'Tôi bắt đầu dự án này vì muốn tự mình đi hết một vòng của một sản phẩm bán hàng: từ lúc khách chọn linh kiện cho đến những việc phía sau như quản lý tồn kho, xử lý đơn và theo dõi doanh thu. Quá trình đó giúp tôi hiểu rõ hơn cách chia trách nhiệm ở backend, đồng thời giữ cho giao diện, API và dữ liệu không lệch khỏi nhau.',
-        features: [
-          'Khách hàng có thể tạo tài khoản, tìm sản phẩm, quản lý giỏ hàng, thanh toán COD hoặc PayPal và xem lại lịch sử mua hàng.',
-          'Phía quản trị có phân quyền riêng để quản lý sản phẩm, danh mục, hình ảnh, khách hàng, nhân viên và trạng thái đơn hàng.',
-          'Luồng kho hỗ trợ nhập, xuất và theo dõi lượng tồn; khách hàng nhận được email xác nhận ngay khi đơn được tạo.',
-          'Dashboard tổng hợp doanh thu theo ngày, tháng và năm để người vận hành nắm nhanh tình hình bán hàng.',
-          'Backend được tách theo Route → Controller → Service → Repository, dùng Zod để kiểm tra dữ liệu, Firebase để lưu hình ảnh và Docker khi triển khai.',
-        ],
-        tech: 'REACT · TYPESCRIPT · REDUX TOOLKIT · ANT DESIGN · EXPRESS · PRISMA · MYSQL · DOCKER',
-        links: [
-          ['BACKEND REPOSITORY ↗', 'https://github.com/Trqkhanh17/Backend_LinhKienDienTu'],
-          ['FRONTEND REPOSITORY ↗', 'https://github.com/Trqkhanh17/FrontEnd_BanLinhKienDienTu'],
-        ],
-      },
-      {
-        title: 'COFFEE STYLE — RESPONSIVE E-COMMERCE UI',
-        label: 'DỰ ÁN TỰ XÂY DỰNG · GIAO DIỆN',
-        visual: 'UI',
-        badge: 'GIAO DIỆN',
-        description:
-          'Dự án này bắt đầu như một bài tập về khoảng cách, nhịp nội dung và cách giao diện thích nghi trên từng màn hình. Tôi không muốn dừng ở một trang chủ trông đẹp mắt, nên đã làm trọn hành trình từ xem sản phẩm, tìm hiểu câu chuyện thương hiệu đến thao tác với giỏ hàng.',
-        features: [
-          'Trang chủ dẫn dắt câu chuyện thương hiệu bằng banner chuyển động, sản phẩm nổi bật, chuyên mục cà phê, nội dung phong cách sống và bản tin email.',
-          'Danh mục có bộ lọc; trang chi tiết đặt mô tả, điểm nổi bật và sản phẩm liên quan trong cùng một mạch xem liền lạc.',
-          'Giỏ hàng mở bằng một khung trượt, hỗ trợ thêm, xóa, gộp số lượng, tính tạm tính và cả trạng thái chưa có sản phẩm.',
-          'Các trang Giới thiệu, Blog, Liên hệ, bản đồ, biểu mẫu và trang 404 đều giữ chung một ngôn ngữ thiết kế.',
-          'Các trang chỉ được tải khi cần, chuyển động dùng Framer Motion và giao diện thích ứng từ điện thoại đến màn hình lớn.',
-        ],
-        tech: 'REACT 19 · TYPESCRIPT · TAILWIND CSS · FRAMER MOTION · REACT ROUTER · VITE',
-        links: [['REPOSITORY ↗', 'https://github.com/Trqkhanh17/TailwindCSS-Coffee-Style']],
-      },
-      {
-        title: 'AI TRAVEL & OUTING PLANNER SERVER',
-        label: 'DỰ ÁN TỰ XÂY DỰNG · BACKEND & AI',
-        visual: 'AI',
-        badge: 'AI BACKEND',
-        description:
-          'Tôi xây dựng backend cho ứng dụng lập kế hoạch du lịch và đi chơi tự động bằng AI, giải quyết việc tốn nhiều thời gian lên lịch trình, tìm kiếm địa điểm và cân đối ngân sách. Hệ thống tích hợp trực tiếp Google Gemini AI với kỹ thuật Structured Outputs (JSON Schema) để tạo lịch trình chi tiết và nhất quán, đồng thời quản lý quota gọi AI hàng ngày theo người dùng và địa chỉ IP.',
-        features: [
-          'Tự động phân tích ngân sách, số lượng người, điểm khởi hành và sở thích để tạo lịch trình chi tiết theo buổi (sáng, chiều, tối), kèm gợi ý ăn uống, tham quan và ước tính chi phí.',
-          'Ứng dụng kỹ thuật Structured Outputs (JSON Schema) khi gọi Google Gemini AI (@google/genai) để đảm bảo 100% dữ liệu trả về đúng định dạng, loại bỏ hoàn toàn rủi ro sai lệch cấu trúc JSON.',
-          'Lưu trữ và quản lý lịch trình trên MongoDB, hỗ trợ phân trang lịch sử, gán lịch trình tạo ẩn danh vào tài khoản đăng ký (claim guest trip) và bật/tắt chia sẻ công khai.',
-          'Kiểm soát chi phí & tài nguyên: giới hạn quota gọi AI hàng ngày cho người dùng và khách vãng lai thông qua định danh mã hóa HMAC-SHA256, kết hợp rate limiting với @nestjs/throttler.',
-          'Hệ thống xác thực và bảo mật hoàn chỉnh: JWT Access & Refresh Token (hỗ trợ thu hồi phiên), xác minh tài khoản qua email và đổi mật khẩu bằng mã OTP với Nodemailer / Resend API.',
-        ],
-        tech: 'NESTJS 11 · TYPESCRIPT · MONGODB · MONGOOSE 8 · GOOGLE GEMINI AI · PASSPORT · JWT · NODEMAILER · DOCKER',
-        links: [['REPOSITORY ↗', 'https://github.com/Trqkhanh17/ai-travel-planner-server']],
-      },
-    ],
-    contactIndex: '05 / LIÊN HỆ',
+    contactIndex: '04 / LIÊN HỆ',
     contactLead:
       'NẾU BẠN CẦN MỘT KỸ SƯ PHẦN MỀM LUÔN MUỐN HIỂU RÕ VIỆC CẦN LÀM, KHÔNG NGẠI HỌC ĐIỀU MỚI VÀ SẴN SÀNG CÙNG ĐỘI NGŨ TÌM RA CÁCH TỐT HƠN,',
     contactTitle: ['CỨ NHẮN CHO TÔI.', 'TÔI SẴN SÀNG LẮNG NGHE.'],
@@ -137,17 +120,17 @@ export const portfolioContent = {
     top: 'VỀ ĐẦU TRANG ↑',
   },
   en: {
-    nav: { about: 'ABOUT', stack: 'SKILLS', experience: 'EXPERIENCE', projects: 'PROJECTS', contact: 'CONTACT ↗' },
+    nav: { about: 'ABOUT', stack: 'SKILLS', experience: 'EXPERIENCE', contact: 'CONTACT ↗' },
     role: 'SOFTWARE ENGINEER',
     hello: "HELLO, I'M",
     headline: ['SOFTWARE', 'ENGINEER'],
     welcomeEyebrow: 'WELCOME TO',
     welcomeTitle: ['MY', 'PORTFOLIO.'],
     welcomeFooter: 'SCROLL TO EXPLORE ↓',
-    viewProjects: 'VIEW PROJECTS ↓',
+    viewExperience: 'VIEW EXPERIENCE ↓',
     resume: 'DOWNLOAD CV ↗',
     summary:
-      'I like to learn slowly but thoroughly: follow an idea far enough to understand it, try it for myself, and keep what proves genuinely useful.',
+      'Full-stack Software Engineer with 2 years of software development experience, beginning with React and TypeScript e-commerce interfaces and progressing into Python, Django, and PostgreSQL. Experienced in developing and maintaining ERP, e-commerce, POS, CRM, warehouse, and AI-powered systems.',
     facts: [
       ['CURIOUS', 'BY NATURE'],
       ['CONSISTENT', 'HOW I GROW'],
@@ -182,83 +165,66 @@ export const portfolioContent = {
     ],
     expIndex: '03 / EXPERIENCE',
     expTitle: ['WHERE I', 'CREATE VALUE.'],
-    expRole: 'FULL-STACK SOFTWARE ENGINEER',
-    expCompany: 'TTMI JOINT STOCK COMPANY',
-    expDate: 'OCT 2025 — PRESENT',
-    expStack: ['PYTHON', 'DJANGO', 'REACT', 'TYPESCRIPT', 'POSTGRESQL'],
     expDomainLabel: 'DOMAINS',
-    expDomains: ['F&B', 'E-COMMERCE', 'ERP'],
-    expBullets: [
-      'Develop full-stack e-commerce workflows for orders, inventory, products, delivery, reporting, and Excel import/export across customer-facing and internal administration applications.',
-      'Build POS and CRM modules for multi-brand menu data, item categories, customizations, store configuration, and cross-system product synchronization.',
-      'Implement ERP warehouse workflows for barcode product lookup, shelf-location tracking, purchase requests, goods receiving, line-level tax, and automated purchase-order creation.',
-      'Deliver marketing data solutions including scheduled Facebook Insights synchronization, caching, competitor-product scraping, and Gemini-powered Shopee OCR processing.',
-      'Improve product, order, reporting, and stock APIs by eliminating N+1 access patterns, adding eager loading, batching database operations, and introducing regression tests for query behavior.',
-      'Work directly with Accounting, Sales, Marketing, and the Board of Directors to clarify requirements and translate business workflows into tested product features.',
+    experiences: [
+      {
+        "role": "FULL-STACK SOFTWARE ENGINEER",
+        "company": "TTMI JOINT STOCK COMPANY",
+        "date": "AUG 2025 — PRESENT",
+        "arrangement": "FULL-TIME · ON-SITE",
+        "stack": [
+          "PYTHON",
+          "DJANGO",
+          "DJANGO REST FRAMEWORK",
+          "REACT",
+          "TYPESCRIPT",
+          "POSTGRESQL"
+        ],
+        "domains": [
+          "E-COMMERCE",
+          "POS",
+          "CRM",
+          "ERP"
+        ],
+        "bullets": [
+          "Developed and maintained full-stack e-commerce features using Python, Django, Django REST Framework, React, TypeScript, and PostgreSQL across product, order, inventory, delivery, reporting, and Excel import/export workflows.",
+          "Built POS and CRM modules for multi-brand menu data, product categories, item customizations, store configuration, and cross-system product synchronization.",
+          "Implemented ERP warehouse workflows including barcode-based product lookup, shelf-location tracking, purchase requests, goods receiving, line-level tax calculation, inventory operations, and automated purchase-order creation.",
+          "Designed and integrated REST APIs using Django REST Framework, including validation, authentication, authorization, business logic, frontend integration, and external service integration.",
+          "Optimized product, order, reporting, and stock APIs by eliminating N+1 query patterns, applying Django ORM optimizations with select_related and prefetch_related, and batching database operations.",
+          "Developed marketing data solutions including scheduled Facebook Insights synchronization, caching, competitor-product scraping, and Gemini-powered Shopee OCR processing.",
+          "Implemented unit and regression tests for business logic and database query behavior to improve reliability and prevent performance regressions.",
+          "Worked directly with Accounting, Sales, Marketing, and the Board of Directors to clarify requirements, analyze ERP workflows, identify edge cases, and deliver tested product features."
+        ]
+      },
+      {
+        "role": "FREELANCE FRONTEND DEVELOPER",
+        "company": "TTMI JOINT STOCK COMPANY",
+        "date": "SEP 2024 — JUL 2025",
+        "arrangement": "FREELANCE · REMOTE",
+        "stack": [
+          "REACT",
+          "TYPESCRIPT",
+          "TAILWIND CSS",
+          "AXIOS",
+          "TANSTACK QUERY"
+        ],
+        "domains": [
+          "E-COMMERCE"
+        ],
+        "bullets": [
+          "Developed and maintained React and TypeScript interfaces for the 3T e-commerce storefront and admin portal, using Tailwind CSS and reusable components for responsive desktop and mobile layouts.",
+          "Enhanced product discovery with search fixes, infinite scrolling, related and recently viewed products, recipe pages, and promotional content; corrected voucher calculations in checkout.",
+          "Built admin features for product editing, image uploads, search, filtering, stock-update imports and history, promotional popups, and recipe management, integrating REST APIs with Axios and TanStack Query.",
+          "Improved chain-order workflows, mobile product selection, delivery-proof validation, and order edit-history display; extended revenue and delivery reports with filters and Excel exports.",
+          "Improved landing-page loading performance and product URLs; added metadata and integrated GA4, Google Tag Manager, and TikTok Pixel to support marketing analytics."
+        ]
+      }
     ],
     education: 'EDUCATION',
-    degree: 'B.ENG. IN INFORMATION TECHNOLOGY · GPA 3.0/4.0',
+    degree: 'B.ENG. IN INFORMATION TECHNOLOGY',
     school: 'NAM CAN THO UNIVERSITY · 2021—2025',
-    projectsIndex: '04 / SELECTED BUILDS',
-    projectsTitle: 'THINGS I BUILD.',
-    projectsNote: 'PERSONAL PROJECTS THAT HELP ME LEARN HOW AN IDEA BECOMES WORKING SOFTWARE.',
-    projects: [
-      {
-        title: 'ELECTRONICS CRM & E-COMMERCE',
-        label: 'PERSONAL PROJECT · FULL-STACK',
-        visual: 'CRM',
-        badge: 'FULL STACK',
-        description:
-          "I built this project to follow an online-sale product from end to end: the customer's search for the right component and the less visible work behind it — stock, orders, customers, and revenue. It also became a place to practice separating backend responsibilities while keeping the interface, API, and data model in step.",
-        features: [
-          'Customers can create an account, find components, manage a cart, check out with COD or PayPal, and revisit previous orders.',
-          'The admin side has separate permissions for products, categories, images, customers, staff, and order status.',
-          'Inventory flows cover stock in, stock out, and current quantities; a confirmation email follows each new order.',
-          'The dashboard groups revenue by day, month, and year so the operator can get a quick view of sales.',
-          'The backend follows Route → Controller → Service → Repository, with Zod validation, Firebase uploads, and Docker for deployment.',
-        ],
-        tech: 'REACT · TYPESCRIPT · REDUX TOOLKIT · ANT DESIGN · EXPRESS · PRISMA · MYSQL · DOCKER',
-        links: [
-          ['BACKEND REPOSITORY ↗', 'https://github.com/Trqkhanh17/Backend_LinhKienDienTu'],
-          ['FRONTEND REPOSITORY ↗', 'https://github.com/Trqkhanh17/FrontEnd_BanLinhKienDienTu'],
-        ],
-      },
-      {
-        title: 'COFFEE STYLE — RESPONSIVE E-COMMERCE UI',
-        label: 'PERSONAL PROJECT · UI',
-        visual: 'UI',
-        badge: 'UI DESIGN',
-        description:
-          'I built this UI project to sharpen my sense of spacing, content rhythm, and how a design should respond at different screen sizes. Instead of stopping at an attractive homepage, I completed the wider journey through products, brand stories, and the shopping cart.',
-        features: [
-          'The homepage tells the brand story through a hero slider, featured products, coffee magazine, lifestyle stories, and a newsletter.',
-          'The catalog is filterable, while each product page brings its story, highlights, and related suggestions into one natural flow.',
-          'The cart opens as a drawer and handles adding, removing, merged quantities, subtotal calculation, and an empty state.',
-          'About, Blog, Contact, map, form, and 404 pages all follow the same visual language.',
-          'Routes are lazy-loaded, motion comes from Framer Motion, and the layout adapts from mobile through desktop.',
-        ],
-        tech: 'REACT 19 · TYPESCRIPT · TAILWIND CSS · FRAMER MOTION · REACT ROUTER · VITE',
-        links: [['REPOSITORY ↗', 'https://github.com/Trqkhanh17/TailwindCSS-Coffee-Style']],
-      },
-      {
-        title: 'AI TRAVEL & OUTING PLANNER SERVER',
-        label: 'PERSONAL PROJECT · BACKEND & AI',
-        visual: 'AI',
-        badge: 'AI BACKEND',
-        description:
-          'I built the backend server for an AI-powered travel and outing planning platform to eliminate the friction of manual itinerary research, place discovery, and budget allocation. The system integrates Google Gemini AI with strict Structured Outputs (JSON Schema) for consistent, predictable itineraries, protected by daily per-user and per-guest IP quota management.',
-        features: [
-          'Automated AI itinerary generation: analyzes budget, origin, group size, and preferences to output morning/afternoon/evening schedules, curated dining spots, attractions, and cost breakdowns.',
-          '100% schema-consistent AI responses using Google Gemini AI (@google/genai) with JSON Schema to ensure fully structured, predictable output without formatting errors.',
-          'MongoDB persistence for trip plans, supporting history pagination, guest plan claiming into registered accounts, and public/private sharing toggle.',
-          'Quota protection & rate limiting: enforces daily AI generation limits per user and per guest IP tracked via HMAC-SHA256 hashing, backed by @nestjs/throttler.',
-          'Full auth & mailing flow: JWT access & refresh tokens with session revocation, email verification, and OTP password recovery via Nodemailer / Resend API.',
-        ],
-        tech: 'NESTJS 11 · TYPESCRIPT · MONGODB · MONGOOSE 8 · GOOGLE GEMINI AI · PASSPORT · JWT · NODEMAILER · DOCKER',
-        links: [['REPOSITORY ↗', 'https://github.com/Trqkhanh17/ai-travel-planner-server']],
-      },
-    ],
-    contactIndex: '05 / CONTACT',
+    contactIndex: '04 / CONTACT',
     contactLead:
       'IF YOU NEED A SOFTWARE ENGINEER WHO LIKES TO UNDERSTAND THE WORK BEFORE WRITING THE CODE — AND KEEPS LEARNING ALONG THE WAY,',
     contactTitle: ["LET'S TALK.", "I'M LISTENING."],

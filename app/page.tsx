@@ -4,65 +4,6 @@ import { useState } from "react";
 import { portfolioContent, type Language } from "@/app/constants/portfolio-content";
 import { usePortfolioEffects } from "@/app/hooks/use-portfolio-effects";
 
-function ProjectVisual({ index }: { index: number }) {
-  if (index === 0) {
-    return (
-      <div className="project-visual crm-visual">
-        <div className="mini-window">
-          <div className="mini-window-bar"><i /><i /><i /><span>CRM_ADMIN</span></div>
-          <div className="mini-dashboard">
-            <aside><i /><i /><i /><i /></aside>
-            <div className="mini-dashboard-main"><div className="mini-stats"><b>24</b><b>86</b><b>12</b></div><div className="mini-chart"><i /><i /><i /><i /><i /></div></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (index === 1) {
-    return (
-      <div className="project-visual store-visual">
-        <div className="mini-store">
-          <div className="mini-store-nav"><b>COFFEE.</b><span>SHOP · STORY · CART</span></div>
-          <div className="mini-products"><i><b>01</b></i><i><b>02</b></i><i><b>03</b></i></div>
-          <div className="mini-store-cta"><span>FRESHLY ROASTED</span><b>ADD TO CART +</b></div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="project-visual travel-visual">
-      <div className="mini-planner">
-        <div className="mini-planner-nav">
-          <b>TRIP.AI</b>
-          <span>GEMINI · SCHEMA · QUOTA</span>
-        </div>
-        <div className="mini-itinerary">
-          <div className="itinerary-step step-morning">
-            <span className="step-tag">08:00</span>
-            <div className="step-body">
-              <strong>OLD QUARTER & COFFEE</strong>
-              <small>BUDGET: 150K · MORNING</small>
-            </div>
-          </div>
-          <div className="itinerary-step step-afternoon">
-            <span className="step-tag">13:30</span>
-            <div className="step-body">
-              <strong>MUSEUM & LOCAL FOOD</strong>
-              <small>BUDGET: 350K · GEMINI GEN</small>
-            </div>
-          </div>
-        </div>
-        <div className="mini-planner-footer">
-          <span className="quota-pill">QUOTA: 10/10 OK</span>
-          <b className="gen-btn">ITINERARY READY ✦</b>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const [lang, setLang] = useState<Language>("en");
   const t = portfolioContent[lang];
@@ -78,7 +19,7 @@ export default function Home() {
           <span className="brand-copy"><strong>TRẦN QUỐC KHÁNH</strong><small>SOFTWARE ENGINEER</small></span>
         </a>
         <div className="nav-menu">
-          <a href="#about">{t.nav.about}</a><a href="#stack">{t.nav.stack}</a><a href="#experience">{t.nav.experience}</a><a href="#projects">{t.nav.projects}</a>
+          <a href="#about">{t.nav.about}</a><a href="#stack">{t.nav.stack}</a><a href="#experience">{t.nav.experience}</a>
         </div>
         <div className="language-switch" aria-label="Language">
           <button className={lang === "vi" ? "active" : ""} onClick={() => setLang("vi")} aria-pressed={lang === "vi"}>VI</button>
@@ -96,7 +37,7 @@ export default function Home() {
             <h1><span className="headline-line headline-solid">{t.headline[0]}</span><span className="headline-line headline-outline">{t.headline[1]}</span></h1>
             <div className="hero-notes" aria-label={lang === "vi" ? "Điểm nổi bật" : "Highlights"}>{t.heroNotes.map((note, index) => <span key={note} className={`hero-note note-${index + 1}`}>{note}</span>)}</div>
             <div className="hero-actions">
-              <a href="#projects">{t.viewProjects}</a>
+              <a href="#experience">{t.viewExperience}</a>
               <a href="/Tran-Quoc-Khanh-CV.pdf" download>{t.resume}</a>
             </div>
           </div>
@@ -155,49 +96,26 @@ export default function Home() {
         <div className="section-content">
           <h2 data-reveal>{t.expTitle[0]}<br />{t.expTitle[1]}</h2>
           <div className="timeline">
-            <article className="timeline-item" data-reveal>
-              <span className="timeline-number">01</span>
-              <div>
-                <p className="timeline-label">{t.expRole}</p>
-                <h3>{t.expCompany}</h3>
-                <div className="experience-domains"><span>{t.expDomainLabel}</span>{t.expDomains.map(domain => <b key={domain}>{domain}</b>)}</div>
-                <div className="experience-stack" aria-label="Company tech stack">{t.expStack.map(item => <span key={item}>{item}</span>)}</div>
-                <ul className="experience-bullets">{t.expBullets.map(item => <li key={item}>{item}</li>)}</ul>
-              </div>
-              <span className="timeline-date">{t.expDate}</span>
-            </article>
+            {t.experiences.map((experience, index) => (
+              <article className="timeline-item" key={experience.role} data-reveal>
+                <span className="timeline-number">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <p className="timeline-label">{experience.role}</p>
+                  <h3>{experience.company}</h3>
+                  <p className="timeline-label">{experience.arrangement}</p>
+                  <div className="experience-domains"><span>{t.expDomainLabel}</span>{experience.domains.map(domain => <b key={domain}>{domain}</b>)}</div>
+                  <div className="experience-stack" aria-label="Company tech stack">{experience.stack.map(item => <span key={item}>{item}</span>)}</div>
+                  <ul className="experience-bullets">{experience.bullets.map(item => <li key={item}>{item}</li>)}</ul>
+                </div>
+                <span className="timeline-date">{experience.date}</span>
+              </article>
+            ))}
           </div>
           <div className="education-row" data-reveal><span>{t.education}</span><strong>{t.degree}</strong><span>{t.school}</span></div>
         </div>
       </section>
 
-      <section className="projects section" id="projects" data-number="04">
-        <div className="section-index">{t.projectsIndex}</div>
-        <div className="section-content">
-          <div className="section-title-row" data-reveal><h2>{t.projectsTitle}</h2><p>{t.projectsNote}</p></div>
-          <div className="projects-list">
-            {t.projects.map((project, index) => (
-              <article className="project-card featured-project" key={index} data-reveal data-tilt>
-                <div className="project-topline"><span>0{index + 1}</span><span>{project.label}</span></div>
-                <div className="featured-project-grid">
-                  <div className={`project-preview project-preview-${index + 1}`} aria-hidden="true"><span>{project.visual}</span><ProjectVisual index={index} /><b>{project.badge.split(" ").map((word, wordIndex) => <span key={wordIndex}>{word}<br /></span>)}</b></div>
-                  <div className="project-details">
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <ul className="project-features">{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
-                    <div className="repo-links">
-                      {project.links.map(([label, href]) => <a key={href} href={href} target="_blank" rel="noreferrer">{label}</a>)}
-                    </div>
-                  </div>
-                </div>
-                <div className="project-meta"><span>{project.tech}</span><span>GITHUB</span></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="contact section" id="contact" data-number="05">
+      <section className="contact section" id="contact" data-number="04">
         <div className="section-index">{t.contactIndex}</div>
         <div className="section-content contact-content" data-reveal>
           <p>{t.contactLead}</p><h2>{t.contactTitle[0]}<br /><span>{t.contactTitle[1]}</span></h2>
