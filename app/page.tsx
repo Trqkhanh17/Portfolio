@@ -29,7 +29,6 @@ export default function Home() {
       </nav>
 
       <header className="hero">
-        <div className="hero-status"><span className="status-dot" aria-hidden="true" />{t.role}</div>
         <div className="hero-grid">
           <div className="hero-main">
             <p className="eyebrow">{t.hello}</p>
@@ -41,11 +40,10 @@ export default function Home() {
               <a href="/Tran-Quoc-Khanh-CV.pdf" download>{t.resume}</a>
             </div>
           </div>
-          <aside className="hero-welcome" data-reveal data-tilt>
-            <div className="welcome-kicker"><span>01</span><span>PORTFOLIO / 2026</span></div>
-            <p>{t.welcomeEyebrow}</p>
-            <strong>{t.welcomeTitle[0]}<br /><span>{t.welcomeTitle[1]}</span></strong>
-            <div className="welcome-footer"><span>{t.welcomeFooter}</span><i aria-hidden="true">↘</i></div>
+          <aside className="hero-welcome" data-reveal>
+            <p className="welcome-eyebrow">{t.welcomeEyebrow}</p>
+            <p className="welcome-title"><span>{t.welcomeTitle[0]}</span><strong>{t.welcomeTitle[1]}</strong></p>
+            <a className="welcome-scroll" href="#about">{t.welcomeFooter}</a>
           </aside>
         </div>
         <div className="hero-bottom">

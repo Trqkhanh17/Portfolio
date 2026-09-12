@@ -6,7 +6,7 @@ export const portfolioContent = {
     role: 'KỸ SƯ PHẦN MỀM',
     hello: 'XIN CHÀO, TÔI LÀ',
     headline: ['KỸ SƯ', 'PHẦN MỀM'],
-    welcomeEyebrow: 'WElCOME TO',
+    welcomeEyebrow: 'WELCOME TO',
     welcomeTitle: ['MY', 'PORTFOLIO.'],
     welcomeFooter: 'SCROLL TO EXPLORE ↓',
     viewExperience: 'XEM KINH NGHIỆM ↓',
