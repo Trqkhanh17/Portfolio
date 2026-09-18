@@ -56,6 +56,7 @@ export function usePortfolioEffects(language: string) {
       revealObserver.disconnect();
       sectionObserver.disconnect();
     };
-  }, []);
+    // Translated list keys can replace DOM nodes, so observe the new elements
+    // after each language change instead of leaving them hidden by motion-ready.
+  }, [language]);
 }
-
