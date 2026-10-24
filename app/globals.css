@@ -123,8 +123,6 @@ button { font: inherit; color: inherit; }
 .about-portrait:hover { transform: rotate(-1deg) translateY(-5px); box-shadow: 15px 15px 0 var(--ink); }
 .about-portrait::before { content: ""; position: absolute; z-index: 2; top: -18px; left: 50%; width: 105px; height: 35px; border: 2px solid var(--ink); background: rgba(243,240,232,.78); transform: translateX(-50%) rotate(-3deg); backdrop-filter: blur(2px); }
 .about-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; object-position: center top; }
-.about-portrait figcaption { display: flex; justify-content: space-between; gap: 18px; padding: 12px 14px; border-top: var(--line); font-size: .62rem; font-weight: 800; }
-.about-portrait figcaption span:last-child { text-align: right; }
 
 .section-title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 60px; }
 .section-title-row p { max-width: 330px; margin: 0; font-size: .75rem; line-height: 1.6; font-weight: 700; }

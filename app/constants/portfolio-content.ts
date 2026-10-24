@@ -98,11 +98,10 @@ export const portfolioContent = {
           "E-COMMERCE"
         ],
         "bullets": [
-          "Phát triển và duy trì giao diện React, TypeScript cho cửa hàng e-commerce 3T và cổng quản trị; sử dụng Tailwind CSS và các component tái sử dụng để hỗ trợ màn hình máy tính và điện thoại.",
-          "Cải thiện trải nghiệm khám phá sản phẩm qua sửa lỗi tìm kiếm, cuộn vô hạn, sản phẩm liên quan và đã xem gần đây, trang công thức và nội dung khuyến mãi; sửa cách tính voucher khi thanh toán.",
-          "Xây dựng tính năng quản trị cho chỉnh sửa sản phẩm, tải ảnh, tìm kiếm, lọc, nhập dữ liệu cập nhật tồn kho và xem lịch sử, popup khuyến mãi và quản lý công thức; tích hợp REST API bằng Axios và TanStack Query.",
-          "Cải thiện quy trình đơn hàng chuỗi, chọn sản phẩm trên điện thoại, kiểm tra bằng chứng giao hàng và hiển thị lịch sử chỉnh sửa đơn; bổ sung bộ lọc và xuất Excel cho báo cáo doanh thu, giao hàng.",
-          "Cải thiện tốc độ tải landing page và URL sản phẩm; bổ sung metadata, tích hợp GA4, Google Tag Manager và TikTok Pixel để hỗ trợ phân tích marketing."
+          "E-Commerce Storefront & UI: Phát triển giao diện web responsive cho storefront 3T bằng React, TypeScript và Tailwind CSS, xây dựng các UI component tái sử dụng và đảm bảo trải nghiệm người dùng nhất quán trên cả mobile lẫn desktop.",
+          "Discovery & Conversion Features: Xây dựng tìm kiếm danh mục có debounce, cuộn vô hạn (infinite scrolling), gợi ý sản phẩm, tích hợp trang công thức và chuẩn hoá logic tính toán voucher đa tầng khi thanh toán.",
+          "Admin Portal Engineering: Xây dựng các module quản trị phục vụ quản lý danh mục sản phẩm, tải lên nhiều hình ảnh, lịch sử điều chỉnh tồn kho và báo cáo doanh thu phân tích, tích hợp REST API thông qua TanStack Query và Axios.",
+          "Performance & Analytics Integration: Tối ưu Core Web Vitals của landing page đạt điểm hiệu năng Lighthouse 90+; tích hợp GA4, Google Tag Manager và TikTok Pixel để theo dõi toàn diện phễu chuyển đổi của người dùng."
         ]
       }
     ],
@@ -213,11 +212,10 @@ export const portfolioContent = {
           "E-COMMERCE"
         ],
         "bullets": [
-          "Developed and maintained React and TypeScript interfaces for the 3T e-commerce storefront and admin portal, using Tailwind CSS and reusable components for responsive desktop and mobile layouts.",
-          "Enhanced product discovery with search fixes, infinite scrolling, related and recently viewed products, recipe pages, and promotional content; corrected voucher calculations in checkout.",
-          "Built admin features for product editing, image uploads, search, filtering, stock-update imports and history, promotional popups, and recipe management, integrating REST APIs with Axios and TanStack Query.",
-          "Improved chain-order workflows, mobile product selection, delivery-proof validation, and order edit-history display; extended revenue and delivery reports with filters and Excel exports.",
-          "Improved landing-page loading performance and product URLs; added metadata and integrated GA4, Google Tag Manager, and TikTok Pixel to support marketing analytics."
+          "E-Commerce Storefront & UI: Developed responsive web interfaces for 3T storefront using React, TypeScript, and Tailwind CSS, building reusable UI components and achieving consistent mobile/desktop UX.",
+          "Discovery & Conversion Features: Built debounced catalog search, infinite scrolling, product recommendations, recipe integration, and fixed multi-tier voucher calculation logic during checkout.",
+          "Admin Portal Engineering: Engineered administrative modules for product cataloging, multi-image uploads, stock adjustment history, and analytical revenue reports, integrating REST APIs via TanStack Query and Axios.",
+          "Performance & Analytics Integration: Boosted landing page Core Web Vitals to 90+ Lighthouse performance score; integrated GA4, Google Tag Manager, and TikTok Pixel to capture end-to-end user conversion funnels."
         ]
       }
     ],

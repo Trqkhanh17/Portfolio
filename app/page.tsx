@@ -71,9 +71,8 @@ export default function Home() {
                 height="840"
                 loading="lazy"
                 decoding="async"
-                alt={lang === "vi" ? "Trần Quốc Khánh trong lễ phục tốt nghiệp" : "Graduation portrait of Tran Quoc Khanh"}
+                alt="Trần Quốc Khánh"
               />
-              <figcaption><span>TRẦN QUỐC KHÁNH</span><span>{lang === "vi" ? "TỐT NGHIỆP · 2025" : "GRADUATION · 2025"}</span></figcaption>
             </figure>
           </div>
         </div>
