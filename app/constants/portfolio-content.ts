@@ -12,7 +12,7 @@ export const portfolioContent = {
     viewExperience: 'XEM KINH NGHIỆM ↓',
     resume: 'TẢI CV ↗',
     summary:
-      'Tôi là kỹ sư phần mềm Full-stack với 2 năm kinh nghiệm, bắt đầu từ phát triển frontend e-commerce bằng React và TypeScript, sau đó mở rộng sang Python, Django và PostgreSQL. Tôi phát triển và duy trì các hệ thống ERP, e-commerce, POS, CRM, quản lý kho và ứng dụng tích hợp AI.',
+      'Tôi là kỹ sư phần mềm Full-stack với 2 năm kinh nghiệm, bắt đầu từ phát triển frontend bằng React và TypeScript, sau đó mở rộng sang backend với Python, Django và PostgreSQL. Tôi thích giải quyết bài toán thực tế và xây dựng sản phẩm từ đầu đến cuối.',
     facts: [
       ['ĐÀO SÂU', 'CÁCH TÔI HỌC'],
       ['BỀN BỈ', 'CÁCH TÔI TIẾN BỘ'],
@@ -129,7 +129,7 @@ export const portfolioContent = {
     viewExperience: 'VIEW EXPERIENCE ↓',
     resume: 'DOWNLOAD CV ↗',
     summary:
-      'Full-stack Software Engineer with 2 years of software development experience, beginning with React and TypeScript e-commerce interfaces and progressing into Python, Django, and PostgreSQL. Experienced in developing and maintaining ERP, e-commerce, POS, CRM, warehouse, and AI-powered systems.',
+      'Full-stack Software Engineer with 2 years of experience, starting with React and TypeScript on the frontend, then expanding into Python, Django, and PostgreSQL on the backend. I enjoy solving real-world problems and building products end-to-end.',
     facts: [
       ['CURIOUS', 'BY NATURE'],
       ['CONSISTENT', 'HOW I GROW'],
