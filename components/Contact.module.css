@@ -1,0 +1,80 @@
+.contact {
+  background: var(--paper);
+}
+
+.contactContent > p {
+  margin: 0 0 40px;
+  font-weight: 700;
+}
+
+.contact h2 span {
+  color: var(--orange);
+}
+
+.contactLinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 65px;
+  border: var(--line);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.contactLinks a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 18px;
+  background: white;
+  font-size: 0.76rem;
+  overflow: hidden;
+  transition: background 0.18s ease, padding-left 0.18s ease;
+}
+
+.contactLinks a::after {
+  content: "↗";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  font: 400 1.6rem/1 "Archivo Black", sans-serif;
+  opacity: 0;
+  transform: translate(-8px, -50%);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.contactLinks a + a {
+  border-left: var(--line);
+}
+
+.contactLinks small {
+  color: #706d66;
+  font-weight: 700;
+}
+
+.contactLinks strong {
+  overflow-wrap: anywhere;
+}
+
+.contactLinks a:hover,
+.contactLinks a:focus-visible {
+  padding-left: 25px;
+  background: var(--green);
+}
+
+.contactLinks a:hover::after,
+.contactLinks a:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+@media (max-width: 680px) {
+  .contactLinks {
+    grid-template-columns: 1fr;
+  }
+
+  .contactLinks a + a {
+    border-left: 0;
+    border-top: var(--line);
+  }
+}
