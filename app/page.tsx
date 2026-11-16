@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { portfolioContent, type Language } from "@/app/constants/portfolio-content";
 import { usePortfolioEffects } from "@/app/hooks/use-portfolio-effects";
 import {
@@ -17,6 +17,10 @@ import {
 export default function Home() {
   const [lang, setLang] = useState<Language>("en");
   const t = portfolioContent[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   usePortfolioEffects(lang);
 

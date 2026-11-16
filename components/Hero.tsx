@@ -1,4 +1,5 @@
 import type { Language, portfolioContent } from "@/app/constants/portfolio-content";
+import Image from "next/image";
 import styles from "./Hero.module.css";
 
 interface HeroProps {
@@ -41,16 +42,16 @@ export function Hero({ lang, t }: HeroProps) {
           </div>
         </div>
 
-        <aside className={styles.heroWelcome} data-reveal>
-          <p className={styles.welcomeEyebrow}>{t.welcomeEyebrow}</p>
-          <p className={styles.welcomeTitle}>
-            <span>{t.welcomeTitle[0]}</span>
-            <strong>{t.welcomeTitle[1]}</strong>
-          </p>
-          <a className={styles.welcomeScroll} href="#about">
-            {t.welcomeFooter}
-          </a>
-        </aside>
+        <figure className={styles.heroPortrait} data-reveal>
+          <Image
+            src="/tran-quoc-khanh-portrait.png"
+            width="1086"
+            height="1448"
+            priority
+            sizes="(max-width: 980px) 300px, 360px"
+            alt={lang === "vi" ? "Chân dung Trần Quốc Khánh" : "Portrait of Tran Quoc Khanh"}
+          />
+        </figure>
       </div>
 
       <div className={styles.heroBottom}>

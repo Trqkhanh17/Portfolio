@@ -3,35 +3,32 @@ export type Language = 'vi' | 'en';
 export const portfolioContent = {
   vi: {
     nav: { about: 'VỀ TÔI', stack: 'CÔNG NGHỆ', experience: 'KINH NGHIỆM', contact: 'LIÊN HỆ ↗' },
-    role: 'KỸ SƯ PHẦN MỀM',
+    role: 'KỸ SƯ PHẦN MỀM FULL-STACK',
     hello: 'XIN CHÀO, TÔI LÀ',
-    headline: ['KỸ SƯ', 'PHẦN MỀM'],
-    welcomeEyebrow: 'WELCOME TO',
-    welcomeTitle: ['MY', 'PORTFOLIO.'],
-    welcomeFooter: 'SCROLL TO EXPLORE ↓',
+    headline: ['KỸ SƯ', 'FULL-STACK'],
     viewExperience: 'XEM KINH NGHIỆM ↓',
     resume: 'TẢI CV ↗',
     summary:
-      'Tôi là kỹ sư phần mềm Full-stack với 2 năm kinh nghiệm, bắt đầu từ phát triển frontend bằng React và TypeScript, sau đó mở rộng sang backend với Python, Django và PostgreSQL. Tôi thích giải quyết bài toán thực tế và xây dựng sản phẩm từ đầu đến cuối.',
+      'Kỹ sư phần mềm Full-stack tập trung vào backend Python/Django và ứng dụng React/TypeScript. Tôi đã xây dựng, tối ưu các quy trình ERP, thương mại điện tử, POS và CRM từ mua hàng, kho vận đến bán hàng, báo cáo và tích hợp dịch vụ bên thứ ba.',
     facts: [
-      ['ĐÀO SÂU', 'CÁCH TÔI HỌC'],
-      ['BỀN BỈ', 'CÁCH TÔI TIẾN BỘ'],
-      ['HỒ CHÍ MINH', 'NƠI TÔI ĐANG SỐNG'],
+      ['PYTHON / DJANGO', 'BACKEND CHÍNH'],
+      ['REACT / TYPESCRIPT', 'FRONTEND'],
+      ['TP. HỒ CHÍ MINH', 'VIỆT NAM'],
     ],
-    heroNotes: ['TÒ MÒ', 'KỸ LƯỠNG', 'HÒA ĐỒNG'],
+    heroNotes: ['TỐI ƯU API DJANGO', 'QUY TRÌNH ERP · POS', 'TÍCH HỢP DỊCH VỤ BÊN THỨ BA'],
     marquee: 'WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦',
     aboutIndex: '01 / VỀ TÔI',
     aboutTitle: ['TÔI LÀ AI.', 'CÁCH TÔI LÀM VIỆC.'],
     aboutText:
-      'Tôi là người hòa đồng, vui vẻ và khá dễ bắt nhịp khi làm việc cùng mọi người. Nhưng với công việc, tôi luôn giữ sự nghiêm túc và trách nhiệm. Trước khi bắt tay vào một tính năng, tôi muốn có đủ bối cảnh: ai sẽ dùng, họ đang vướng ở đâu, quy trình hiện tại diễn ra thế nào và những trường hợp nào dễ bị bỏ sót. Khi mọi thứ đã rõ, tôi làm từng phần cẩn thận, kiểm tra kỹ và trao đổi lại ngay nếu vẫn còn điểm chưa chắc chắn. Với tôi, làm nhanh chỉ có ý nghĩa khi vẫn hiểu đúng và làm đến nơi đến chốn.',
+      'Tôi tập trung xây dựng ứng dụng backend với Python/Django và sản phẩm web bằng React/TypeScript. Trong công việc, tôi đã tham gia các quy trình ERP, e-commerce, POS và CRM; từ thiết kế REST API, phân quyền và tối ưu truy vấn đến kiểm thử, tích hợp dữ liệu và hoàn thiện giao diện. Tôi phối hợp cùng các nhóm nghiệp vụ để hiểu quy trình, xử lý trường hợp biên và đưa tính năng vào sử dụng đáng tin cậy.',
     aboutMeta: [
-      ['NGÀY SINH', '17/08/2003'],
-      ['ĐANG SỐNG TẠI', 'TP. HỒ CHÍ MINH, VIỆT NAM'],
+      ['NGOẠI NGỮ', 'TIẾNG VIỆT · BẢN NGỮ'],
+      ['TIẾNG ANH', 'ĐỌC TÀI LIỆU KỸ THUẬT CƠ BẢN'],
     ],
     principles: [
-      ['01', 'HÒA ĐỒNG VÀ CỞI MỞ'],
-      ['02', 'ĐỦ BỐI CẢNH RỒI MỚI LÀM'],
-      ['03', 'NGHIÊM TÚC VÀ KỸ LƯỠNG'],
+      ['01', 'THIẾT KẾ REST API'],
+      ['02', 'TỐI ƯU TRUY VẤN CƠ SỞ DỮ LIỆU'],
+      ['03', 'KIỂM THỬ TỰ ĐỘNG · CI/CD'],
     ],
     stackIndex: '02 / CÔNG NGHỆ',
     stackTitle: 'CÔNG NGHỆ TÔI SỬ DỤNG.',
@@ -39,13 +36,13 @@ export const portfolioContent = {
     stackGroups: [
       [
         'FRONTEND',
-        ['ReactJS / Next.js', 'TypeScript / JavaScript', 'Tailwind CSS / shadcn/ui', 'TanStack Query / Zustand'],
+        ['React / React Hooks', 'TypeScript / JavaScript', 'Tailwind CSS / MUI', 'Redux Toolkit / TanStack Query', 'React Hook Form / shadcn/ui / Axios'],
       ],
-      ['BACKEND', ['Python / Django / DRF', 'NestJS / ExpressJS', 'REST API', 'Authentication & Authorization']],
-      ['DATABASE', ['PostgreSQL / MySQL', 'MongoDB', 'Query Optimization', 'Database Design']],
+      ['BACKEND', ['Python / Django / Django REST Framework', 'Node.js / NestJS / ExpressJS', 'REST API Design', 'JWT · RBAC · Authentication & Authorization']],
+      ['DATABASE', ['PostgreSQL / MySQL / MongoDB', 'Mongoose / Django ORM', 'Query Optimization']],
       [
         'TOOLS & PROCESS',
-        ['Git / Docker / Linux', 'Unit & E2E Testing', 'System Integration', 'AI-assisted Development'],
+        ['pytest / Jest / Vitest', 'Playwright · Unit · E2E Testing', 'Git / GitHub Actions / CI/CD', 'Docker / Linux'],
       ],
     ],
     expIndex: '03 / KINH NGHIỆM',
@@ -55,7 +52,7 @@ export const portfolioContent = {
       {
         "role": "KỸ SƯ PHẦN MỀM FULL-STACK",
         "company": "TTMI JOINT STOCK COMPANY",
-        "date": "08/2025 — HIỆN TẠI",
+        "date": "10/2025 — 10/2026",
         "arrangement": "TOÀN THỜI GIAN · TẠI VĂN PHÒNG",
         "stack": [
           "PYTHON",
@@ -82,35 +79,13 @@ export const portfolioContent = {
           "Làm việc trực tiếp với Kế toán, Kinh doanh, Marketing và Ban Giám đốc để làm rõ yêu cầu, phân tích quy trình ERP, xác định các trường hợp biên và bàn giao tính năng đã được kiểm thử."
         ]
       },
-      {
-        "role": "LẬP TRÌNH VIÊN FRONTEND FREELANCE",
-        "company": "TTMI JOINT STOCK COMPANY",
-        "date": "09/2024 — 07/2025",
-        "arrangement": "FREELANCE · TỪ XA",
-        "stack": [
-          "REACT",
-          "TYPESCRIPT",
-          "TAILWIND CSS",
-          "AXIOS",
-          "TANSTACK QUERY"
-        ],
-        "domains": [
-          "E-COMMERCE"
-        ],
-        "bullets": [
-          "E-Commerce Storefront & UI: Phát triển giao diện web responsive cho storefront 3T bằng React, TypeScript và Tailwind CSS, xây dựng các UI component tái sử dụng và đảm bảo trải nghiệm người dùng nhất quán trên cả mobile lẫn desktop.",
-          "Discovery & Conversion Features: Xây dựng tìm kiếm danh mục có debounce, cuộn vô hạn (infinite scrolling), gợi ý sản phẩm, tích hợp trang công thức và chuẩn hoá logic tính toán voucher đa tầng khi thanh toán.",
-          "Admin Portal Engineering: Xây dựng các module quản trị phục vụ quản lý danh mục sản phẩm, tải lên nhiều hình ảnh, lịch sử điều chỉnh tồn kho và báo cáo doanh thu phân tích, tích hợp REST API thông qua TanStack Query và Axios.",
-          "Performance & Analytics Integration: Tối ưu Core Web Vitals của landing page đạt điểm hiệu năng Lighthouse 90+; tích hợp GA4, Google Tag Manager và TikTok Pixel để theo dõi toàn diện phễu chuyển đổi của người dùng."
-        ]
-      }
     ],
     education: 'HỌC VẤN',
     degree: 'KỸ SƯ CÔNG NGHỆ THÔNG TIN',
     school: 'ĐẠI HỌC NAM CẦN THƠ · 2021—2025',
     contactIndex: '04 / LIÊN HỆ',
     contactLead:
-      'NẾU BẠN CẦN MỘT KỸ SƯ PHẦN MỀM LUÔN MUỐN HIỂU RÕ VIỆC CẦN LÀM, KHÔNG NGẠI HỌC ĐIỀU MỚI VÀ SẴN SÀNG CÙNG ĐỘI NGŨ TÌM RA CÁCH TỐT HƠN,',
+      'TÔI ĐANG TÌM KIẾM CƠ HỘI PHÙ HỢP ĐỂ XÂY DỰNG SẢN PHẨM VÀ GIẢI QUYẾT CÁC BÀI TOÁN KỸ THUẬT CÙNG ĐỘI NGŨ.',
     contactTitle: ['CỨ NHẮN CHO TÔI.', 'TÔI SẴN SÀNG LẮNG NGHE.'],
     email: 'EMAIL',
     github: 'GITHUB',
@@ -120,35 +95,32 @@ export const portfolioContent = {
   },
   en: {
     nav: { about: 'ABOUT', stack: 'SKILLS', experience: 'EXPERIENCE', contact: 'CONTACT ↗' },
-    role: 'SOFTWARE ENGINEER',
+    role: 'FULL-STACK SOFTWARE ENGINEER',
     hello: "HELLO, I'M",
-    headline: ['SOFTWARE', 'ENGINEER'],
-    welcomeEyebrow: 'WELCOME TO',
-    welcomeTitle: ['MY', 'PORTFOLIO.'],
-    welcomeFooter: 'SCROLL TO EXPLORE ↓',
+    headline: ['FULL-STACK', 'ENGINEER'],
     viewExperience: 'VIEW EXPERIENCE ↓',
     resume: 'DOWNLOAD CV ↗',
     summary:
-      'Full-stack Software Engineer with 2 years of experience, starting with React and TypeScript on the frontend, then expanding into Python, Django, and PostgreSQL on the backend. I enjoy solving real-world problems and building products end-to-end.',
+      'Full-stack Software Engineer focused on Python/Django backend development and React/TypeScript applications. Built and optimized ERP, e-commerce, POS, and CRM workflows spanning procurement, inventory, sales, reporting, and third-party integrations.',
     facts: [
-      ['CURIOUS', 'BY NATURE'],
-      ['CONSISTENT', 'HOW I GROW'],
-      ['HO CHI MINH', 'BASED IN'],
+      ['PYTHON / DJANGO', 'BACKEND FOCUS'],
+      ['REACT / TYPESCRIPT', 'FRONTEND'],
+      ['HO CHI MINH CITY', 'VIETNAM'],
     ],
-    heroNotes: ['CURIOUS BY NATURE', 'SERIOUS ABOUT DETAILS', 'EASY TO WORK WITH'],
+    heroNotes: ['DJANGO API OPTIMIZATION', 'ERP · POS WORKFLOWS', 'THIRD-PARTY INTEGRATIONS'],
     marquee: 'WEB DEVELOPMENT ✦ SYSTEM DESIGN ✦ REST API ✦ CLEAN ARCHITECTURE ✦',
     aboutIndex: '01 / ABOUT',
     aboutTitle: ['WHO I AM.', 'HOW I WORK.'],
     aboutText:
-      "I'm easygoing, upbeat, and quick to connect with the people I work with, but I take the work itself seriously. Before I start building a feature, I want the full context: who will use it, where the current friction is, how the workflow runs, and which cases are easy to miss. Once that picture is clear, I work carefully, check the details, and raise questions whenever something still feels uncertain. To me, moving fast only matters when the work is still understood and done properly.",
+      'I focus on Python/Django backend systems and React/TypeScript web applications. My experience includes ERP, e-commerce, POS, and CRM workflows, covering REST API design, access control, query optimization, automated testing, data integrations, and frontend delivery. I work with business teams to understand workflows, handle edge cases, and ship reliable features.',
     aboutMeta: [
-      ['DATE OF BIRTH', '17 AUGUST 2003'],
-      ['BASED IN', 'HO CHI MINH CITY, VIETNAM'],
+      ['LANGUAGES', 'VIETNAMESE · NATIVE'],
+      ['ENGLISH', 'BASIC TECHNICAL READING'],
     ],
     principles: [
-      ['01', 'OPEN AND EASY TO WORK WITH'],
-      ['02', 'GET THE FULL CONTEXT FIRST'],
-      ['03', 'SERIOUS ABOUT THE DETAILS'],
+      ['01', 'REST API DESIGN'],
+      ['02', 'DATABASE QUERY OPTIMIZATION'],
+      ['03', 'AUTOMATED TESTING · CI/CD'],
     ],
     stackIndex: '02 / SKILLS',
     stackTitle: 'TOOLS I USE.',
@@ -156,11 +128,11 @@ export const portfolioContent = {
     stackGroups: [
       [
         'FRONTEND',
-        ['ReactJS / Next.js', 'TypeScript / JavaScript', 'Tailwind CSS / shadcn/ui', 'TanStack Query / Zustand'],
+        ['React / React Hooks', 'TypeScript / JavaScript', 'Tailwind CSS / MUI', 'Redux Toolkit / TanStack Query', 'React Hook Form / shadcn/ui / Axios'],
       ],
-      ['BACKEND', ['Python / Django / DRF', 'NestJS / ExpressJS', 'REST API', 'Authentication & Authorization']],
-      ['DATABASE', ['PostgreSQL / MySQL', 'MongoDB', 'Query Optimization', 'Database Design']],
-      ['ENGINEERING', ['Git / Docker / Linux', 'Unit & E2E Testing', 'System Integration', 'AI-assisted Development']],
+      ['BACKEND', ['Python / Django / Django REST Framework', 'Node.js / NestJS / ExpressJS', 'REST API Design', 'JWT · RBAC · Authentication & Authorization']],
+      ['DATABASE', ['PostgreSQL / MySQL / MongoDB', 'Mongoose / Django ORM', 'Query Optimization']],
+      ['ENGINEERING', ['pytest / Jest / Vitest', 'Playwright · Unit · E2E Testing', 'Git / GitHub Actions / CI/CD', 'Docker / Linux']],
     ],
     expIndex: '03 / EXPERIENCE',
     expTitle: ['WHERE I', 'CREATE VALUE.'],
@@ -169,7 +141,7 @@ export const portfolioContent = {
       {
         "role": "FULL-STACK SOFTWARE ENGINEER",
         "company": "TTMI JOINT STOCK COMPANY",
-        "date": "AUG 2025 — PRESENT",
+        "date": "OCT 2025 — OCT 2026",
         "arrangement": "FULL-TIME · ON-SITE",
         "stack": [
           "PYTHON",
@@ -196,35 +168,13 @@ export const portfolioContent = {
           "Worked directly with Accounting, Sales, Marketing, and the Board of Directors to clarify requirements, analyze ERP workflows, identify edge cases, and deliver tested product features."
         ]
       },
-      {
-        "role": "FREELANCE FRONTEND DEVELOPER",
-        "company": "TTMI JOINT STOCK COMPANY",
-        "date": "SEP 2024 — JUL 2025",
-        "arrangement": "FREELANCE · REMOTE",
-        "stack": [
-          "REACT",
-          "TYPESCRIPT",
-          "TAILWIND CSS",
-          "AXIOS",
-          "TANSTACK QUERY"
-        ],
-        "domains": [
-          "E-COMMERCE"
-        ],
-        "bullets": [
-          "E-Commerce Storefront & UI: Developed responsive web interfaces for 3T storefront using React, TypeScript, and Tailwind CSS, building reusable UI components and achieving consistent mobile/desktop UX.",
-          "Discovery & Conversion Features: Built debounced catalog search, infinite scrolling, product recommendations, recipe integration, and fixed multi-tier voucher calculation logic during checkout.",
-          "Admin Portal Engineering: Engineered administrative modules for product cataloging, multi-image uploads, stock adjustment history, and analytical revenue reports, integrating REST APIs via TanStack Query and Axios.",
-          "Performance & Analytics Integration: Boosted landing page Core Web Vitals to 90+ Lighthouse performance score; integrated GA4, Google Tag Manager, and TikTok Pixel to capture end-to-end user conversion funnels."
-        ]
-      }
     ],
     education: 'EDUCATION',
     degree: 'B.ENG. IN INFORMATION TECHNOLOGY',
     school: 'NAM CAN THO UNIVERSITY · 2021—2025',
     contactIndex: '04 / CONTACT',
     contactLead:
-      'IF YOU NEED A SOFTWARE ENGINEER WHO LIKES TO UNDERSTAND THE WORK BEFORE WRITING THE CODE — AND KEEPS LEARNING ALONG THE WAY,',
+      'I AM OPEN TO THE RIGHT OPPORTUNITY TO BUILD PRODUCTS AND SOLVE ENGINEERING PROBLEMS WITH A TEAM.',
     contactTitle: ["LET'S TALK.", "I'M LISTENING."],
     email: 'EMAIL',
     github: 'GITHUB',
