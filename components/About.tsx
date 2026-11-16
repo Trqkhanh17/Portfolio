@@ -36,17 +36,6 @@ export function About({ t }: AboutProps) {
               ))}
             </div>
           </div>
-
-          <figure className={styles.aboutPortrait} data-reveal>
-            <img
-              src="/tran-quoc-khanh-graduation.png"
-              width="560"
-              height="840"
-              loading="lazy"
-              decoding="async"
-              alt="Trần Quốc Khánh"
-            />
-          </figure>
         </div>
       </div>
     </section>

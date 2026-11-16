@@ -16,7 +16,7 @@ export function Navbar({ lang, setLang, t }: NavbarProps) {
         <span className={styles.brandSymbol} aria-hidden="true">✦</span>
         <span className={styles.brandCopy}>
           <strong>TRẦN QUỐC KHÁNH</strong>
-          <small>SOFTWARE ENGINEER</small>
+          <small>{t.role}</small>
         </span>
       </a>
 
