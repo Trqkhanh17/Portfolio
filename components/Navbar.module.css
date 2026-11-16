@@ -1,13 +1,14 @@
 .siteNav {
   min-height: 76px;
   display: flex;
+  flex-wrap: nowrap;
   align-items: stretch;
-  border-bottom: var(--line);
   position: sticky;
   top: 0;
   z-index: 20;
-  background: color-mix(in srgb, var(--paper) 94%, transparent);
-  backdrop-filter: blur(8px);
+  border-bottom: var(--line);
+  background: rgb(8 9 11 / 90%);
+  backdrop-filter: blur(14px);
 }
 
 .brand {
@@ -15,7 +16,7 @@
   align-items: center;
   gap: 12px;
   min-width: 250px;
-  padding: 0 22px;
+  padding: 0 24px;
   border-right: var(--line);
 }
 
@@ -25,185 +26,112 @@
   flex: 0 0 34px;
   width: 34px;
   height: 34px;
-  border: 2px solid var(--ink);
-  background: var(--orange);
-  box-shadow: 3px 3px 0 var(--ink);
-  font-size: 1.1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font: 500 0.8rem/1 var(--font-mono);
+  transition: color .2s ease, background .2s ease, transform .2s ease;
 }
 
-.brand:hover .brandSymbol,
-.brand:focus-visible .brandSymbol {
-  transform: rotate(12deg) translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--ink);
-}
+.brand:hover .brandSymbol { background: var(--accent); color: white; transform: rotate(-5deg); }
 
-.brandCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-}
+.brandCopy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.brandCopy strong { font: 600 .76rem/1 var(--font-body); letter-spacing: .02em; white-space: nowrap; }
+.brandCopy small { color: var(--muted); font: 500 .54rem/1.2 var(--font-mono); letter-spacing: .05em; }
 
-.brandCopy strong {
-  font-size: 0.78rem;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.brandCopy small {
-  font-size: 0.56rem;
-  line-height: 1;
-  font-weight: 700;
-  color: #706d66;
-  letter-spacing: 0.08em;
-}
-
-.navMenu {
-  display: flex;
-  margin-left: auto;
-}
+.navMenu { display: flex; align-items: stretch; gap: 4px; margin-left: auto; }
 
 .navMenu a,
 .contactButton {
   position: relative;
   display: grid;
   place-items: center;
-  padding: 0 22px;
-  border-left: var(--line);
-  font-size: 0.78rem;
-  font-weight: 700;
-  overflow: hidden;
-  transition: color 0.18s ease, background 0.18s ease;
+  padding: 0 18px;
+  border-left: 0;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 600;
+  transition: color .2s ease, background .2s ease;
 }
 
 .navMenu a::after {
   content: "";
   position: absolute;
-  inset: auto 13px 13px;
-  height: 3px;
-  background: var(--orange);
+  inset: auto 18px 0;
+  height: 2px;
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.2s ease;
+  transition: transform .22s ease;
 }
 
 .navMenu a:hover,
 .navMenu a:focus-visible,
-.navMenu a:global(.is-current) {
-  background: var(--green);
-}
+.navMenu a:global(.is-current) { color: var(--text); }
 
 .navMenu a:hover::after,
 .navMenu a:focus-visible::after,
-.navMenu a:global(.is-current)::after {
-  transform: scaleX(1);
-}
+.navMenu a:global(.is-current)::after { transform: scaleX(1); }
 
-.languageSwitch {
-  display: flex;
-  border-left: var(--line);
-}
+.languageSwitch { display: flex; border-left: var(--line); }
 
 .languageSwitch button {
-  width: 48px;
+  width: 46px;
   border: 0;
-  border-right: 1px solid var(--ink);
-  background: var(--paper);
+  border-right: var(--line);
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
-  font-size: 0.72rem;
-  font-weight: 700;
-  transition: background 0.16s ease, transform 0.12s ease;
+  font: 500 .63rem/1 var(--font-mono);
+  transition: color .18s ease;
 }
 
-.languageSwitch button:last-child {
-  border-right: 0;
-}
-
+.languageSwitch button:last-child { border-right: 0; }
 .languageSwitch button:hover,
 .languageSwitch button:focus-visible,
-.languageSwitch button.active {
-  background: var(--green);
-}
+.languageSwitch button.active { color: var(--accent); }
 
 .contactButton {
-  background: var(--ink);
-  color: var(--paper);
-  min-width: 150px;
+  min-width: 145px;
+  background: var(--accent);
+  color: #111;
 }
 
 .contactButton:hover,
-.contactButton:focus-visible {
-  background: var(--orange);
-  color: var(--ink);
-}
-
-.contactButton:active,
-.languageSwitch button:active {
-  transform: translate(2px, 2px);
-}
+.contactButton:focus-visible { background: #ddbf89; color: #111; }
+.contactButton:global(.is-current) { box-shadow: inset 0 -3px 0 #111; }
 
 @media (max-width: 980px) {
+  .siteNav { flex-wrap: wrap; }
+  .brand { flex: 1; order: 1; }
+  .languageSwitch { margin-left: 0; order: 2; }
+  .contactButton { order: 3; }
   .navMenu {
-    display: none;
+    display: flex;
+    order: 4;
+    width: 100%;
+    height: 46px;
+    margin: 0;
+    justify-content: center;
+    border-top: var(--line);
   }
-
-  .languageSwitch {
-    margin-left: auto;
-  }
+  .navMenu a { flex: 1; padding: 0 10px; font-size: .7rem; }
+  .navMenu a::after { inset-inline: 12px; }
 }
 
 @media (max-width: 680px) {
-  .siteNav {
-    min-height: 64px;
-  }
-
-  .brand {
-    min-width: 0;
-    padding: 0 13px;
-    gap: 9px;
-  }
-
-  .brandSymbol {
-    flex-basis: 30px;
-    width: 30px;
-    height: 30px;
-    box-shadow: 2px 2px 0 var(--ink);
-  }
-
-  .brandCopy strong {
-    font-size: 0.62rem;
-  }
-
-  .brandCopy small {
-    font-size: 0.46rem;
-    letter-spacing: 0.03em;
-  }
-
-  .contactButton {
-    min-width: 120px;
-    padding: 0 12px;
-  }
+  .siteNav { min-height: 0; }
+  .brand { min-width: 0; flex: 1; gap: 9px; padding: 0 14px; border-right: 0; }
+  .brandSymbol { flex-basis: 30px; width: 30px; height: 30px; }
+  .brandCopy strong { font-size: .68rem; }
+  .brandCopy small { font-size: .49rem; }
+  .languageSwitch { margin-left: 0; border-left: 0; }
+  .languageSwitch button { width: 38px; }
+  .contactButton { min-width: 0; min-height: 64px; padding: 0 13px; font-size: .66rem; }
+  .navMenu { height: 42px; }
+  .navMenu a { font-size: .63rem; }
 }
 
-@media (max-width: 430px) {
-  .brandCopy small {
-    display: none;
-  }
-
-  .brandCopy strong {
-    max-width: 76px;
-    white-space: normal;
-    line-height: 1.1;
-  }
-}
-
-@media (max-width: 360px) {
-  .brandCopy {
-    display: none;
-  }
-
-  .contactButton {
-    min-width: 108px;
-  }
+@media (max-width: 380px) {
+  .brandCopy small { display: none; }
+  .brandCopy strong { white-space: normal; }
 }

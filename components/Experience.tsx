@@ -7,49 +7,46 @@ interface ExperienceProps {
 
 export function Experience({ t }: ExperienceProps) {
   return (
-    <section className={`section ${styles.experience}`} id="experience" data-number="03">
-      <div className="section-index">{t.expIndex}</div>
+    <section className={`section ${styles.experience}`} id="experience" data-number="02">
+      <div className="section-index">{t.experienceIndex}</div>
       <div className="section-content">
-        <h2 data-reveal>
-          {t.expTitle[0]}
-          <br />
-          {t.expTitle[1]}
-        </h2>
-
-        <div className={styles.timeline}>
-          {t.experiences.map((experience, index) => (
-            <article className={styles.timelineItem} key={experience.role} data-reveal>
-              <span className={styles.timelineNumber}>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <p className={styles.timelineLabel}>{experience.role}</p>
-                <h3>{experience.company}</h3>
-                <p className={styles.timelineLabel}>{experience.arrangement}</p>
-                <div className={styles.experienceDomains}>
-                  <span>{t.expDomainLabel}</span>
-                  {experience.domains.map((domain) => (
-                    <b key={domain}>{domain}</b>
-                  ))}
-                </div>
-                <div className={styles.experienceStack} aria-label="Company tech stack">
-                  {experience.stack.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-                <ul className={styles.experienceBullets}>
-                  {experience.bullets.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <span className={styles.timelineDate}>{experience.date}</span>
-            </article>
-          ))}
+        <div className={`section-title-row ${styles.experienceTitleRow}`} data-reveal>
+          <h2>{t.experienceTitle}</h2>
+          <p>{t.experienceIntro}</p>
         </div>
 
-        <div className={styles.educationRow} data-reveal>
-          <span>{t.education}</span>
-          <strong>{t.degree}</strong>
-          <span>{t.school}</span>
+        <article className={styles.jobCard} data-reveal>
+          <header className={styles.jobHeader}>
+            <div>
+              <p className={styles.jobRole}>{t.experience.role}</p>
+              <h3>{t.experience.company}</h3>
+              <span className={styles.jobArrangement}>{t.experience.arrangement}</span>
+            </div>
+            <span>{t.experience.date}</span>
+          </header>
+
+          <div className={styles.experienceDomains}>
+            <span>{t.expDomainLabel}</span>
+            {t.experience.domains.map((domain) => <b key={domain}>{domain}</b>)}
+          </div>
+
+          <div className={styles.impactGrid}>
+            {t.experience.impact.map(([area, description], index) => (
+              <div className={styles.impactItem} key={area}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h4>{area}</h4>
+                  <p>{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <div className={styles.educationRow}>
+          <span>{t.educationLabel}</span>
+          <strong>{t.degree}<small>{t.school}</small></strong>
+          <span>{t.educationYears}</span>
         </div>
       </div>
     </section>

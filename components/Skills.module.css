@@ -1,93 +1,70 @@
 .stackGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .stackCard {
+  min-width: 0;
+  overflow: hidden;
   border: var(--line);
-  background: white;
-  box-shadow: 7px 7px 0 var(--ink);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 2px;
+  background: var(--surface);
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.stackCard:hover {
+  border-color: var(--accent);
+  background: var(--surface);
 }
 
 .stackCardHead {
   display: flex;
   justify-content: space-between;
-  padding: 11px 14px;
+  padding: 13px 18px;
   border-bottom: var(--line);
-  background: var(--muted);
-  font-size: 0.7rem;
+  color: var(--muted);
+  font: 500 0.64rem/1 var(--font-mono);
 }
 
 .stackCard h3 {
   margin: 0;
-  padding: 22px 18px;
-  font: 400 clamp(1.8rem, 3.5vw, 3.2rem)/1 "Archivo Black", sans-serif;
+  padding: 20px 18px 16px;
+  color: var(--text);
+  font: 500 clamp(1.8rem, 2.9vw, 2.55rem)/1.14 var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 .stackCard ul {
   list-style: none;
   margin: 0;
-  padding: 0;
-  border-top: var(--line);
+  padding: 0 18px 10px;
 }
 
 .stackCard li {
-  padding: 12px 18px;
-  font-size: 0.78rem;
-  color: #706d66;
-  transition: padding-left 0.18s ease, color 0.18s ease, background 0.18s ease;
+  position: relative;
+  padding: 11px 0 11px 16px;
+  color: #c0bbb0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  transition: color .18s ease, padding-left .18s ease;
 }
 
-.stackCard li + li {
-  border-top: 1px solid var(--ink);
+.stackCard li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
 }
 
-.stackCard:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 10px 10px 0 var(--ink);
-}
+.stackCard li + li { border-top: 1px solid #2c2e30; }
+.stackCard li:hover { padding-left: 21px; color: var(--accent); }
 
-.stackCard:hover li {
-  color: var(--ink);
-}
-
-.stackCard li:hover {
-  padding-left: 27px;
-  background: var(--green);
-}
-
-.cardSignal {
-  color: var(--orange);
-  animation: signalBlink 1.5s steps(2, end) infinite;
-}
-
-.stackCard:nth-child(1) { transform: rotate(-0.65deg); }
-.stackCard:nth-child(2) { transform: rotate(0.55deg) translateY(15px); }
-.stackCard:nth-child(3) { transform: rotate(0.45deg) translateY(-5px); }
-.stackCard:nth-child(4) { transform: rotate(-0.55deg) translateY(12px); }
-.stackCard:hover { transform: translate(-4px, -6px) rotate(0); }
-
-.stackCard:nth-child(1) .stackCardHead { background: var(--green); }
-.stackCard:nth-child(2) .stackCardHead { background: var(--orange); }
-.stackCard:nth-child(3) .stackCardHead { background: #7bc8ff; }
-
-@keyframes signalBlink {
-  0%, 55% {
-    opacity: 1;
-  }
-  56%, 100% {
-    opacity: 0.25;
-  }
-}
+.cardSignal { color: var(--accent); }
 
 @media (max-width: 680px) {
-  .stackGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .stackCard:nth-child(n) {
-    transform: none;
-  }
+  .stackGrid { grid-template-columns: 1fr; gap: 12px; }
 }

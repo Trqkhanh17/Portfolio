@@ -13,7 +13,7 @@ export function Navbar({ lang, setLang, t }: NavbarProps) {
   return (
     <nav className={styles.siteNav} aria-label="Main navigation">
       <a className={styles.brand} href="#top" aria-label="Tran Quoc Khanh — back to top">
-        <span className={styles.brandSymbol} aria-hidden="true">✦</span>
+        <span className={styles.brandSymbol} aria-hidden="true">TK</span>
         <span className={styles.brandCopy}>
           <strong>TRẦN QUỐC KHÁNH</strong>
           <small>{t.role}</small>
@@ -22,8 +22,8 @@ export function Navbar({ lang, setLang, t }: NavbarProps) {
 
       <div className={`${styles.navMenu} nav-menu`}>
         <a href="#about">{t.nav.about}</a>
-        <a href="#stack">{t.nav.stack}</a>
         <a href="#experience">{t.nav.experience}</a>
+        <a href="#stack">{t.nav.stack}</a>
       </div>
 
       <div className={styles.languageSwitch} aria-label="Language">
@@ -45,7 +45,7 @@ export function Navbar({ lang, setLang, t }: NavbarProps) {
         </button>
       </div>
 
-      <a className={styles.contactButton} href="#contact">
+      <a className={`${styles.contactButton} nav-contact`} href="#contact">
         {t.nav.contact}
       </a>
     </nav>

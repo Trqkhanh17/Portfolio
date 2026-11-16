@@ -7,7 +7,7 @@ interface SkillsProps {
 
 export function Skills({ t }: SkillsProps) {
   return (
-    <section className="section" id="stack" data-number="02">
+    <section className="section" id="stack" data-number="03">
       <div className="section-index">{t.stackIndex}</div>
       <div className="section-content">
         <div className="section-title-row" data-reveal>
