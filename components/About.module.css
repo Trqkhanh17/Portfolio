@@ -1,100 +1,91 @@
-.about {
-  background: var(--green);
-}
-
-.about h2 span {
-  color: var(--green);
-  -webkit-text-stroke: clamp(2px, 0.2vw, 3px) var(--ink);
-}
+.about { background: var(--bg); }
 
 .aboutGrid {
-  display: block;
-  margin-top: 70px;
+  margin-top: 44px;
 }
 
-.aboutCopy {
+.aboutLead {
+  max-width: 860px;
+  margin: 30px 0 0;
+  color: #d1cdc4;
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  line-height: 1.85;
+}
+
+.focusTitle {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font: 500 .66rem/1.5 var(--font-mono);
+  letter-spacing: .055em;
+}
+
+.focusGrid {
   display: grid;
-  gap: 42px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.focusCard {
   min-width: 0;
-}
-
-.largePlaceholder {
-  margin: 0;
-  max-width: 720px;
-  font-size: clamp(1.15rem, 2vw, 1.65rem);
-  line-height: 1.6;
-  font-weight: 600;
-}
-
-.aboutMeta {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 0;
-  border-block: var(--line);
-}
-
-.aboutMeta div {
-  padding: 14px 0;
-}
-
-.aboutMeta div + div {
-  padding-left: 20px;
-  border-left: var(--line);
-}
-
-.aboutMeta dt {
-  margin-bottom: 7px;
-  color: #706d66;
-  font-size: 0.58rem;
-  font-weight: 800;
-}
-
-.aboutMeta dd {
-  margin: 0;
-  font-size: 0.78rem;
-  font-weight: 900;
-}
-
-.principles {
+  padding: 22px 22px 24px;
   border: var(--line);
-  background: var(--paper);
-  box-shadow: 8px 8px 0 var(--ink);
+  background: var(--surface);
+  transition: border-color .2s ease, transform .2s ease, background .2s ease;
 }
 
-.principles div {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  padding: 16px;
-  align-items: center;
-  transition: padding-left 0.18s ease, background 0.18s ease;
+.focusCard:hover {
+  transform: translateY(-4px);
+  border-color: rgb(198 165 107 / 65%);
+  background: var(--surface-alt);
 }
 
-.principles div + div {
-  border-top: var(--line);
+.focusCard > span {
+  color: var(--accent);
+  font: 500 .68rem/1 var(--font-mono);
 }
 
-.principles span {
-  font-size: 0.68rem;
+.focusCard h3 {
+  margin: 38px 0 10px;
+  color: var(--text);
+  font: 600 .92rem/1.35 var(--font-body);
+  letter-spacing: .01em;
 }
 
-.principles div:hover {
-  padding-left: 24px;
-  background: var(--orange);
+.focusCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.75;
+}
+
+.languageLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 28px;
+  padding: 17px 0;
+  margin-top: 24px;
+  border-block: var(--line);
+  font-size: .82rem;
+}
+
+.languageLine > span {
+  margin-right: auto;
+  color: var(--muted);
+  font: 500 .64rem/1.4 var(--font-mono);
+  letter-spacing: .05em;
+}
+
+.languageLine strong { color: #d9d5cc; font-weight: 500; }
+
+@media (max-width: 800px) {
+  .focusGrid { grid-template-columns: 1fr; }
+  .focusCard h3 { margin-top: 22px; }
 }
 
 @media (max-width: 680px) {
-  .aboutCopy {
-    gap: 32px;
-  }
-
-  .aboutMeta {
-    grid-template-columns: 1fr;
-  }
-
-  .aboutMeta div + div {
-    padding-left: 0;
-    border-left: 0;
-    border-top: var(--line);
-  }
-
+  .aboutLead { margin-top: 22px; font-size: .98rem; }
+  .aboutGrid { margin-top: 30px; }
+  .languageLine { align-items: flex-start; gap: 10px 16px; }
+  .languageLine > span { flex-basis: 100%; }
 }

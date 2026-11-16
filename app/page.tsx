@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { portfolioContent, type Language } from "@/app/constants/portfolio-content";
 import { usePortfolioEffects } from "@/app/hooks/use-portfolio-effects";
 import {
   Navbar,
   Hero,
-  Marquee,
   About,
   Skills,
   Experience,
@@ -18,10 +17,6 @@ export default function Home() {
   const [lang, setLang] = useState<Language>("en");
   const t = portfolioContent[lang];
 
-  useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
-
   usePortfolioEffects(lang);
 
   return (
@@ -29,10 +24,9 @@ export default function Home() {
       <div className="scroll-progress" aria-hidden="true" />
       <Navbar lang={lang} setLang={setLang} t={t} />
       <Hero lang={lang} t={t} />
-      <Marquee t={t} />
       <About t={t} />
-      <Skills t={t} />
       <Experience t={t} />
+      <Skills t={t} />
       <Contact t={t} />
       <Footer t={t} />
     </main>

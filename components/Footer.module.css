@@ -1,20 +1,26 @@
 .footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  padding: 24px 3vw;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 0.7rem;
-  font-weight: 700;
+  padding: 22px 5vw;
+  background: #050607;
+  color: #aaa69d;
+  font: 500 0.66rem/1.5 var(--font-mono);
 }
+
+.footer a {
+  color: #f0ede6;
+  transition: color 0.16s ease;
+}
+
+.footer a:hover { color: var(--accent); }
 
 @media (max-width: 680px) {
   .footer {
     flex-wrap: wrap;
+    padding: 20px;
   }
 
-  .footer span:first-child {
-    width: 100%;
-  }
+  .footer span:first-child { width: 100%; }
 }

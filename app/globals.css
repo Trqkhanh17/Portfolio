@@ -1,65 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600&display=swap');
 
-/* ==========================================================================
-   DESIGN TOKENS & RESET
-   ========================================================================== */
 :root {
-  --ink: #111111;
-  --paper: #f3f0e8;
-  --green: #b9ff35;
-  --orange: #ff6b35;
-  --muted: #d7d2c7;
-  --line: 3px solid var(--ink);
+  color-scheme: dark;
+  --bg: #08090b;
+  --surface: #111315;
+  --surface-alt: #1a1d20;
+  --text: #f0ede6;
+  --muted: #a19d93;
+  --line-color: #343538;
+  --accent: #c6a56b;
+  --accent-soft: #292319;
+  --line: 1px solid var(--line-color);
   --scroll-progress: 0;
+  --font-display: "Noto Serif", Georgia, serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "IBM Plex Mono", monospace;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
+::selection { background: var(--accent); color: white; }
 
-button {
-  font: inherit;
-  color: inherit;
-}
-
-::selection {
-  background: var(--green);
-  color: var(--ink);
-}
-
-/* ==========================================================================
-   GLOBAL UTILITIES & MOTION OBSERVER
-   ========================================================================== */
 .scroll-progress {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
-  height: 5px;
+  height: 3px;
   pointer-events: none;
-  background: var(--orange);
-  border-bottom: 1px solid var(--ink);
+  background: var(--accent);
   transform: scaleX(var(--scroll-progress));
   transform-origin: left;
 }
@@ -71,26 +62,19 @@ button {
 
 .motion-ready [data-reveal] {
   opacity: 0;
-  translate: 0 64px;
+  translate: 0 22px;
   transition:
-    opacity 0.78s cubic-bezier(0.16, 0.82, 0.24, 1) var(--reveal-delay, 0ms),
-    translate 0.78s cubic-bezier(0.16, 0.82, 0.24, 1) var(--reveal-delay, 0ms);
+    opacity 0.65s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+    translate 0.65s cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms);
 }
 
-.motion-ready [data-reveal].is-visible {
-  opacity: 1;
-  translate: 0 0;
-}
+.motion-ready [data-reveal].is-visible { opacity: 1; translate: 0 0; }
 
-/* ==========================================================================
-   COMMON SECTION SHELL LAYOUT
-   ========================================================================== */
 .section {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
   display: grid;
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: 170px minmax(0, 1fr);
   border-bottom: var(--line);
 }
 
@@ -98,14 +82,15 @@ button {
   content: attr(data-number);
   position: absolute;
   z-index: 0;
-  right: -1vw;
-  top: 22px;
-  color: transparent;
-  opacity: 0.075;
+  right: 1.5vw;
+  top: 28px;
+  color: var(--text);
+  opacity: 0.035;
   pointer-events: none;
-  font: 400 clamp(12rem, 28vw, 32rem)/0.72 "Archivo Black", sans-serif;
-  letter-spacing: -0.12em;
-  -webkit-text-stroke: 4px var(--ink);
+  transform: translate3d(0, var(--section-parallax, 0px), 0);
+  will-change: transform;
+  font: 400 clamp(14rem, 30vw, 34rem)/0.72 var(--font-display);
+  letter-spacing: -0.1em;
 }
 
 .section-index {
@@ -113,54 +98,37 @@ button {
   z-index: 2;
   top: 76px;
   align-self: start;
-  padding: 34px 24px;
+  padding: 30px 22px;
   border-right: var(--line);
-  font-size: 0.75rem;
-  font-weight: 700;
+  color: var(--muted);
+  font: 500 0.65rem/1.5 var(--font-mono);
+  letter-spacing: 0.06em;
 }
 
 .section-index::before {
   content: "";
   display: inline-block;
-  width: 11px;
-  height: 11px;
-  margin-right: 10px;
-  border: 2px solid currentColor;
-  background: var(--orange);
-  box-shadow: 2px 2px 0 currentColor;
-  transform: rotate(4deg);
+  width: 6px;
+  height: 6px;
+  margin: 0 9px 1px 0;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .section-content {
   position: relative;
   z-index: 1;
   min-width: 0;
-  padding: 90px 4vw;
+  padding: clamp(74px, 8vw, 120px) clamp(28px, 5vw, 84px);
 }
 
 .section h2 {
   position: relative;
   width: fit-content;
+  max-width: 100%;
   margin: 0;
-  font: 400 clamp(3.2rem, 7vw, 7rem)/0.9 "Archivo Black", sans-serif;
-  letter-spacing: -0.055em;
-}
-
-.section h2::after {
-  content: "↘";
-  position: absolute;
-  right: -44px;
-  top: -20px;
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border: 2px solid currentColor;
-  background: var(--orange);
-  color: var(--ink);
-  box-shadow: 4px 4px 0 currentColor;
-  font: 700 1rem/1 "IBM Plex Mono", monospace;
-  transform: rotate(8deg);
+  font: 500 clamp(3rem, 5.8vw, 5.8rem)/1.08 var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 .section-title-row {
@@ -168,122 +136,45 @@ button {
   align-items: flex-end;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 
 .section-title-row p {
   max-width: 330px;
   margin: 0;
-  font-size: 0.75rem;
-  line-height: 1.6;
-  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
-/* ==========================================================================
-   404 NOT FOUND
-   ========================================================================== */
 .not-found {
   min-height: 100vh;
   display: grid;
   place-items: center;
   align-content: center;
-  gap: 28px;
+  gap: 24px;
   padding: 24px;
   text-align: center;
-  background: var(--green);
 }
 
-.not-found p {
-  margin: 0;
-  font-weight: 700;
-}
+.not-found p { margin: 0; color: var(--muted); }
+.not-found h1 { margin: 0; color: var(--accent); font: 400 clamp(8rem, 30vw, 24rem)/.8 var(--font-display); }
+.not-found a { padding: 13px 18px; border: var(--line); background: var(--surface); }
 
-.not-found h1 {
-  margin: 0;
-  font: 400 clamp(9rem, 35vw, 28rem)/0.72 "Archivo Black", sans-serif;
-  letter-spacing: -0.1em;
-}
-
-.not-found h1 span {
-  color: var(--orange);
-  -webkit-text-stroke: 4px var(--ink);
-}
-
-.not-found a {
-  padding: 15px 22px;
-  border: var(--line);
-  background: var(--paper);
-  font-weight: 700;
-  box-shadow: 7px 7px 0 var(--ink);
-}
-
-/* ==========================================================================
-   GLOBAL RESPONSIVE & ACCESSIBILITY
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .motion-ready [data-reveal] {
-    opacity: 1;
-    translate: 0;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .motion-ready [data-reveal] { opacity: 1; translate: 0; }
 }
 
 @media (max-width: 980px) {
-  .section {
-    grid-template-columns: 1fr;
-  }
-
-  .section-index {
-    position: static;
-    border-right: 0;
-    border-bottom: var(--line);
-    padding: 18px 4vw;
-  }
+  .section { grid-template-columns: 1fr; }
+  .section-index { position: static; border-right: 0; border-bottom: var(--line); padding: 15px 5vw; }
 }
 
 @media (max-width: 680px) {
-  :root {
-    --line: 2px solid var(--ink);
-  }
-
-  .section-content {
-    padding: 64px 16px;
-  }
-
-  .section h2 {
-    font-size: 3.1rem;
-  }
-
-  .section h2::after {
-    right: -25px;
-    top: -24px;
-    width: 28px;
-    height: 28px;
-    box-shadow: 3px 3px 0 currentColor;
-  }
-
-  .section::after {
-    top: 70px;
-    font-size: 15rem;
-  }
-
-  .section-title-row {
-    display: block;
-    margin-bottom: 38px;
-  }
-
-  .section-title-row p {
-    margin-top: 24px;
-  }
+  .section-content { padding: 60px 20px; }
+  .section h2 { font-size: clamp(2.5rem, 11vw, 4rem); }
+  .section-title-row { display: block; margin-bottom: 32px; }
+  .section-title-row p { margin-top: 16px; }
 }

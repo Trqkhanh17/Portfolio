@@ -10,31 +10,23 @@ export function About({ t }: AboutProps) {
     <section className={`section ${styles.about}`} id="about" data-number="01">
       <div className="section-index">{t.aboutIndex}</div>
       <div className="section-content" data-reveal>
-        <h2>
-          {t.aboutTitle[0]}
-          <br />
-          <span>{t.aboutTitle[1]}</span>
-        </h2>
-
+        <h2>{t.aboutTitle}</h2>
+        <p className={styles.aboutLead}>{t.aboutText}</p>
         <div className={styles.aboutGrid}>
-          <div className={styles.aboutCopy}>
-            <p className={styles.largePlaceholder}>{t.aboutText}</p>
-            <dl className={styles.aboutMeta}>
-              {t.aboutMeta.map(([label, value]) => (
-                <div key={label}>
-                  <dt>{label}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className={styles.principles}>
-              {t.principles.map(([number, label]) => (
-                <div key={number}>
-                  <span>{number}</span>
-                  <strong>{label}</strong>
-                </div>
-              ))}
-            </div>
+          <h3 className={styles.focusTitle}>{t.focusTitle}</h3>
+          <div className={styles.focusGrid}>
+            {t.focusAreas.map(([title, description], index) => (
+              <article className={styles.focusCard} key={title} data-reveal>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+          <div className={styles.languageLine}>
+            <span>{t.languages[0]}</span>
+            <strong>{t.languages[1]}</strong>
+            <strong>{t.languages[2]}</strong>
           </div>
         </div>
       </div>
