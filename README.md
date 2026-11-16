@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trần Quốc Khánh — Portfolio
 
-## Getting Started
+A bilingual portfolio for a Full-Stack Software Engineer, built with Next.js, React, and TypeScript. It highlights professional experience, technical skills, education, and contact details in a responsive layout.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server. |
+| `npm run lint` | Check the code with ESLint. |
+| `npm run build` | Build the static site and prepare the hosting package. |
 
-## Learn More
+The static site is exported to `out/`. The build script also prepares a `dist/` package for the configured hosting workflow.
 
-To learn more about Next.js, take a look at the following resources:
+## Update portfolio content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Edit the Vietnamese and English copy in `app/constants/portfolio-content.ts`.
+- Update page title and social sharing metadata in `app/layout.tsx`.
+- Replace the portrait at `public/tran-quoc-khanh-portrait.png`.
+- Replace the downloadable résumé at `public/Tran-Quoc-Khanh-CV.pdf`.
+- Replace the social preview image at `public/og.png` when its design changes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```text
+app/                 Page, metadata, global styles, and bilingual content
+components/           Portfolio sections and component styles
+public/                Portrait, résumé, and static assets
+scripts/               Hosting package preparation
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 with static export
+- React 19 and TypeScript
+- CSS Modules and global CSS
+- English and Vietnamese content with a language switch
